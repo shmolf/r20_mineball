@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "allowSyntheticDefaultImports": false,
+      "baseUrl": "./",
+      "paths": {
+        "Lib/*": ["./src/modules/*"],
+        "Card/*": ["./src/Card/*"],
+        "Player/*": ["./src/Player/*"]
+      }
+    },
+    "exclude": ["node_modules", "dist"]
+  }
