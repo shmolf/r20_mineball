@@ -12,7 +12,7 @@ module.exports = {
   resolve: {
     alias: {
       App: path.resolve(__dirname, 'src/'),
-      Module: path.resolve(__dirname, 'src/modules/'),
+      Lib: path.resolve(__dirname, 'src/modules/'),
       Card: path.resolve(__dirname, 'src/Card/'),
       Player: path.resolve(__dirname, 'src/Player/'),
     },
