@@ -14,7 +14,8 @@
         "on": "readonly",
         "Campaign": "readonly",
         "getObj": "readonly",
-        "log": "readonly"
+        "log": "readonly",
+        "state": "writable"
     },
     "parser": "babel-eslint",
     "parserOptions": {
