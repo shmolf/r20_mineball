@@ -87,7 +87,7 @@ function handleNewCard(currentState, previousState) {
 }
 ```
 
-The above example will respond with an object like the following:
+The above example will respond with an object like the following ([Roll20 Documentation](https://roll20.zendesk.com/hc/en-us/articles/360037772793-API-Objects#API:Objects-Card)):
 ```json
 {
     "name":"Aundrea",
