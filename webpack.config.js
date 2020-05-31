@@ -13,8 +13,9 @@ module.exports = {
     alias: {
       App: path.resolve(__dirname, 'src/'),
       Lib: path.resolve(__dirname, 'src/modules/'),
-      Card: path.resolve(__dirname, 'src/Card/'),
-      Player: path.resolve(__dirname, 'src/Player/'),
+      Commands: path.resolve(__dirname, 'src/Commands/'),
+      Cards: path.resolve(__dirname, 'src/Cards/'),
+      Players: path.resolve(__dirname, 'src/Players/'),
     },
   },
 };

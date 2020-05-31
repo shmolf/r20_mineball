@@ -1,4 +1,4 @@
-import Card from 'Card/Base';
+import Card from 'Cards/Base';
 
 export default class AirCard extends Card {
   constructor(name) {

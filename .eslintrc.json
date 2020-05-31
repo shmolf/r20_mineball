@@ -13,7 +13,8 @@
         "sendChat": "readonly",
         "on": "readonly",
         "Campaign": "readonly",
-        "getObj": "readonly"
+        "getObj": "readonly",
+        "log": "readonly"
     },
     "parser": "babel-eslint",
     "parserOptions": {
@@ -25,12 +26,21 @@
         "prefer-destructuring": ["warn", {"object": true, "array": false}],
         "max-len": [2, 120, 4]
     },
+    "overrides": [
+        {
+            "files": ["*.js"],
+            "rules": {
+                "jsdoc/require-returns-description": "off"
+            }
+        }
+    ],
     "plugins": [
         "jsdoc"
     ],
     "ignorePatterns": [
         "webpack.config.js",
-        "**/node_modules/*.js"
+        "**/node_modules/*.js",
+        "dist/*"
     ],
     "settings": {
         "import/resolver": {

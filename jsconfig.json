@@ -4,9 +4,11 @@
       "allowSyntheticDefaultImports": false,
       "baseUrl": "./",
       "paths": {
+        "App/*": ["./src/*"],
         "Lib/*": ["./src/modules/*"],
-        "Card/*": ["./src/Card/*"],
-        "Player/*": ["./src/Player/*"]
+        "Commands/*": ["./src/Commands/*"],
+        "Cards/*": ["./src/Cards/*"],
+        "Players/*": ["./src/Players/*"]
       }
     },
     "exclude": ["node_modules", "dist"]
