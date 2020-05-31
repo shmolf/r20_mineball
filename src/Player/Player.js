@@ -1,6 +1,8 @@
+import Emblem from 'Lib/Emblem';
+
 export default class Player {
   /**
-   * @param {string} id
+   * @param {string} id - Roll20-defined player Id
    */
   contructor(id) {
     this.id = id;
@@ -8,21 +10,21 @@ export default class Player {
   }
 
   /**
-   * @return {string}
+   * @returns {string} - Roll20-defined player Id
    */
   getId() {
     return this.id;
   }
 
   /**
-   * @return {Emblem}
+   * @returns {Emblem} - Emblem representing the player
    */
   getEmblem() {
     return this.emblem;
   }
 
   /**
-   * @param {Emblem} emblem
+   * @param {Emblem} emblem - Emblem representing the player
    */
   setEmblem(emblem) {
     this.emblem = emblem;
