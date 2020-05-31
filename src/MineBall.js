@@ -2,8 +2,6 @@ import Player from 'Player/Player';
 import Command from 'Lib/Command';
 import Emblem from 'Lib/Emblem';
 
-/* global sendChat, on, Campaign, getObj */
-
 const helpParam = '--help';
 
 /** @type {object.<string, Player>}} */

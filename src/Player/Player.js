@@ -1,4 +1,4 @@
-import Emblem from 'Lib/Emblem';
+import Emblem from 'Lib/Emblem'; // eslint-disable-line no-unused-vars
 
 export default class Player {
   /**
