@@ -6,7 +6,7 @@ import Command from 'Commands/Command';
 
 export default class HelpCommand extends Command {
   /**
-   * @param {object.<string, Command>} gameCommands - List of commands available in the game
+   * @param {Object.<string, Command>} gameCommands - List of commands available in the game
    */
   constructor(gameCommands) {
     super();

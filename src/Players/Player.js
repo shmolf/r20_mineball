@@ -5,8 +5,12 @@ export default class Player {
    * @param {string} id - Roll20-defined player Id
    */
   contructor(id) {
+    /** @type {string} */
     this.id = id;
+    /** @type {Emblem} */
     this.emblem = null;
+    /** @type {Card[]} */
+    this.deck = [];
   }
 
   /**
@@ -17,7 +21,7 @@ export default class Player {
   }
 
   /**
-   * @returns {Emblem} - Emblem representing the player
+   * @returns {?Emblem} - Emblem representing the player
    */
   getEmblem() {
     return this.emblem;
@@ -28,5 +32,19 @@ export default class Player {
    */
   setEmblem(emblem) {
     this.emblem = emblem;
+  }
+
+  /**
+   * @returns {?Card[]}
+   */
+  getDeck() {
+    return this.deck;
+  }
+
+  /**
+   * @param {Card[]} newDeck
+   */
+  setDeck(newDeck) {
+    this.deck = newDeck;
   }
 }

@@ -4,10 +4,10 @@
  * @param {object} targetToken - The defending token
  * @returns {boolean}
  */
-function actionAttack(sourceToken, targetToken) {
+function attack(sourceToken, targetToken) {
   return { sourceToken, targetToken };
 }
 
 export default {
-  attach: actionAttack,
+  attack,
 };

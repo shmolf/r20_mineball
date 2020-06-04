@@ -1,14 +1,18 @@
 import Player from 'Players/Player';
 import Command from 'Commands/Command';
 import EmblemCommand from 'Commands/EmblemCommand';
-import HelpCommand from './Commands/HelpCommand';
-import WhoAmICommand from './Commands/WhoAmICommand';
+import HelpCommand from 'Commands/HelpCommand';
+import WhoAmICommand from 'Commands/WhoAmICommand';
+import createPlayerDeck from 'App/Dealer';
 
-/** @type {object.<string, Player>}} */
+/** @type {Object.<string, Player>}} */
 const players = {};
 
-/** @type {{String: Command}} */
+/** @type {Object.<string, Command>} */
 const commandList = {};
+
+/** @type {Object.<string, Card>} */
+let globalDeck = {};
 
 const helpCommand = new HelpCommand(commandList);
 commandList[helpCommand.cmd] = helpCommand;
@@ -40,11 +44,16 @@ function handleInput(msg) {
 
   switch (cmdRef) {
     case emblemCommand.cmd:
-      // We'll want to overwrite the players, incase there were any changes
-      Object.assign(players, commandList[cmdRef].func(msg, who, playerId, args));
+      // We'll want to overwrite the players, in case there were any changes
+      Object.assign(players, emblemCommand.func(msg, who, playerId, args));
+
+      if (players[playerId].getDeck() === null) {
+        globalDeck = createPlayerDeck(players[playerId], globalDeck);
+      }
+
       break;
     case whoAmICommand.cmd:
-      commandList[cmdRef].func(msg, who, playerId, args);
+      whoAmICommand.func(msg, who, playerId, args);
       break;
     case helpCommand.cmd:
     default:

@@ -11,7 +11,7 @@ let emblems = null;
 
 export default class EmblemCommand extends Command {
   /**
-   * @param {object.<string, Player>} gamePlayers - players registered in the game
+   * @param {Object.<string, Player>} gamePlayers - players registered in the game
    */
   constructor(gamePlayers) {
     super();
@@ -28,7 +28,7 @@ export default class EmblemCommand extends Command {
      * @param {string} who - layer's human name
      * @param {string} playerId - reference of the player
      * @param {string[]} args - arguments for the command
-     * @returns {object.<string, Player>}
+     * @returns {Object.<string, Player>}
      */
     this.func = function command(msg, who, playerId, args) {
       // Player just needs help with the command

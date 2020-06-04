@@ -7,7 +7,7 @@ import Player from 'Players/Player';
 
 export default class WhoAmICommand extends Command {
   /**
-   * @param {object.<string, Player>} gamePlayers - players registered in the game
+   * @param {Object.<string, Player>} gamePlayers - players registered in the game
    */
   constructor(gamePlayers) {
     super();
