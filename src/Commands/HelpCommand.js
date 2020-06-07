@@ -41,7 +41,7 @@ export default class HelpCommand extends Command {
       const commandDescriptions = commandKeyList.map((commandKey) => commandPreHtml(gameCommands[commandKey])).join('');
 
       sendChat('Mine Ball Help',
-        `<p>Below is a list of commands available to you, for this game.</p>
+        `/w ${who} <p>Below is a list of commands available to you, for this game.</p>
         <p>
           If you provide <code>${this.helpParam}</code> after some commands, it will provide additional details.
           Example:

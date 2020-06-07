@@ -26,13 +26,13 @@ export default class WhoAmICommand extends Command {
     this.func = (msg, who, playerId, args) => { // eslint-disable-line no-unused-vars
       const playerExists = playerId in gamePlayers;
       if (!playerExists) {
-        sendChat(who,
-          `You are not yet a player in the game. Use the <code>!mineball help</code>
+        sendChat('the Referee',
+          `/w ${who} You are not yet a player in the game. Use the <code>!mineball help</code>
           command to understand how to join.`);
       } else {
         /** @type {Player} player */
         const player = gamePlayers[playerId];
-        sendChat(who, `You are <img width='30' src='${player.getEmblem().url}'>`);
+        sendChat('', `/w ${who} You are <img width='30' src='${player.getEmblem().url}'>`);
       }
     };
   }

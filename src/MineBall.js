@@ -41,13 +41,16 @@ function handleInput(msg) {
   }
 
   const cmdRef = args.shift().toLowerCase();
+  /** @type {Player} */
+  let player;
 
   switch (cmdRef) {
     case emblemCommand.cmd:
       // We'll want to overwrite the players, in case there were any changes
       Object.assign(players, emblemCommand.func(msg, who, playerId, args));
+      player = players[playerId] || null;
 
-      if (players[playerId].getDeck() === null) {
+      if ((typeof player) === (typeof Player) && player.getDeck() === null) {
         globalDeck = createPlayerDeck(players[playerId], globalDeck);
       }
 
@@ -99,12 +102,16 @@ on('ready', () => {
     state.MineBall = {
       version: 1.0,
       players,
-      commandList,
     };
+  } else {
+    Object.assign(players, state.MineBall.players);
   }
+
   on('chat:message', handleInput);
   on('change:graphic', handleTokenMovement);
   on('add:graphic', handleNewToken);
   on('change:card', handleCardMovement);
   on('add:card', handleNewCard);
+  const allObjects = findObjs({ type: 'deck', name: 'Mine Ball' });
+  log(allObjects);
 });

@@ -14,6 +14,7 @@
         "on": "readonly",
         "Campaign": "readonly",
         "getObj": "readonly",
+        "findObjs": "readonly",
         "log": "readonly",
         "state": "writable"
     },

@@ -9,12 +9,17 @@ import Player from 'Players/Player';
 /** @type {Emblem[]} */
 let emblems = null;
 
+/** @type {Object.<string, Emblem>} */
+const usedEmblems = {};
+
 export default class EmblemCommand extends Command {
   /**
    * @param {Object.<string, Player>} gamePlayers - players registered in the game
    */
   constructor(gamePlayers) {
     super();
+
+    populateUsedEmblems(gamePlayers);
 
     const players = gamePlayers;
 
@@ -33,7 +38,7 @@ export default class EmblemCommand extends Command {
     this.func = function command(msg, who, playerId, args) {
       // Player just needs help with the command
       if (args.includes(this.helpParam)) {
-        EmblemHelp();
+        EmblemHelp(who);
         return gamePlayers;
       }
 
@@ -43,8 +48,8 @@ export default class EmblemCommand extends Command {
 
       // Player provided an invalid emblem reference
       if (emblemChoice === undefined || emblemIndex === -1) {
-        sendChat(who, 'Need to provide a valid Emblem choice.');
-        EmblemHelp();
+        sendChat('Mine Ball Error', `/w ${who} Need to provide a valid Emblem choice.`);
+        EmblemHelp(who);
         return gamePlayers;
       }
 
@@ -59,7 +64,7 @@ export default class EmblemCommand extends Command {
       const player = gamePlayers[playerId];
       player.setEmblem(emblems[emblemIndex]);
 
-      sendChat(who, `You are now <img width='30' src='${player.getEmblem().url}'>`);
+      sendChat('Emblem Choosen', `/w ${who} You are now <img width='30' src='${player.getEmblem().url}'>`);
 
       // log(`Player, ${who}, now has the emblem ${player.getEmblem().name}`);
       return players;
@@ -68,23 +73,40 @@ export default class EmblemCommand extends Command {
 }
 
 /**
- * Explains how to use the Emblem command
+ * @private
+ * @param {Object.<string, Player>} gamePlayers
  */
-function EmblemHelp() {
-  const emblemItem = (emblem) => `<p><img width='30' src='${emblem.url}'>
-    <code style='border-radius: 0.25em; user-select: all; border: solid black 1px;'>${emblem.name}</code></p>`;
-  const emblemList = emblems.map((emblem) => emblemItem(emblem)).join('');
+function populateUsedEmblems(gamePlayers) {
+  Object.keys(gamePlayers).forEach((playerId) => {
+    const usedEmblem = gamePlayers[playerId].getEmblem();
+    usedEmblems[usedEmblem.name] = usedEmblem;
+  });
+}
+
+
+/**
+ * Explains how to use the Emblem command
+ *
+ * @param {string} who - user to whisper back to
+ */
+function EmblemHelp(who) {
+  // Let's filter out the used emblems, and for the ones that remain, create a button list
+  const emblemList = emblems
+    .filter((emblem) => !(emblem.name in usedEmblems))
+    .map((/** @type {Emblem} */emblem) => {
+      const { name, url } = emblem;
+      return `<p><a href='!mineball emblem ${name}'><img width='30' src='${url}' /> ${name}</a></p>`;
+    })
+    .join('');
 
   sendChat('Mine Ball Help',
-    `<p>Choose from one of the available emblems below.</p>
+    `/w ${who} <p>Choose from one of the available emblems below.</p>
     <p>You cannot choose an emblem if another player has already selected it.</p>
-    <p>To select an emblem, type
-      <code style='background: #F5F5DC'>!mineball emblem &lt;your selection&gt;</code> in the messages. Example:</p>
-    <pre style='background: #F5F5DC; user-select: all; -webkit-user-select: all'>!mineball emblem three-leaves</pre>
+    <p>Click the emblem you'd like to choose to represent you.</p>
     ${emblemList}`);
 }
 
 on('ready', () => {
   emblems = JSON.parse(Campaign().get('token_markers'))
-    .forEach((emblem) => new Emblem(emblem.id, emblem.url, emblem.name, emblem.tag));
+    .map((emblem) => new Emblem(emblem.id, emblem.url, emblem.name, emblem.tag));
 });
