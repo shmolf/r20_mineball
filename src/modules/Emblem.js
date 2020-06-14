@@ -18,6 +18,7 @@ export default class Emblem {
 
   /**
    * This function is mostly likely not needed
+   *
    * @returns {EmblemJson}
    */
   toJSON() {
@@ -62,7 +63,7 @@ Emblem.revive = (json) => {
 };
 
 /**
- * @typedef {object} EmblemJson
+ * @typedef {Object} EmblemJson
  * @property {number} id
  * @property {string} url
  * @property {string} name

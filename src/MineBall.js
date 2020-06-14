@@ -7,16 +7,15 @@ import ResetPlayersCommand from 'Commands/ResetPlayersCommand';
 import Emblem from './modules/Emblem';
 // import createPlayerDeck from 'App/Dealer';
 
-/** @type {Object.<string, Player>}} */
+/* eslint valid-jsdoc: ["error", { "preferType": { ""object": "Object" } }] */
+
+/** @type {Object.<string, Player>} */
 let players = {};
 
 /** @type {Object.<string, Command>} */
 const commandList = {};
 
-/** @type {Object.<string, Card>} */
-// let mineballDeck = {};
-
-/** @type {Object.<string, Roll20Object>} */
+/** @type {Object.<string, Graphic>} */
 const cardsEnteringTheBoard = {};
 
 const helpCommand = new HelpCommand(commandList);
@@ -29,7 +28,8 @@ const resetPlayersCommand = new ResetPlayersCommand(players);
 commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
 
 /**
- * @param {object} msg - Roll20 defined object
+ * @param {ChatEventData} msg - Roll20 defined object
+ * @returns {void}
  */
 function handleInput(msg) {
   if (msg.type !== 'api') {
@@ -38,7 +38,7 @@ function handleInput(msg) {
 
   /** @type {string} */
   const who = (getObj('player', msg.playerid) || { get: () => 'API' }).get('_displayname');
-  /** @type {number} */
+  /** @type {string} */
   const playerId = msg.playerid;
   /** @type {Array} */
   const args = msg.content.split(/\s+/);
@@ -48,25 +48,18 @@ function handleInput(msg) {
   }
 
   const cmdRef = args.shift().toLowerCase();
-  /** @type {Player} */
-  let player;
 
   switch (cmdRef) {
     case emblemCommand.cmd:
       // We'll want to overwrite the players, in case there were any changes
       Object.assign(players, emblemCommand.func(msg, who, playerId, args));
-      player = players[playerId] || null;
-
-      if ((typeof player) === (typeof Player) && player.getDeck() === null) {
-        // globalDeck = createPlayerDeck(players[playerId], globalDeck);
-      }
 
       break;
     case whoAmICommand.cmd:
       whoAmICommand.func(msg, who, playerId, args);
       break;
     case resetPlayersCommand.cmd:
-      resetPlayersCommand.func(msg, who, playerId, args);
+      resetPlayersCommand.func();
       ({ players } = state.MineBall);
       break;
     case helpCommand.cmd:
@@ -76,23 +69,29 @@ function handleInput(msg) {
 }
 
 /**
- * @param {object} token - current state of the token. Protected, so require `.get` and such.
- * @param {object} previousState - previous state of the token. Unprotected, so can directly access properties
+ * @param {Graphic} token - current state of the token. Protected, so require `.get` and such.
+ * @param {Object} previousState - previous state of the token. Unprotected, so can directly access properties
+ * @returns {void}
  */
+// eslint-disable-next-line no-unused-vars
 function handleTokenMovement(token, previousState) {}
 
 /**
- * @param {object} token - current state of the token. Protected, so require `.get` and such.
- * @param {object} previousState - previous state of the token. Unprotected, so can directly access properties
+ * @param {Graphic} token - current state of the token. Protected, so require `.get` and such.
+ * @param {Object} previousState - previous state of the token. Unprotected, so can directly access properties
+ * @returns {void}
  */
+// eslint-disable-next-line no-unused-vars
 function handleCardMovement(token, previousState) {}
 
 /**
- * @param {object} card - current state of the token. Protected, so require `.get` and such.
+ * @param {Roll20Object} card - current state of the token. Protected, so require `.get` and such.
+ * @returns {void}
  */
 function handleNewCard(card) {
   const cardId = card.get('_cardid');
-  const roll20Card = getObj('card', cardId);
+  /** @type {Graphic} */
+  const roll20Card = findObjs({ type: 'graphic', subtype: 'card', id: cardId })[0];
 
   if (cardId) {
     if (!(cardId in cardsEnteringTheBoard)) {
@@ -102,8 +101,9 @@ function handleNewCard(card) {
 }
 
 /**
- * @param {Roll20Object} obj
- * @param {object} prev
+ * @param {Roll20Object} obj - Current state object
+ * @param {Object} prev - Previous state object
+ * @returns {void}
  */
 function handleHandChange(obj, prev) {
   // if card was played to table, set owner and remove reference, else add to cardPlayers
@@ -118,8 +118,10 @@ function handleHandChange(obj, prev) {
     delete cardsEnteringTheBoard[cardId];
 
     if (playerId in players) {
-      const player = players[playerId];
+      // eslint-disable-next-line no-unused-vars
+      const player = players[String(playerId)];
       const cardName = roll20Card.get('name');
+      /** @type {Character} */
       const roll20Char = findObjs({ _type: 'character', name: cardName });
       const charId = roll20Char[0].get('_id');
 
@@ -145,6 +147,8 @@ function handleHandChange(obj, prev) {
 
 /**
  * Restores `players` from the JSON loaded from FireBase, into Player instances
+ *
+ * @returns {void}
  */
 function restorePlayers() {
   const playerIds = Object.keys(state.MineBall.players);

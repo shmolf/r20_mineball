@@ -27,7 +27,7 @@ export default class EmblemCommand extends Command {
     this.paramList = ['emblemName'];
 
     /**
-     * @param {object} msg - oll20 defined
+     * @param {Object} msg - oll20 defined
      * @param {string} who - layer's human name
      * @param {string} playerId - reference of the player
      * @param {string[]} args - arguments for the command
