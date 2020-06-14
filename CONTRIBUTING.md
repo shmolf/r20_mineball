@@ -11,3 +11,10 @@ To re-package the bundle, run
 ```bash
 npm run build
 ```
+
+---
+
+To check that your syntax is correct, run
+```bash
+npm run lint
+```
