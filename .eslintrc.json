@@ -1,0 +1,58 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:jsdoc/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly",
+        "sendChat": "readonly",
+        "on": "readonly",
+        "Campaign": "readonly",
+        "getObj": "readonly",
+        "findObjs": "readonly",
+        "log": "readonly",
+        "createObj": "readonly",
+        "state": "writable"
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-use-before-define": ["error", {"functions": false, "classes": false}],
+        "prefer-destructuring": ["warn", {"object": true, "array": false}],
+        "max-len": [2, 120, 4]
+    },
+    "overrides": [
+        {
+            "files": ["*.js"],
+            "rules": {
+                "jsdoc/require-returns-description": "off",
+                "jsdoc/require-property-description": "off",
+                "jsdoc/require-param-description": "off"
+            }
+        }
+    ],
+    "plugins": [
+        "jsdoc"
+    ],
+    "ignorePatterns": [
+        "webpack.config.js",
+        "**/node_modules/*.js",
+        "dist/*"
+    ],
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.config.js",
+                "extensions": [".js"]
+            }
+        }
+    }
+}

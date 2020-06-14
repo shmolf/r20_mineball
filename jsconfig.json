@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "allowSyntheticDefaultImports": false,
+      "baseUrl": "./",
+      "paths": {
+        "App/*": ["./src/*"],
+        "Lib/*": ["./src/modules/*"],
+        "Commands/*": ["./src/Commands/*"],
+        "Cards/*": ["./src/Cards/*"],
+        "Players/*": ["./src/Players/*"]
+      }
+    },
+    "exclude": ["node_modules", "dist"]
+  }

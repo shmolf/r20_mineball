@@ -1,0 +1,36 @@
+{
+  "name": "r20_mineball",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/MineBall.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --fail",
+    "lint": "eslint -c ./.eslintrc.json ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shmolf/r20_mineball.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shmolf/r20_mineball/issues"
+  },
+  "homepage": "https://github.com/shmolf/r20_mineball#readme",
+  "devDependencies": {
+    "@types/roll20": "github:Carl-Hugo/types-roll20",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-import-resolver-webpack": "^0.12.1",
+    "eslint-plugin-import": "^2.20.2"
+  },
+  "dependencies": {
+    "@types/webpack-env": "^1.15.2",
+    "eslint-plugin-jsdoc": "^26.0.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
