@@ -19,8 +19,6 @@ export default class EmblemCommand extends Command {
   constructor(gamePlayers) {
     super();
 
-    populateUsedEmblems(gamePlayers);
-
     const players = gamePlayers;
 
     this.cmd = 'emblem';
@@ -38,6 +36,7 @@ export default class EmblemCommand extends Command {
     this.func = function command(msg, who, playerId, args) {
       // Player just needs help with the command
       if (args.includes(this.helpParam)) {
+        populateUsedEmblems(gamePlayers);
         EmblemHelp(who);
         return gamePlayers;
       }
@@ -62,10 +61,12 @@ export default class EmblemCommand extends Command {
 
       /** @type {Player} player */
       const player = gamePlayers[playerId];
+      log(`player type: ${typeof player}`);
       player.setEmblem(emblems[emblemIndex]);
 
       sendChat('Emblem Choosen', `/w ${who} You are now <img width='30' src='${player.getEmblem().url}'>`);
 
+      state.MineBall.players = players;
       // log(`Player, ${who}, now has the emblem ${player.getEmblem().name}`);
       return players;
     };
@@ -78,6 +79,7 @@ export default class EmblemCommand extends Command {
  */
 function populateUsedEmblems(gamePlayers) {
   Object.keys(gamePlayers).forEach((playerId) => {
+    log(gamePlayers);
     const usedEmblem = gamePlayers[playerId].getEmblem();
     usedEmblems[usedEmblem.name] = usedEmblem;
   });

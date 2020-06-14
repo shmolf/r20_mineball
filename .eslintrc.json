@@ -16,6 +16,7 @@
         "getObj": "readonly",
         "findObjs": "readonly",
         "log": "readonly",
+        "createObj": "readonly",
         "state": "writable"
     },
     "parser": "babel-eslint",
@@ -32,7 +33,9 @@
         {
             "files": ["*.js"],
             "rules": {
-                "jsdoc/require-returns-description": "off"
+                "jsdoc/require-returns-description": "off",
+                "jsdoc/require-property-description": "off",
+                "jsdoc/require-param-description": "off"
             }
         }
     ],

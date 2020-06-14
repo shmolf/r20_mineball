@@ -4,13 +4,11 @@ export default class Player {
   /**
    * @param {string} id - Roll20-defined player Id
    */
-  contructor(id) {
+  constructor(id) {
     /** @type {string} */
     this.id = id;
     /** @type {Emblem} */
     this.emblem = null;
-    /** @type {Card[]} */
-    this.deck = [];
   }
 
   /**
@@ -35,16 +33,53 @@ export default class Player {
   }
 
   /**
-   * @returns {?Card[]}
+   * This function is mostly likely not needed
+   *
+   * @returns {PlayerJson}
    */
-  getDeck() {
-    return this.deck;
+  toJSON() {
+    return {
+      id: this.id,
+      emblem: this.getEmblem().toJSON(),
+    };
   }
 
   /**
-   * @param {Card[]} newDeck
+   * This function is mostly likely not needed
+   *
+   * @param {PlayerJson|string} json
+   * @returns {Player}
    */
-  setDeck(newDeck) {
-    this.deck = newDeck;
+  fromJSON(json) {
+    /** @type {PlayerJson} */
+    const obj = typeof json === 'string' ? JSON.parse(json) : json;
+    const emblem = new Emblem().fromJSON(obj.emblem);
+
+    this.id = obj.id;
+    this.setEmblem(emblem);
+
+    return this;
   }
 }
+
+/**
+ * This function is mostly likely not needed
+ *
+ * @param {PlayerJson|string} json
+ * @returns {Player}
+ */
+Player.revive = (json) => {
+  /** @type {PlayerJson} */
+  const obj = typeof json === 'string' ? JSON.parse(json) : json;
+  const emblem = Emblem.revive(obj.emblem);
+  const player = new Player(obj.id);
+  player.setEmblem(emblem);
+
+  return player;
+};
+
+/**
+ * @typedef {object} PlayerJson
+ * @property {string} id
+ * @property {import('Lib/Emblem').EmblemJson} emblem
+ */

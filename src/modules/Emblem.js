@@ -15,4 +15,56 @@ export default class Emblem {
     this.name = name;
     this.tag = tag;
   }
+
+  /**
+   * This function is mostly likely not needed
+   * @returns {EmblemJson}
+   */
+  toJSON() {
+    return {
+      id: this.id,
+      url: this.url,
+      name: this.name,
+      tag: this.tag,
+    };
+  }
+
+  /**
+   * This function is mostly likely not needed
+   *
+   * @param {EmblemJson|string} json
+   * @returns {Emblem}
+   */
+  fromJSON(json) {
+    /** @type {EmblemJson} */
+    const obj = typeof json === 'string' ? JSON.parse(json) : json;
+
+    this.id = obj.id;
+    this.url = obj.url;
+    this.name = obj.name;
+    this.tag = obj.tag;
+
+    return this;
+  }
 }
+
+/**
+ * This function is mostly likely not needed
+ *
+ * @param {EmblemJson|string} json
+ * @returns {Emblem}
+ */
+Emblem.revive = (json) => {
+  /** @type {EmblemJson} */
+  const obj = typeof json === 'string' ? JSON.parse(json) : json;
+
+  return new Emblem(obj.id, obj.url, obj.name, obj.tag);
+};
+
+/**
+ * @typedef {object} EmblemJson
+ * @property {number} id
+ * @property {string} url
+ * @property {string} name
+ * @property {string} tag
+ */
