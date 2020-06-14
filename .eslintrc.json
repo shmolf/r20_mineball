@@ -66,6 +66,7 @@
             }
         },
         "jsdoc": {
+            // Examples can be found if the codeblock within https://github.com/gajus/eslint-plugin-jsdoc/blob/bd11a73ef0e80f8c133f13de0119e5017e20a2ad/README.md#options-6
             "preferredTypes": {
                 "object": {
                     "message": "For the @{{tagName}} type, use \"Object\"",
