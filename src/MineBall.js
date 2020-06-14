@@ -102,7 +102,7 @@ function handleNewCard(card) {
 
 /**
  * @param {Roll20Object} obj - Current state object
- * @param {Object} prev - Previous state object
+ * @param {Object} prev
  * @returns {void}
  */
 function handleHandChange(obj, prev) {
