@@ -1,7 +1,7 @@
 
 /**
- * @param {object} sourceToken - Token initiating the attack
- * @param {object} targetToken - The defending token
+ * @param {Object} sourceToken - Token initiating the attack
+ * @param {Object} targetToken - The defending token
  * @returns {boolean}
  */
 function attack(sourceToken, targetToken) {

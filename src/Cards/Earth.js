@@ -1,4 +1,4 @@
-import Card from 'Card/Base';
+import Card from 'Cards/Card';
 
 export default class EarthCard extends Card {
   constructor(name) {

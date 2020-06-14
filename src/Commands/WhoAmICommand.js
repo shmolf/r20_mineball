@@ -17,7 +17,7 @@ export default class WhoAmICommand extends Command {
     this.paramList = [];
 
     /**
-     * @param {object} msg - oll20 defined
+     * @param {Object} msg - oll20 defined
      * @param {string} who - player's human name
      * @param {string} playerId - reference of the player
      * @param {string[]} args - arguments for the command

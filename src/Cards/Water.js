@@ -1,4 +1,4 @@
-import Card from 'Card/Base';
+import Card from 'Cards/Card';
 
 export default class WaterCard extends Card {
   constructor(name) {

@@ -17,13 +17,6 @@ export default class ResetPlayersCommand extends Command {
     this.desc = 'Clears the list of Mineball players from the Campaign';
     this.paramList = [];
 
-    /**
-     * @param {object} msg - oll20 defined
-     * @param {string} who - player's human name
-     * @param {string} playerId - reference of the player
-     * @param {string[]} args - arguments for the command
-     * @returns {void}
-     */
     this.func = () => { // eslint-disable-line no-unused-vars
       state.MineBall.players = {};
       log('Players are reset');

@@ -79,7 +79,7 @@ Player.revive = (json) => {
 };
 
 /**
- * @typedef {object} PlayerJson
+ * @typedef {Object} PlayerJson
  * @property {string} id
  * @property {import('Lib/Emblem').EmblemJson} emblem
  */
