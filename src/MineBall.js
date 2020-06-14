@@ -126,8 +126,12 @@ function handleHandChange(obj, prev) {
       const tokens = findObjs({ type: 'graphic', represents: charId });
       if (tokens.length > 0) {
         const token = tokens[0];
+        log(['Found the token: ', token]);
+
+        /*
         // Set the emblem on to token, for the given player
         token.set('statusmarkers', [player.getEmblem().name]);
+        */
       }
 
       createObj('attribute', {
