@@ -101,8 +101,8 @@ function handleNewCard(card) {
 }
 
 /**
- * @param {Roll20Object} obj - Current state object
- * @param {Object} prev - Previous state object
+ * @param {Roll20Object} obj - Current state of the player's hand
+ * @param {Object} prev - Previous state of the player's hand
  * @returns {void}
  */
 function handleHandChange(obj, prev) {
