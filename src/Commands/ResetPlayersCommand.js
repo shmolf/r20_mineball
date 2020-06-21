@@ -1,3 +1,5 @@
+import { setPlayers } from 'Players/PlayerPool';
+
 /**
  * @namespace App.Commands
  */
@@ -18,7 +20,7 @@ export default class ResetPlayersCommand extends Command {
     this.paramList = [];
 
     this.func = () => { // eslint-disable-line no-unused-vars
-      state.MineBall.players = {};
+      setPlayers({});
       log('Players are reset');
     };
   }
