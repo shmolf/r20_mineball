@@ -1,6 +1,6 @@
 // This file was designed by Mike Lakner
 
-const handleGraphicChange = (obj) => {
+export const handleGraphicChange = (obj) => {
   // Return based on state switches
   if ((state.mbBR549.Manual === true) || (state.mbBR549.InSetup === true)) {
     log(['Handle Graphic Alignment Aborted', { state }]);
@@ -75,7 +75,7 @@ function mbHandleLoopMove(theObj) {
 
 }
 
-const handleGraphicDestruction = (obj, prevObj) => {
+export const handleGraphicDestruction = (obj, prevObj) => {
   // Return based on state switches
   if ((state.mbBR549.Manual === true) || (state.mbBR549.AllowDelete === true)) {
     log(['Handle Graphic Destruction Aborted', { state }]);
@@ -99,12 +99,17 @@ const handleGraphicDestruction = (obj, prevObj) => {
   );
 };
 
-// Handle the placement of new cards
-on('ready', () => {
-  // Trigger on position change to ensure alignment even with {Alt} held down.
-  on('change:graphic:left', handleGraphicChange);
-  on('change:graphic:top', handleGraphicChange);
-  on('change:graphic:rotation', handleGraphicChange);
-  // Trigger on deletion of a graphic
-  on('destroy:graphic', handleGraphicDestruction);
-});
+/**
+ *
+ */
+export function TokenListeners() {
+  // Handle the placement of new cards
+  on('ready', () => {
+    // Trigger on position change to ensure alignment even with {Alt} held down.
+    on('change:graphic:left', handleGraphicChange);
+    on('change:graphic:top', handleGraphicChange);
+    on('change:graphic:rotation', handleGraphicChange);
+    // Trigger on deletion of a graphic
+    on('destroy:graphic', handleGraphicDestruction);
+  });
+}

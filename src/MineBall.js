@@ -1,6 +1,11 @@
 import { getPlayers, deserializePlayerObject } from 'Players/PlayerPool';
 import RunCommand from 'Commands/CommandLibrary';
 import { mineballCommandId } from 'Commands/Command';
+import { TokenListeners } from 'Lib/Tokens';
+import { mbSetupGameState } from 'App/Temp/GameState';
+import CardAddInit from 'App/Temp/CardAdd';
+import { CommandDispatchInit } from 'App/Temp/CommandDispatch';
+import { EmblemBuildInit } from 'Commands/EmblemCommand';
 
 /** @type {Object.<string, Graphic>} */
 const cardsEnteringTheBoard = {};
@@ -124,6 +129,12 @@ on('ready', () => {
   } else {
     deserializePlayerObject(state.MineBall.players || {});
   }
+
+  mbSetupGameState();
+  TokenListeners();
+  CardAddInit();
+  CommandDispatchInit();
+  EmblemBuildInit();
 
   on('chat:message', handleInput);
   on('change:graphic', handleTokenMovement);

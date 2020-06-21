@@ -24,6 +24,11 @@
         "toFront": "readonly",
         "toBack": "readonly",
         "sendPing": "readonly",
+        "drawCard": "readonly",
+        "giveCardToPlayer": "readonly",
+        "recallCards": "readonly",
+        "shuffleDeck": "readonly",
+        "randomInteger": "readonly",
         "state": "writable"
     },
     "parser": "babel-eslint",
