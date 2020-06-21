@@ -66,8 +66,6 @@ const handleAddCard = (obj, prevObj) => {
  * Turn them into a graphic, assign to a player
  */
 export default function CardAddInit() {
-  on('ready', () => {
-    // Trigger on newly placed cards
-    on('add:card', handleAddCard);
-  });
+  // Trigger on newly placed cards
+  on('add:card', handleAddCard);
 }

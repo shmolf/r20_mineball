@@ -104,12 +104,10 @@ export const handleGraphicDestruction = (obj, prevObj) => {
  */
 export function TokenListeners() {
   // Handle the placement of new cards
-  on('ready', () => {
-    // Trigger on position change to ensure alignment even with {Alt} held down.
-    on('change:graphic:left', handleGraphicChange);
-    on('change:graphic:top', handleGraphicChange);
-    on('change:graphic:rotation', handleGraphicChange);
-    // Trigger on deletion of a graphic
-    on('destroy:graphic', handleGraphicDestruction);
-  });
+  // Trigger on position change to ensure alignment even with {Alt} held down.
+  on('change:graphic:left', handleGraphicChange);
+  on('change:graphic:top', handleGraphicChange);
+  on('change:graphic:rotation', handleGraphicChange);
+  // Trigger on deletion of a graphic
+  on('destroy:graphic', handleGraphicDestruction);
 }
