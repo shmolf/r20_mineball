@@ -1,6 +1,6 @@
 import Actions from 'Cards/Actions';
 
-export default class Card {
+export default class BaseCard {
   constructor(name) {
     this.name = name;
     this.playerEmblem = null;

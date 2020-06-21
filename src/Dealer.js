@@ -1,5 +1,5 @@
 import Player from 'Players/Player';
-import Card from 'Cards/Card';
+import BaseCard from 'Cards/Card';
 
 const playerDeckSize = 20;
 
@@ -8,24 +8,24 @@ const playerDeckSize = 20;
  * And it will reduce the return a new global deck, sans the dealt cards.
  *
  * @param {Player} player - Player to which will acquire a private deck
- * @param {Object.<string, Card>} globalDeck - Global deck accessible by everyone, but hidden
- * @returns {Object.<string, Card>} - New Global Deck instance
+ * @param {Object.<string, BaseCard>} globalDeck - Global deck accessible by everyone, but hidden
+ * @returns {Object.<string, BaseCard>} - New Global Deck instance
  */
 export default function createPlayerDeck(player, globalDeck) {
   if (globalDeck.length < playerDeckSize) {
     throw new Error('There are not enough cards left to make a new Player Deck.');
   }
-  /** @type {Card[]} */
+  /** @type {BaseCard[]} */
   const freshDeck = shuffleDeck(globalDeck).splice(0, playerDeckSize);
   player.setDeck(freshDeck);
 
   const cardNames = Object.keys(globalDeck);
-  return globalDeck.map((/** @type {Card} */card, /** @type {number} */index) => !(cardNames[index] in freshDeck));
+  return globalDeck.map((/** @type {BaseCard} */card, /** @type {number} */index) => !(cardNames[index] in freshDeck));
 }
 
 /**
- * @param {Object.<string, Card>} deck - Deck that needs shuffling
- * @returns {Object.<string, Card>} - A shuffled deck
+ * @param {Object.<string, BaseCard>} deck - Deck that needs shuffling
+ * @returns {Object.<string, BaseCard>} - A shuffled deck
  */
 function shuffleDeck(deck) {
   const deckCardNames = Object.keys(deck);
