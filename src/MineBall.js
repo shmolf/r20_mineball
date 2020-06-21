@@ -1,25 +1,9 @@
-import { getPlayers, setPlayers, deserializePlayerObject } from 'Players/PlayerPool';
-import Command from 'Commands/Command';
-import EmblemCommand from 'Commands/EmblemCommand';
-import HelpCommand from 'Commands/HelpCommand';
-import WhoAmICommand from 'Commands/WhoAmICommand';
-import ResetPlayersCommand from 'Commands/ResetPlayersCommand';
-
-
-/** @type {Object.<string, Command>} */
-const commandList = {};
+import { getPlayers, deserializePlayerObject } from 'Players/PlayerPool';
+import RunCommand from 'Commands/CommandLibrary';
+import { mineballCommandId } from 'Commands/Command';
 
 /** @type {Object.<string, Graphic>} */
 const cardsEnteringTheBoard = {};
-
-const helpCommand = new HelpCommand(commandList);
-commandList[helpCommand.cmd] = helpCommand;
-const emblemCommand = new EmblemCommand();
-commandList[emblemCommand.cmd] = emblemCommand;
-const whoAmICommand = new WhoAmICommand();
-commandList[whoAmICommand.cmd] = whoAmICommand;
-const resetPlayersCommand = new ResetPlayersCommand();
-commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
 
 /**
  * @param {ChatEventData} msg - Roll20 defined object
@@ -30,37 +14,21 @@ function handleInput(msg) {
     return;
   }
 
+  /** @type {Array} */
+  const args = msg.content.split(/\s+/);
+
+  // Check if this is a MineBall directed command
+  if (args.shift() !== `!${mineballCommandId}` || args.length === 0) {
+    return;
+  }
+
   /** @type {string} */
   const who = (getObj('player', msg.playerid) || { get: () => 'API' }).get('_displayname');
   /** @type {string} */
   const playerId = msg.playerid;
-  /** @type {Array} */
-  const args = msg.content.split(/\s+/);
-
-  if (args.shift() !== '!mineball' || args.length === 0) {
-    return;
-  }
 
   const cmdRef = args.shift().toLowerCase();
-  const players = getPlayers();
-
-  switch (cmdRef) {
-    case emblemCommand.cmd:
-      // We'll want to overwrite the players, in case there were any changes
-      Object.assign(players, emblemCommand.func(msg, who, playerId, args));
-      setPlayers(players);
-
-      break;
-    case whoAmICommand.cmd:
-      whoAmICommand.func(msg, who, playerId, args);
-      break;
-    case resetPlayersCommand.cmd:
-      resetPlayersCommand.func();
-      break;
-    case helpCommand.cmd:
-    default:
-      helpCommand.func(msg, who, playerId, args);
-  }
+  RunCommand(cmdRef, args, who, playerId, msg);
 }
 
 /**
