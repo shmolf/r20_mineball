@@ -2,7 +2,8 @@
  * @namespace App.Lib
  */
 
-export const mineballCommandId = 'mineball';
+export const playerCommandId = 'mb';
+export const apiCommandId = '-mb';
 
 export default class Command {
   constructor() {

@@ -2,7 +2,7 @@
  * @namespace App.Commands
  */
 
-import Command, { mineballCommandId } from 'Commands/Command';
+import Command, { playerCommandId } from 'Commands/Command';
 import Emblem from 'Lib/Emblem';
 import Player from 'Players/Player';
 import { getPlayers, setPlayers } from 'Players/PlayerPool';
@@ -59,7 +59,7 @@ function EmblemHelp(who) {
     .filter((emblem) => validateEmblemChoice(emblem.name))
     .map((/** @type {Emblem} */emblem) => {
       const { name, url } = emblem;
-      return `<p><a href='!${mineballCommandId} emblem set ${name}'><img width='30' src='${url}' /> ${name}</a></p>`;
+      return `<p><a href='!${playerCommandId} emblem set ${name}'><img width='30' src='${url}' /> ${name}</a></p>`;
     })
     .join('');
 
