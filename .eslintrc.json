@@ -10,6 +10,7 @@
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
+        // List of Roll20 Global Functions & Variables
         "sendChat": "readonly",
         "on": "readonly",
         "Campaign": "readonly",
@@ -17,6 +18,12 @@
         "findObjs": "readonly",
         "log": "readonly",
         "createObj": "readonly",
+        "createTableGraphic": "readonly",
+        "getAttrByName": "readonly",
+        "playerIsGM": "readonly",
+        "toFront": "readonly",
+        "toBack": "readonly",
+        "sendPing": "readonly",
         "state": "writable"
     },
     "parser": "babel-eslint",
@@ -56,7 +63,7 @@
     "ignorePatterns": [
         "webpack.config.js",
         "**/node_modules/*.js",
-        "dist/*"
+        "dist/**/*"
     ],
     "settings": {
         "import/resolver": {
