@@ -5,21 +5,28 @@ import { setPlayers } from 'Players/PlayerPool';
  */
 
 import Command from 'Commands/Command';
-import Player from 'Players/Player';
 
 export default class ResetPlayersCommand extends Command {
-  /**
-   * @param {Object.<string, Player>} gamePlayers - players registered in the game
-   */
-  // eslint-disable-next-line no-unused-vars
-  constructor(gamePlayers) {
+  constructor() {
     super();
 
     this.cmd = 'reset-players';
     this.desc = 'Clears the list of Mineball players from the Campaign';
-    this.paramList = [];
 
-    this.func = () => { // eslint-disable-line no-unused-vars
+    /**
+     * @param {string} who - layer's human name
+     * @param {string} playerId - reference of the player
+     * @param {string[]} args - arguments for the command
+     */
+    // eslint-disable-next-line no-unused-vars
+    this.help = (who, playerId, args) => {
+      sendChat(
+        'Mine Ball - Reset Player Help',
+        `/w ${who} This will reset the players within the game.<br>⚠ Use with caution ⚠`,
+      );
+    };
+
+    this.func = () => {
       setPlayers({});
       log('Players are reset');
     };
