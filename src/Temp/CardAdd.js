@@ -1,6 +1,6 @@
 // This file was designed by Mike Lakner
 
-import { mbIsSomethingHere } from 'App/Temp/FunctionLibrary';
+import { mbIsSomethingHere, createTableGraphic } from 'App/Temp/FunctionLibrary';
 
 /**
  * @param {Roll20Object} obj

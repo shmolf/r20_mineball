@@ -1,5 +1,7 @@
 // This file was designed by Mike Lakner
 
+import { createTableGraphic } from 'App/Temp/FunctionLibrary';
+
 export const handleGraphicChange = (obj) => {
   // Return based on state switches
   if ((state.mbBR549.Manual === true) || (state.mbBR549.InSetup === true)) {
