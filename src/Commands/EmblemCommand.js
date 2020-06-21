@@ -113,10 +113,15 @@ function SetPlayerEmblem(who, playerId, args) {
   setPlayers(gamePlayers);
 }
 
-on('ready', () => {
-  emblems = JSON.parse(Campaign().get('token_markers'))
-    .map((emblem) => new Emblem(emblem.id, emblem.url, emblem.name, emblem.tag));
-});
+/**
+ *
+ */
+export function EmblemBuildInit() {
+  on('ready', () => {
+    emblems = JSON.parse(Campaign().get('token_markers'))
+      .map((emblem) => new Emblem(emblem.id, emblem.url, emblem.name, emblem.tag));
+  });
+}
 
 /**
  * Returns true if the Emblem name provided is allowable
