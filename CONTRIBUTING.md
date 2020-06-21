@@ -1,7 +1,7 @@
 This Repo is using [AirBnb JavaScript syntax style](https://github.com/airbnb/javascript) as the standard. ESLint is setup to pickup on this style.
 
-In addition, [JSDoc Documentation](https://jsdoc.app/) is also being enforced through the Linter. If you need to disable a check for a specific line, you can use VSCode's "Quick Fix" menu when hovering the mouse over the red line, and select one of the Disable options.
-- _It's preferred to not disable the rule, unless the situation calls for it._
+In addition, [JSDoc Documentation](https://jsdoc.app/) is also being enforced through the Linter. If you need to disable a check for a specific line, you can use VSCode's "Quick Fix" menu when hovering the mouse over the red line, and select one of the Disable options.  
+_It's preferred to not disable the rule, unless the situation calls for it.
 
 - Make sure you have NodeJS and NPM installed on your box
   - https://nodejs.org/en/download/
