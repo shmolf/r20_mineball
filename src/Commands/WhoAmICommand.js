@@ -4,12 +4,10 @@
 
 import Command from 'Commands/Command';
 import Player from 'Players/Player';
+import { getPlayers } from 'Players/PlayerPool';
 
 export default class WhoAmICommand extends Command {
-  /**
-   * @param {Object.<string, Player>} gamePlayers - players registered in the game
-   */
-  constructor(gamePlayers) {
+  constructor() {
     super();
 
     this.cmd = 'whoami';
@@ -24,6 +22,7 @@ export default class WhoAmICommand extends Command {
      * @returns {void}
      */
     this.func = (msg, who, playerId, args) => { // eslint-disable-line no-unused-vars
+      const gamePlayers = getPlayers();
       const playerExists = playerId in gamePlayers;
       if (!playerExists) {
         sendChat('the Referee',

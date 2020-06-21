@@ -1,16 +1,10 @@
-import Player from 'Players/Player';
+import { getPlayers, setPlayers, deserializePlayerObject } from 'Players/PlayerPool';
 import Command from 'Commands/Command';
 import EmblemCommand from 'Commands/EmblemCommand';
 import HelpCommand from 'Commands/HelpCommand';
 import WhoAmICommand from 'Commands/WhoAmICommand';
 import ResetPlayersCommand from 'Commands/ResetPlayersCommand';
-import Emblem from './modules/Emblem';
-// import createPlayerDeck from 'App/Dealer';
 
-/* eslint valid-jsdoc: ["error", { "preferType": { ""object": "Object" } }] */
-
-/** @type {Object.<string, Player>} */
-let players = {};
 
 /** @type {Object.<string, Command>} */
 const commandList = {};
@@ -20,11 +14,11 @@ const cardsEnteringTheBoard = {};
 
 const helpCommand = new HelpCommand(commandList);
 commandList[helpCommand.cmd] = helpCommand;
-const emblemCommand = new EmblemCommand(players);
+const emblemCommand = new EmblemCommand();
 commandList[emblemCommand.cmd] = emblemCommand;
-const whoAmICommand = new WhoAmICommand(players);
+const whoAmICommand = new WhoAmICommand();
 commandList[whoAmICommand.cmd] = whoAmICommand;
-const resetPlayersCommand = new ResetPlayersCommand(players);
+const resetPlayersCommand = new ResetPlayersCommand();
 commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
 
 /**
@@ -48,11 +42,13 @@ function handleInput(msg) {
   }
 
   const cmdRef = args.shift().toLowerCase();
+  const players = getPlayers();
 
   switch (cmdRef) {
     case emblemCommand.cmd:
       // We'll want to overwrite the players, in case there were any changes
       Object.assign(players, emblemCommand.func(msg, who, playerId, args));
+      setPlayers(players);
 
       break;
     case whoAmICommand.cmd:
@@ -60,7 +56,6 @@ function handleInput(msg) {
       break;
     case resetPlayersCommand.cmd:
       resetPlayersCommand.func();
-      ({ players } = state.MineBall);
       break;
     case helpCommand.cmd:
     default:
@@ -91,11 +86,12 @@ function handleCardMovement(token, previousState) {}
 function handleNewCard(card) {
   const cardId = card.get('_cardid');
   /** @type {Graphic} */
-  const roll20Card = findObjs({ type: 'graphic', subtype: 'card', id: cardId })[0];
+  const roll20Card = findObjs({ type: 'card', id: cardId })[0];
 
-  if (cardId) {
+  if (cardId && typeof roll20Card !== 'undefined') {
     if (!(cardId in cardsEnteringTheBoard)) {
       cardsEnteringTheBoard[cardId] = roll20Card;
+      log(['In the Handle New Card', roll20Card]);
     }
   }
 }
@@ -112,72 +108,53 @@ function handleHandChange(obj, prev) {
   // Look for the card that did exist the previous state, but not the current state
   const cardId = previousHandState.find((id) => !currentHandState.includes(id));
 
-  if (cardId && cardId in cardsEnteringTheBoard) {
+  if (cardId && typeof cardsEnteringTheBoard[cardId] !== 'undefined') {
     const playerId = obj.get('parentid');
     const roll20Card = cardsEnteringTheBoard[cardId];
+    const players = getPlayers();
     delete cardsEnteringTheBoard[cardId];
 
-    if (playerId in players) {
+    if (typeof players[playerId] !== 'undefined') {
       // eslint-disable-next-line no-unused-vars
       const player = players[String(playerId)];
-      const cardName = roll20Card.get('name');
+      const cardName = roll20Card.get('_name');
       /** @type {Character} */
-      const roll20Char = findObjs({ _type: 'character', name: cardName });
-      const charId = roll20Char[0].get('_id');
+      const roll20Chars = findObjs({ _type: 'character', name: cardName });
+      log(['In the Player Section', roll20Chars]);
 
-      const tokens = findObjs({ type: 'graphic', represents: charId });
-      if (tokens.length > 0) {
-        const token = tokens[0];
-        log(['Found the token: ', token]);
+      if (roll20Chars.length > 0) {
+        const charId = roll20Chars[0].get('_id');
+        const tokens = findObjs({ type: 'graphic', subtype: 'token' })
+          .filter((token) => (token.get('represents') === charId));
+        log(['In the Token Section', tokens]);
 
-        /*
-        // Set the emblem on to token, for the given player
-        token.set('statusmarkers', [player.getEmblem().name]);
-        */
+        if (tokens.length > 0) {
+          const token = tokens[0];
+          log(['Found the token: ', token]);
+
+          // Set the emblem on to token, for the given player
+          token.set('statusmarkers', [player.getEmblem().name]);
+        }
+
+        createObj('attribute', {
+          characterid: charId,
+          name: 'player_id',
+          current: playerId,
+        });
       }
-
-      createObj('attribute', {
-        characterid: charId,
-        name: 'player_id',
-        current: playerId,
-      });
     }
   }
 }
 
-/**
- * Restores `players` from the JSON loaded from FireBase, into Player instances
- *
- * @returns {void}
- */
-function restorePlayers() {
-  const playerIds = Object.keys(state.MineBall.players);
-  playerIds.forEach((cachedPlayerId) => {
-    /** @type {import('Lib/Emblem').EmblemJson} */
-    const playerEmblemData = state.MineBall.players[cachedPlayerId].emblem;
-    const restoredPlayer = new Player(cachedPlayerId);
-
-    restoredPlayer.setEmblem(new Emblem(
-      playerEmblemData.id,
-      playerEmblemData.url,
-      playerEmblemData.name,
-      playerEmblemData.tag,
-    ));
-
-    players[cachedPlayerId] = restoredPlayer;
-  });
-
-  state.MineBall.players = players;
-}
-
 on('ready', () => {
   if (typeof state.MineBall === 'undefined') {
+    const players = getPlayers();
     state.MineBall = {
       version: 1.0,
       players,
     };
   } else {
-    restorePlayers();
+    deserializePlayerObject(state.MineBall.players || {});
   }
 
   on('chat:message', handleInput);
@@ -185,5 +162,4 @@ on('ready', () => {
   on('change:card', handleCardMovement);
   on('add:card', handleNewCard);
   on('change:hand', handleHandChange);
-  // mineballDeck = findObjs({ type: 'deck', name: 'Mine Ball' });
 });

@@ -36,7 +36,6 @@ export default class HelpCommand extends Command {
         return `<hr><pre>!mineball ${commandInstance.cmd} ${paramExample}</pre><p>${commandInstance.desc}</p>`;
       }
 
-      log(gameCommands);
       const commandKeyList = Object.keys(gameCommands);
       const commandDescriptions = commandKeyList.map((commandKey) => commandPreHtml(gameCommands[commandKey])).join('');
 

@@ -29,9 +29,6 @@
         "prefer-destructuring": ["warn", {"object": true, "array": false}],
         "max-len": [2, 120, 4],
 
-        "jsdoc/require-returns-description": 0,
-        "jsdoc/require-property-description": 0,
-        "jsdoc/require-param-description": 0,
         "jsdoc/check-alignment": 1, // Recommended
         "jsdoc/check-indentation": 1,
         "jsdoc/check-param-names": 1, // Recommended
@@ -43,10 +40,13 @@
         "jsdoc/no-undefined-types": 1, // Recommended
         "jsdoc/require-jsdoc": 1, // Recommended
         "jsdoc/require-param": 1, // Recommended
+        "jsdoc/require-param-description": 0,
         "jsdoc/require-param-name": 1, // Recommended
         "jsdoc/require-param-type": 1, // Recommended
+        "jsdoc/require-property-description": 0,
         "jsdoc/require-returns": 1, // Recommended
         "jsdoc/require-returns-check": 1, // Recommended
+        "jsdoc/require-returns-description": 0,
         "jsdoc/require-returns-type": 1, // Recommended
         "jsdoc/valid-types": 1 // Recommended
     },

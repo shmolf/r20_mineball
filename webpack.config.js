@@ -18,4 +18,7 @@ module.exports = {
       Players: path.resolve(__dirname, 'src/Players/'),
     },
   },
+  optimization: {
+    minimize: false
+  },
 };
