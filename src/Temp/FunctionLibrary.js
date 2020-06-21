@@ -16,7 +16,7 @@ const getCleanImgsrc = (imgsrc) => {
 function createTableGraphic(theName,theImage,theLeft,theTop,theHeight,theWidth,theLayer)
 {
   log(['Create Table Graphic',{theName,theImage,theLeft,theTop,theHeight,theWidth}]);
-  // Find the character
+  // Find the character / test comment by lakner 2
   var charObj = findObjs({_type: "character",  name: theName});
   var charID = charObj[0].get("_id");
   // Build the object
