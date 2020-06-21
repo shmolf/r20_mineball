@@ -12,7 +12,7 @@ const getCleanImgsrc = (imgsrc) => {
   }
   return;
 };
-// ---------------------ter
+// ---------------------
 function createTableGraphic(theName,theImage,theLeft,theTop,theHeight,theWidth,theLayer)
 {
   log(['Create Table Graphic',{theName,theImage,theLeft,theTop,theHeight,theWidth}]);
