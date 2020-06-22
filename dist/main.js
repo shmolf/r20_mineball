@@ -309,7 +309,8 @@ function deserializePlayerObject(playerData) {
  * @namespace App.Lib
  */
 
-const mineballCommandId = 'mineball';
+const playerCommandId = 'mb';
+const apiCommandId = '-mb';
 
 class Command {
   constructor() {
@@ -451,7 +452,7 @@ function EmblemHelp(who) {
     .filter((emblem) => validateEmblemChoice(emblem.name))
     .map((/** @type {Emblem} */emblem) => {
       const { name, url } = emblem;
-      return `<p><a href='!${mineballCommandId} emblem set ${name}'><img width='30' src='${url}' /> ${name}</a></p>`;
+      return `<p><a href='!${playerCommandId} emblem set ${name}'><img width='30' src='${url}' /> ${name}</a></p>`;
     })
     .join('');
 
@@ -577,7 +578,7 @@ class HelpCommand_HelpCommand extends Command {
         // Let's grab a list of all param examples, and join them with spaces.
         /** @type {string} */
         const paramExample = commandInstance.paramList.join(' ');
-        return `<hr><pre>!${mineballCommandId} ${commandInstance.cmd} ${paramExample}</pre>
+        return `<hr><pre>!${playerCommandId} ${commandInstance.cmd} ${paramExample}</pre>
           <p>${commandInstance.desc}</p>`;
       }
 
@@ -637,7 +638,7 @@ class WhoAmICommand_WhoAmICommand extends Command {
       const playerExists = playerId in gamePlayers;
       if (!playerExists) {
         sendChat('The Referee',
-          `/w ${who} You are not yet a player in the game. Use the <code>!${mineballCommandId} help</code>
+          `/w ${who} You are not yet a player in the game. Use the <code>!${playerCommandId} help</code>
           command to understand how to join.`);
       } else {
         /** @type {Player} player */
@@ -704,12 +705,13 @@ const resetPlayersCommand = new ResetPlayersCommand_ResetPlayersCommand();
 commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
 
 /**
+ * @param {string} pluginCommandRef
  * @param {string} command
  * @param {string[]} args
  * @param {string} who
  * @param {string} playerId
  */
-function RunCommand(command, args, who, playerId) {
+function RunCommand(pluginCommandRef, command, args, who, playerId) {
   switch (command) {
     case emblemCommand.cmd:
       // We'll want to overwrite the players, in case there were any changes
@@ -719,6 +721,9 @@ function RunCommand(command, args, who, playerId) {
       whoAmICommand.func(who, playerId);
       break;
     case resetPlayersCommand.cmd:
+      if (pluginCommandRef !== apiCommandId) {
+        return;
+      }
       resetPlayersCommand.func();
       break;
     case helpCommand.cmd:
@@ -9395,8 +9400,10 @@ function handleInput(msg) {
   /** @type {Array} */
   const args = msg.content.split(/\s+/);
 
+  const pluginCommand = args.shift();
+  const isMineballCommand = pluginCommand === `!${playerCommandId}` || pluginCommand === `!${apiCommandId}`;
   // Check if this is a MineBall directed command
-  if (args.shift() !== `!${mineballCommandId}` || args.length === 0) {
+  if (!isMineballCommand || args.length === 0) {
     return;
   }
 
@@ -9406,7 +9413,7 @@ function handleInput(msg) {
   const playerId = msg.playerid;
 
   const cmdRef = args.shift().toLowerCase();
-  RunCommand(cmdRef, args, who, playerId, msg);
+  RunCommand(pluginCommand, cmdRef, args, who, playerId, msg);
 }
 
 /**

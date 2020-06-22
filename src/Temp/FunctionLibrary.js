@@ -1,5 +1,8 @@
 // This file was designed by Mike Lakner
 
+import mbHandleLoopMove from 'Tokens/Loop';
+import mbHandleLoopMove from 'Tokens/Reticle';
+
 /**
  * Suggested and offered by Aaron to avoid an error when placing card
  *
@@ -73,22 +76,6 @@ export const handleGraphicChange = (obj) => {
   // Now ping both and draw everyone to this location after 1 second delay
   setTimeout(() => sendPing(obj.get('left'), obj.get('top'), Campaign().get('playerpageid'), null, true, ''), 1000);
 };
-
-/**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-function mbHandleReticleMove(theObj) {
-
-}
-
-/**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-function mbHandleLoopMove(theObj) {
-
-}
 
 /**
  * @param {string} theName
