@@ -11,7 +11,7 @@ function mbHandleReticleMove(theObj) {
  *
  */
 function mbPlaceReticle() {
-    log('Place Loop.');
+    log('Place Reticle.');
     // Remember state flage
     const wasBusy = state.mbBR549.AmBusy;
     const wasAllowDelete = state.mbBR549.AllowDelete;
@@ -22,7 +22,7 @@ function mbPlaceReticle() {
     state.mbBR549.Manual = false;
     // Get the compass rose
     const theChars = findObjs({ _type: 'character', name: 'Reticle' });
-    log(['Loop', { theChars }]);
+    log(['Reticle', { theChars }]);
     // Place the graphic
     const theReticle = createTableGraphic(
       theChars[0].get('name'),
