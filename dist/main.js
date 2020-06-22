@@ -81,11 +81,105 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+// Handle all things Loop
+
+/**
+ * @param {Roll20Object} theObj
+ */
+// eslint-disable-next-line no-unused-vars
+function mbHandleLoopMove(theObj) {
+  log(['Loop Move',{theObj}]);
+}
+/**
+ *
+ */
+function mbPlaceLoop() {
+    log('Place Loop.');
+    // Remember state flage
+    const wasBusy = state.mbBR549.AmBusy;
+    const wasAllowDelete = state.mbBR549.AllowDelete;
+    const wasManual = state.mbBR549.Manual;
+    // Set the state flags
+    state.mbBR549.AmBusy = true;
+    state.mbBR549.AllowDelete = true;
+    state.mbBR549.Manual = false;
+    // Get the compass rose
+    const theChars = findObjs({ _type: 'character', name: 'Loop' });
+    log(['Loop', { theChars }]);
+    // Place the graphic
+    const theLoop = createTableGraphic(
+      theChars[0].get('name'),
+      theChars[0].get('avatar'),
+      1050,
+      1050,
+      140,
+      140,
+      'objects',
+    );
+    // Bring it to the front
+    toFront(theLoop);
+    // Reset the flags
+    state.mbBR549.AmBusy = wasBusy;
+    state.mbBR549.AllowDelete = wasAllowDelete;
+    state.mbBR549.Manual = wasManual;
+  }
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// Handle all things Reticle
+
+/**
+ * @param {Roll20Object} theObj
+ */
+// eslint-disable-next-line no-unused-vars
+function mbHandleReticleMove(theObj) {
+  log(['Reticle Move',{theObj}]);
+}
+/**
+ *
+ */
+function mbPlaceReticle() {
+    log('Place Loop.');
+    // Remember state flage
+    const wasBusy = state.mbBR549.AmBusy;
+    const wasAllowDelete = state.mbBR549.AllowDelete;
+    const wasManual = state.mbBR549.Manual;
+    // Set the state flags
+    state.mbBR549.AmBusy = true;
+    state.mbBR549.AllowDelete = true;
+    state.mbBR549.Manual = false;
+    // Get the compass rose
+    const theChars = findObjs({ _type: 'character', name: 'Reticle' });
+    log(['Loop', { theChars }]);
+    // Place the graphic
+    const theReticle = createTableGraphic(
+      theChars[0].get('name'),
+      theChars[0].get('avatar'),
+      1050,
+      1050,
+      140,
+      140,
+      'objects',
+    );
+    // Bring it to the front
+    toFront(theReticle);
+    // Reset the flags
+    state.mbBR549.AmBusy = wasBusy;
+    state.mbBR549.AllowDelete = wasAllowDelete;
+    state.mbBR549.Manual = wasManual;
+  }
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports) {
 
 // Things related to board management and information
@@ -218,7 +312,7 @@ function mbClearBoard() {
   
 
 /***/ }),
-/* 1 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -865,7 +959,25 @@ function RunCommand(pluginCommandRef, command, args, who, playerId) {
   }
 }
 
+// EXTERNAL MODULE: ./src/modules/Loop.js
+var Loop = __webpack_require__(0);
+var Loop_default = /*#__PURE__*/__webpack_require__.n(Loop);
+
+// EXTERNAL MODULE: ./src/modules/Reticle.js
+var Reticle = __webpack_require__(1);
+var Reticle_default = /*#__PURE__*/__webpack_require__.n(Reticle);
+
 // CONCATENATED MODULE: ./src/modules/Graphics.js
+
+// This file was designed by Mike Lakner
+//
+// Hande the movement of a card from player hand to the board.
+// Card must be cloned to a graphic that is linked to a character (matching card name)
+//   and then the original card removed from the table.
+
+
+
+
 /**
  * Suggested and offered by Aaron to avoid an error when placing card
  *
@@ -920,8 +1032,8 @@ const handleGraphicChange = (obj) => {
       // Yes, send it to the front
       toFront(obj);
       // Handle these movements
-      if (obj.get('name') === 'Reticle') mbHandleReticleMove(obj);
-      else mbHandleLoopMove(obj);
+      if (obj.get('name') === 'Reticle') Reticle_default()(obj);
+      else Loop_default()(obj);
     } else {
       // Nope, send if to the back
       toBack(obj);
@@ -950,9 +1062,7 @@ const handleGraphicChange = (obj) => {
    * @param {string} theLayer
    * @returns {Graphic}
    */
-  
-  const Graphics_createTableGraphic = (theName, theImage, theLeft, theTop, theHeight, theWidth, theLayer) => {
-//  function createTableGraphic(theName, theImage, theLeft, theTop, theHeight, theWidth, theLayer) {
+  function Graphics_createTableGraphic(theName, theImage, theLeft, theTop, theHeight, theWidth, theLayer) {
     log(['Create Table Graphic', {
       theName, theImage, theLeft, theTop, theHeight, theWidth,
     }]);
@@ -1065,7 +1175,7 @@ function mbResetGameState() {
 }
 
 // EXTERNAL MODULE: ./src/modules/Board.js
-var Board = __webpack_require__(0);
+var Board = __webpack_require__(2);
 var Board_default = /*#__PURE__*/__webpack_require__.n(Board);
 
 // CONCATENATED MODULE: ./src/Play/Cards.js
@@ -1120,7 +1230,7 @@ const handleAddCard = (obj, prevObj) => {
     return;
   }
   // Create the object
-  /* Cannot get final name for export "default" in "./src/modules/Graphics.js" (known exports: handleGraphicChange createTableGraphic, known reexports: ) */ undefined(
+  /* Cannot get final name for export "default" in "./src/modules/Graphics.js" (known exports: handleGraphicChange, known reexports: ) */ undefined(
     cardName,
     obj.get('imgsrc'),
     obj.get('left'),

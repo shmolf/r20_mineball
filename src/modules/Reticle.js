@@ -7,8 +7,6 @@
 function mbHandleReticleMove(theObj) {
   log(['Reticle Move',{theObj}]);
 }
-
-
 /**
  *
  */
@@ -42,4 +40,3 @@ function mbPlaceReticle() {
     state.mbBR549.AllowDelete = wasAllowDelete;
     state.mbBR549.Manual = wasManual;
   }
-  

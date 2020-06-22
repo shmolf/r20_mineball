@@ -7,8 +7,6 @@
 function mbHandleLoopMove(theObj) {
   log(['Loop Move',{theObj}]);
 }
-
-
 /**
  *
  */
@@ -42,4 +40,3 @@ function mbPlaceLoop() {
     state.mbBR549.AllowDelete = wasAllowDelete;
     state.mbBR549.Manual = wasManual;
   }
-  

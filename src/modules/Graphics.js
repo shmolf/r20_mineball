@@ -1,3 +1,13 @@
+
+// This file was designed by Mike Lakner
+//
+// Hande the movement of a card from player hand to the board.
+// Card must be cloned to a graphic that is linked to a character (matching card name)
+//   and then the original card removed from the table.
+
+import mbHandleLoopMove from 'App/modules/Loop';
+import mbHandleReticleMove from 'App/modules/Reticle';
+
 /**
  * Suggested and offered by Aaron to avoid an error when placing card
  *
@@ -82,9 +92,7 @@ export const handleGraphicChange = (obj) => {
    * @param {string} theLayer
    * @returns {Graphic}
    */
-  
-  export const createTableGraphic = (theName, theImage, theLeft, theTop, theHeight, theWidth, theLayer) => {
-//  function createTableGraphic(theName, theImage, theLeft, theTop, theHeight, theWidth, theLayer) {
+  function createTableGraphic(theName, theImage, theLeft, theTop, theHeight, theWidth, theLayer) {
     log(['Create Table Graphic', {
       theName, theImage, theLeft, theTop, theHeight, theWidth,
     }]);
