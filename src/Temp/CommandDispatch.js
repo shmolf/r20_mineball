@@ -1,8 +1,8 @@
 // This file was designed by Mike Lakner
 
-import { mbResetGameState } from 'App/Temp/GameState';
+import { mbResetGameState } from 'App/modules/State';
 import { mbPurgeAllCharacterSheets, mbRebuildAllCharacterSheets } from 'Lib/CharacterSheets';
-import { mbStartNewGame } from 'App/Temp/FunctionLibrary';
+import { mbStartNewGame } from 'App/modules/Game';
 
 /**
  *

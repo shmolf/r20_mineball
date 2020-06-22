@@ -1,6 +1,11 @@
 // This file was designed by Mike Lakner
+//
+// Hande the movement of a card from player hand to the board.
+// Card must be cloned to a graphic that is linked to a character (matching card name)
+//   and then the original card removed from the table.
 
-import { mbIsSomethingHere, createTableGraphic } from 'App/Temp/FunctionLibrary';
+import mbIsSomethingHere from 'App/modules/Board';
+import createTableGraphic from 'App/modules/Graphics';
 
 /**
  * @param {Roll20Object} obj
@@ -23,7 +28,6 @@ const handleAddCard = (obj, prevObj) => {
   // Get the deck this card came from
   const nameCheck = cardName.substring(0, cardName.length - 1);
   let thePlayerID = '';
-
   if ('!Fire!Earth!Wind!Water!'.indexOf(nameCheck) !== -1) {
     // It's a terrain card
     // Figure out who played this by looking into the state to see who owns it
@@ -68,4 +72,61 @@ const handleAddCard = (obj, prevObj) => {
 export default function CardAddInit() {
   // Trigger on newly placed cards
   on('add:card', handleAddCard);
+}
+
+
+/**
+ * @param {number} theQty
+ */
+function mbDealMineBallCards(theQty) {
+  log('Deal Punk cards.');
+
+  // Get the players
+  const thePlayers = findObjs({ _type: 'player' });
+  log(['Players', { thePlayers }]);
+  // Get the Terrain deck
+  const theDecks = findObjs({ _type: 'deck', name: 'Mine Ball' });
+  log(['Decks', { theDecks }]);
+  thePlayers.forEach((playerObj) => {
+    if (playerObj.get('_online')) {
+      for (let i = 1; i <= theQty; i += 1) {
+        // Draw a card
+        const theCard = drawCard(theDecks[0].get('_id'));
+        // Give it to the player
+        giveCardToPlayer(theCard, playerObj.get('_id'));
+        const cardObj = getObj('card', theCard);
+        const cardName = cardObj.get('name');
+        // Record it's ownership
+        state.mbBR549.MineBallCardsInPlay[cardName] = { playerID: playerObj.get('_id'), inhand: true };
+      }
+    }
+  });
+}
+
+/**
+ * @param {number} theQty
+ */
+function mbDealTerrainCards(theQty) {
+  log('Deal terrain cards.');
+
+  // Get the players
+  const thePlayers = findObjs({ _type: 'player' });
+  log(['Players', { thePlayers }]);
+  // Get the Terrain deck
+  const theDecks = findObjs({ _type: 'deck', name: 'Terrain' });
+  log(['Decks', { theDecks }]);
+  thePlayers.forEach((playerObj) => {
+    if (playerObj.get('_online')) {
+      for (let i = 1; i <= theQty; i += 1) {
+        // Draw a card
+        const theCard = drawCard(theDecks[0].get('_id'));
+        // Give it to the player
+        giveCardToPlayer(theCard, playerObj.get('_id'));
+        const cardObj = getObj('card', theCard);
+        const cardName = cardObj.get('name');
+        // Record it's ownership
+        state.mbBR549.TerrainCardsInPlay[cardName] = { playerID: playerObj.get('_id'), inhand: true };
+      }
+    }
+  });
 }

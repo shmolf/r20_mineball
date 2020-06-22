@@ -1,6 +1,6 @@
 // This file was designed by Mike Lakner
 
-import { handleGraphicChange } from 'App/Temp/FunctionLibrary';
+import { handleGraphicChange } from 'App/modules/Graphics';
 
 export const handleGraphicDestruction = (obj, prevObj) => {
   // Return based on state switches

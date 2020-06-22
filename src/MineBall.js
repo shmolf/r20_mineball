@@ -2,8 +2,8 @@ import { getPlayers, deserializePlayerObject } from 'Players/PlayerPool';
 import RunCommand from 'Commands/CommandLibrary';
 import { playerCommandId, apiCommandId } from 'Commands/Command';
 import { TokenListeners } from 'Lib/Tokens';
-import { mbSetupGameState } from 'App/Temp/GameState';
-import CardAddInit from 'App/Temp/CardAdd';
+import { mbSetupGameState } from 'App/modules/State';
+import CardAddInit from 'App/Play/Cards';
 import { CommandDispatchInit } from 'App/Temp/CommandDispatch';
 import { EmblemBuildInit } from 'Commands/EmblemCommand';
 
