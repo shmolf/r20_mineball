@@ -1,4 +1,6 @@
-// This file was designed by Mike Lakner
+// -----
+// This module was added by Mike Lakner to house the generic code supporting game tokens.
+// -----
 
 import { handleGraphicChange } from 'App/modules/Graphics';
 

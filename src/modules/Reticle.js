@@ -1,4 +1,6 @@
-// Handle all things Reticle
+// -----
+// This module was added by Mike Lakner to house the code supporting the Reticle.
+// -----
 
 /**
  * @param {Roll20Object} theObj

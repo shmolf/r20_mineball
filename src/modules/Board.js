@@ -1,4 +1,6 @@
-// Things related to board management and information
+// -----
+// This module was added by Mike Lakner to house the code supporting what is happening on the game board.
+// -----
 
 /**
  * @param {number} theLeft

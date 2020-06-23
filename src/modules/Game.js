@@ -1,3 +1,7 @@
+// -----
+// This module was added by Mike Lakner to house the lions share of mechanics of the game play.
+// -----
+
 /**
  *
  */

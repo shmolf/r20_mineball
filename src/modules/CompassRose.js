@@ -1,3 +1,6 @@
+// -----
+// This module was added by Mike Lakner to house the code supporting the CompassRose.
+// -----
 
 /**
  *

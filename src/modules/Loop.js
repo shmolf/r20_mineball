@@ -1,4 +1,6 @@
-// Handle all things Loop
+// -----
+// This module was added by Mike Lakner to house the code supporting the Loop.
+// -----
 
 /**
  * @param {Roll20Object} theObj
