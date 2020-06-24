@@ -78,7 +78,7 @@ export default function CardAddInit() {
 /**
  * @param {number} theQty
  */
-function mbDealMineBallCards(theQty) {
+export function mbDealMineBallCards(theQty) {
   log('Deal Punk cards.');
 
   // Get the players
@@ -106,7 +106,7 @@ function mbDealMineBallCards(theQty) {
 /**
  * @param {number} theQty
  */
-function mbDealTerrainCards(theQty) {
+export function mbDealTerrainCards(theQty) {
   log('Deal terrain cards.');
 
   // Get the players
