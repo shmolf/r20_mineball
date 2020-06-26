@@ -40,7 +40,7 @@ const handleAddCard = (obj, prevObj) => {
     thePlayerID = state.mbBR549.MineBallCardsInPlay[cardName].playerID;
   }
   // Is there something here?
-  log(`Peek${obj.get('left')}/${obj.get('top')}`);
+  log(`Drop Peek: ${obj.get('left')}/${obj.get('top')}`);
   if (mbIsSomethingHere(obj.get('left'), obj.get('top')) === true) {
     // Yes, so back out
     setTimeout(() => giveCardToPlayer(theCardID, thePlayerID), 1000);
