@@ -1,6 +1,7 @@
 // -----
 // This module was added by Mike Lakner to house the code supporting what is happening on the game board.
 // -----
+import { createTableGraphic } from 'Lib/Graphics';
 
 /**
  * @param {number} theLeft

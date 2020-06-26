@@ -5,8 +5,8 @@
 // Card must be cloned to a graphic that is linked to a character (matching card name)
 //   and then the original card removed from the table.
 
-import mbHandleLoopMove from 'App/modules/Loop';
-import mbHandleReticleMove from 'App/modules/Reticle';
+import { mbHandleLoopMove } from 'App/modules/Loop';
+import { mbHandleReticleMove } from 'App/modules/Reticle';
 
 /**
  * Suggested and offered by Aaron to avoid an error when placing card

@@ -2,10 +2,11 @@
 // This module was added by Mike Lakner to house the code supporting the CompassRose.
 // -----
 import { mbPlaceTerrain } from 'Lib/Board';
+import { createTableGraphic } from 'Lib/Graphics';
 /**
  *
  */
-export default function mbPlaceCompassRose() {
+export function mbPlaceCompassRose() {
   log('Place CompassRose.');
   // Remember state flage
   const wasBusy = state.mbBR549.AmBusy;

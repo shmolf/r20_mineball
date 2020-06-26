@@ -3,6 +3,7 @@
 // -----
 
 import { handleGraphicChange } from 'App/modules/Graphics';
+import { createTableGraphic } from 'Lib/Graphics';
 
 export const handleGraphicDestruction = (obj, prevObj) => {
   // Return based on state switches

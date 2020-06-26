@@ -1,7 +1,7 @@
 // -----
 // This module was added by Mike Lakner to house the code supporting the Reticle.
 // -----
-
+import { createTableGraphic } from 'Lib/Graphics';
 /**
  * @param {Roll20Object} theObj
  */
