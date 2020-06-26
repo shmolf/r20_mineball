@@ -919,7 +919,7 @@ const handleGraphicChange = (obj) => {
  * @param {string} theLayer
  * @returns {Graphic}
  */
-function Graphics_createTableGraphic(theName, theImage, theLeft, theTop, theHeight, theWidth, theLayer) {
+function createTableGraphic(theName, theImage, theLeft, theTop, theHeight, theWidth, theLayer) {
   log(['Create Table Graphic', {
     theName, theImage, theLeft, theTop, theHeight, theWidth,
   }]);
@@ -952,6 +952,7 @@ function Graphics_createTableGraphic(theName, theImage, theLeft, theTop, theHeig
 // -----
 // This module was added by Mike Lakner to house the generic code supporting game tokens.
 // -----
+
 
 
 
@@ -1039,6 +1040,7 @@ function mbResetGameState() {
 // -----
 // This module was added by Mike Lakner to house the code supporting what is happening on the game board.
 // -----
+
 
 /**
  * @param {number} theLeft
@@ -1218,7 +1220,7 @@ const handleAddCard = (obj, prevObj) => {
     return;
   }
   // Create the object
-  Graphics_createTableGraphic(
+  createTableGraphic(
     cardName,
     obj.get('imgsrc'),
     obj.get('left'),
@@ -9155,6 +9157,7 @@ function mbPurgeAllCharacterSheets() {
 // -----
 // This module was added by Mike Lakner to house the code supporting the CompassRose.
 // -----
+
 
 /**
  *
