@@ -8,7 +8,8 @@
         "Lib/*": ["./src/modules/*"],
         "Commands/*": ["./src/Commands/*"],
         "Cards/*": ["./src/Cards/*"],
-        "Players/*": ["./src/Players/*"]
+        "Players/*": ["./src/Players/*"],
+        "Graphics/*": ["./src/Graphics/*"]
       }
     },
     "exclude": ["node_modules", "dist/**/*"]

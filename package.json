@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --fail",
-    "lint": "eslint -c ./.eslintrc.json ./src"
+    "lint": "eslint -c ./.eslintrc.json ./src",
+    "lint-fix": "eslint -c ./.eslintrc.json ./src --fix"
   },
   "repository": {
     "type": "git",

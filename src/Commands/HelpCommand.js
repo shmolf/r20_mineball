@@ -2,7 +2,7 @@
  * @namespace App.Commands
  */
 
-import Command, { mineballCommandId } from 'Commands/Command';
+import Command, { playerCommandId } from 'Commands/Command';
 
 export default class HelpCommand extends Command {
   /**
@@ -37,7 +37,7 @@ export default class HelpCommand extends Command {
         // Let's grab a list of all param examples, and join them with spaces.
         /** @type {string} */
         const paramExample = commandInstance.paramList.join(' ');
-        return `<hr><pre>!${mineballCommandId} ${commandInstance.cmd} ${paramExample}</pre>
+        return `<hr><pre>!${playerCommandId} ${commandInstance.cmd} ${paramExample}</pre>
           <p>${commandInstance.desc}</p>`;
       }
 

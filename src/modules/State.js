@@ -1,4 +1,6 @@
-// This file was designed by Mike Lakner
+// -----
+// This module was created by Mike Lakner to house the code supporting the state of the game play.
+// -----
 
 /**
  *

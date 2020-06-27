@@ -1,6 +1,6 @@
-import Card from 'Cards/Card';
+import BaseCard from 'Cards/Card';
 
-export default class FireCard extends Card {
+export default class FireCard extends BaseCard {
   constructor(name) {
     super(name);
     this.type = 'Fire';

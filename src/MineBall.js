@@ -1,9 +1,9 @@
 import { getPlayers, deserializePlayerObject } from 'Players/PlayerPool';
 import RunCommand from 'Commands/CommandLibrary';
-import { mineballCommandId } from 'Commands/Command';
-import { TokenListeners } from 'Lib/Tokens';
-import { mbSetupGameState } from 'App/Temp/GameState';
-import CardAddInit from 'App/Temp/CardAdd';
+import { playerCommandId, apiCommandId } from 'Commands/Command';
+import TokenListeners from 'Graphics/Tokens';
+import { mbSetupGameState } from 'App/modules/State';
+import CardAddInit from 'App/Play/Cards';
 import { CommandDispatchInit } from 'App/Temp/CommandDispatch';
 import { EmblemBuildInit } from 'Commands/EmblemCommand';
 
@@ -22,8 +22,10 @@ function handleInput(msg) {
   /** @type {Array} */
   const args = msg.content.split(/\s+/);
 
+  const pluginCommand = args.shift();
+  const isMineballCommand = pluginCommand === `!${playerCommandId}` || pluginCommand === `!${apiCommandId}`;
   // Check if this is a MineBall directed command
-  if (args.shift() !== `!${mineballCommandId}` || args.length === 0) {
+  if (!isMineballCommand || args.length === 0) {
     return;
   }
 
@@ -33,7 +35,7 @@ function handleInput(msg) {
   const playerId = msg.playerid;
 
   const cmdRef = args.shift().toLowerCase();
-  RunCommand(cmdRef, args, who, playerId, msg);
+  RunCommand(pluginCommand, cmdRef, args, who, playerId, msg);
 }
 
 /**

@@ -1,6 +1,43 @@
-// This file was designed by Mike Lakner
+// -----
+// This module was added by Mike Lakner to house the generic code supporting game tokens.
+// -----
 
-export const handleGraphicChange = (obj) => {
+import { createTableGraphic } from 'Graphics/Lib';
+import { mbHandleLoopMove } from 'Graphics/Loop';
+import { mbHandleReticleMove } from 'Graphics/Reticle';
+
+/**
+ * @param {Roll20Object} obj
+ * @param {*} prevObj
+ */
+function handleGraphicDestruction(obj, prevObj) {
+  // Return based on state switches
+  if ((state.mbBR549.Manual === true) || (state.mbBR549.AllowDelete === true)) {
+    log(['Handle Graphic Destruction Aborted', { state }]);
+    return;
+  }
+  // Log it so I can see what's happening
+  log(['Handle Graphic Destruction', { obj, prevObj }]);
+  // Destruction of a card is okay
+  if (obj.get('_subtype') === 'card') {
+    return;
+  }
+  // Create a new version
+  createTableGraphic(
+    obj.get('name'),
+    obj.get('imgsrc'),
+    obj.get('left'),
+    obj.get('top'),
+    obj.get('height'),
+    obj.get('width'),
+    'objects',
+  );
+}
+
+/**
+ * @param {Roll20Object} obj
+ */
+function handleGraphicChange(obj) {
   // Return based on state switches
   if ((state.mbBR549.Manual === true) || (state.mbBR549.InSetup === true)) {
     log(['Handle Graphic Alignment Aborted', { state }]);
@@ -24,8 +61,8 @@ export const handleGraphicChange = (obj) => {
   if (obj.get('height') !== mySize) obj.set('height', mySize);
   if (obj.get('width') !== mySize) obj.set('width', mySize);
   // Figure out what grid it should be on
-  const newGridLeft = Math.floor(obj.get('left') / mySize);
-  const newGridTop = Math.floor(obj.get('top') / mySize);
+  const newGridLeft = Math.floor((obj.get('left') - 1) / mySize);
+  const newGridTop = Math.floor((obj.get('top') - 1) / mySize);
   log(['NewGrid: ', { Left: newGridLeft, Top: newGridTop }]);
   // Calculate the actual coordinates
   const newCoordLeft = (newGridLeft * mySize) + halfWidth;
@@ -57,59 +94,17 @@ export const handleGraphicChange = (obj) => {
 
   // Now ping both and draw everyone to this location after 1 second delay
   setTimeout(() => sendPing(obj.get('left'), obj.get('top'), Campaign().get('playerpageid'), null, true, ''), 1000);
-};
-// -----
-/**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-function mbHandleReticleMove(theObj) {
-
 }
-// -----
-/**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-function mbHandleLoopMove(theObj) {
-
-}
-
-export const handleGraphicDestruction = (obj, prevObj) => {
-  // Return based on state switches
-  if ((state.mbBR549.Manual === true) || (state.mbBR549.AllowDelete === true)) {
-    log(['Handle Graphic Destruction Aborted', { state }]);
-    return;
-  }
-  // Log it so I can see what's happening
-  log(['Handle Graphic Destruction', { obj, prevObj }]);
-  // Destruction of a card is okay
-  if (obj.get('_subtype') === 'card') {
-    return;
-  }
-  // Create a new version
-  createTableGraphic(
-    obj.get('name'),
-    obj.get('imgsrc'),
-    obj.get('left'),
-    obj.get('top'),
-    obj.get('height'),
-    obj.get('width'),
-    'objects',
-  );
-};
 
 /**
  *
  */
-export function TokenListeners() {
+export default function TokenListeners() {
   // Handle the placement of new cards
-  on('ready', () => {
-    // Trigger on position change to ensure alignment even with {Alt} held down.
-    on('change:graphic:left', handleGraphicChange);
-    on('change:graphic:top', handleGraphicChange);
-    on('change:graphic:rotation', handleGraphicChange);
-    // Trigger on deletion of a graphic
-    on('destroy:graphic', handleGraphicDestruction);
-  });
+  // Trigger on position change to ensure alignment even with {Alt} held down.
+  on('change:graphic:left', handleGraphicChange);
+  on('change:graphic:top', handleGraphicChange);
+  on('change:graphic:rotation', handleGraphicChange);
+  // Trigger on deletion of a graphic
+  on('destroy:graphic', handleGraphicDestruction);
 }

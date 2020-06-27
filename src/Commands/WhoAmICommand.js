@@ -2,7 +2,7 @@
  * @namespace App.Commands
  */
 
-import Command, { mineballCommandId } from 'Commands/Command';
+import Command, { playerCommandId } from 'Commands/Command';
 import Player from 'Players/Player';
 import { getPlayers } from 'Players/PlayerPool';
 
@@ -36,7 +36,7 @@ export default class WhoAmICommand extends Command {
       const playerExists = playerId in gamePlayers;
       if (!playerExists) {
         sendChat('The Referee',
-          `/w ${who} You are not yet a player in the game. Use the <code>!${mineballCommandId} help</code>
+          `/w ${who} You are not yet a player in the game. Use the <code>!${playerCommandId} help</code>
           command to understand how to join.`);
       } else {
         /** @type {Player} player */
