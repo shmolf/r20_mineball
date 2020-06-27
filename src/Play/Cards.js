@@ -4,8 +4,8 @@
 // Card must be cloned to a graphic that is linked to a character (matching card name)
 //   and then the original card removed from the table.
 
-import { mbIsSomethingHere } from 'App/modules/Board';
-import { createTableGraphic } from 'App/modules/Graphics';
+import { mbIsSomethingHere } from 'Lib/Board';
+import { createTableGraphic } from 'Graphics/Lib';
 
 /**
  * @param {Roll20Object} obj
