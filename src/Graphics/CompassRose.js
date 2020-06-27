@@ -6,7 +6,7 @@ import { createTableGraphic } from 'Lib/Graphics';
 /**
  *
  */
-export function mbPlaceCompassRose() {
+export default function mbPlaceCompassRose() {
   log('Place CompassRose.');
   // Remember state flage
   const wasBusy = state.mbBR549.AmBusy;
