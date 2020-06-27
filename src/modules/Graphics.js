@@ -47,8 +47,8 @@ export const handleGraphicChange = (obj) => {
   if (obj.get('height') !== mySize) obj.set('height', mySize);
   if (obj.get('width') !== mySize) obj.set('width', mySize);
   // Figure out what grid it should be on
-  const newGridLeft = Math.floor( (obj.get('left')-1) / mySize) + halfWidth + 1;
-  const newGridTop = Math.floor( (obj.get('top')-1) / mySize) + halfHeight + 1;
+  const newGridLeft = Math.floor( (obj.get('left')-1) / mySize);
+  const newGridTop =  Math.floor( (obj.get('top')-1) / mySize);
   log(['NewGrid: ', { Left: newGridLeft, Top: newGridTop }]);
   // Calculate the actual coordinates
   const newCoordLeft = (newGridLeft * mySize) + halfWidth;
