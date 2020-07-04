@@ -22,6 +22,8 @@ const startCommand = new StartCommand();
 commandList[startCommand.cmd] = startCommand;
 const initCommand = new InitCommand();
 commandList[initCommand.cmd] = initCommand;
+const showCommand = new ShowCommand();
+commandList[showCommand.cmd] = showCommand;
 
 /**
  * @param {string} pluginCommandRef
@@ -54,7 +56,7 @@ export default function RunCommand(pluginCommandRef, command, args, who, playerI
     case showCommand.cmd:
       ShowCommand.func(who, playerId, args);
       break;
-      case helpCommand.cmd:
+    case helpCommand.cmd:
     default:
       helpCommand.func(who);
   }
