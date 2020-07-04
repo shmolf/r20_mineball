@@ -3,10 +3,9 @@ export default {
     rec: 1,
     title: '',
     name: 'Candelaria',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -22,10 +21,9 @@ export default {
     rec: 2,
     title: '',
     name: 'Ezequiel',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -41,10 +39,9 @@ export default {
     rec: 3,
     title: 'Sir',
     name: 'Eldridge',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -60,10 +57,9 @@ export default {
     rec: 4,
     title: 'Sir',
     name: 'Lory',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -79,10 +75,9 @@ export default {
     rec: 5,
     title: '',
     name: 'Earleen',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D2 R1' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Enchant', value: 'D2 R1' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -98,10 +93,9 @@ export default {
     rec: 6,
     title: '',
     name: 'Cuc',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -117,10 +111,9 @@ export default {
     rec: 7,
     title: '',
     name: 'Natisha',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D4 R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Enchant', value: 'D4 R3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -136,10 +129,9 @@ export default {
     rec: 8,
     title: '',
     name: 'Molly',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Enchant', value: 'D4 R3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Enchant', value: 'D4 R3' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -155,10 +147,9 @@ export default {
     rec: 9,
     title: '',
     name: 'Tonisha',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Enchant', value: 'D1 R1' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Enchant', value: 'D1 R1' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -174,10 +165,9 @@ export default {
     rec: 10,
     title: '',
     name: 'Oma',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Enchant', value: 'D1 R1' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Enchant', value: 'D1 R1' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -193,10 +183,9 @@ export default {
     rec: 11,
     title: '',
     name: 'Kristy',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -212,10 +201,9 @@ export default {
     rec: 12,
     title: '',
     name: 'Miss',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -231,10 +219,9 @@ export default {
     rec: 13,
     title: 'Lord',
     name: 'Zena',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -250,10 +237,9 @@ export default {
     rec: 14,
     title: '',
     name: 'Taryn',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -269,10 +255,9 @@ export default {
     rec: 15,
     title: '',
     name: 'Janene',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -288,10 +273,9 @@ export default {
     rec: 16,
     title: '',
     name: 'Lloyd',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -307,10 +291,9 @@ export default {
     rec: 17,
     title: '',
     name: 'Houston',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -326,10 +309,9 @@ export default {
     rec: 18,
     title: '',
     name: 'Milagro',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -345,10 +327,9 @@ export default {
     rec: 19,
     title: '',
     name: 'Jaimee',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -364,10 +345,9 @@ export default {
     rec: 20,
     title: '',
     name: 'Floretta',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -383,10 +363,9 @@ export default {
     rec: 21,
     title: 'Esquire',
     name: 'Antione',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -402,10 +381,9 @@ export default {
     rec: 22,
     title: '',
     name: 'Ellsworth',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -421,10 +399,9 @@ export default {
     rec: 23,
     title: '',
     name: 'Maryjo',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Fly', value: 'R4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -440,10 +417,9 @@ export default {
     rec: 24,
     title: 'Duke',
     name: 'Sharla',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -459,10 +435,9 @@ export default {
     rec: 25,
     title: '',
     name: 'Pearline',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -478,10 +453,9 @@ export default {
     rec: 26,
     title: '',
     name: 'Harrison',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -497,10 +471,9 @@ export default {
     rec: 27,
     title: '',
     name: 'Dulcie',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D2 R1' } },
-    aftPort: { action: { type: 'Enchant', value: 'D2 R2' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D4 R2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Enchant', value: 'D2 R1' }, aftPort: { type: 'Enchant', value: 'D2 R2' }, aftStarboard: { type: 'Enchant', value: 'D4 R2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -516,10 +489,9 @@ export default {
     rec: 28,
     title: '',
     name: 'Fatima',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -535,10 +507,9 @@ export default {
     rec: 29,
     title: '',
     name: 'Roman',
-    forePort: { action: { type: 'Enchant', value: 'D2 R1' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D3 R1' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D2 R1' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Enchant', value: 'D3 R1' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -554,10 +525,9 @@ export default {
     rec: 30,
     title: '',
     name: 'Elane',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -573,10 +543,9 @@ export default {
     rec: 31,
     title: 'Esquire',
     name: 'Sharonda',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -592,10 +561,9 @@ export default {
     rec: 32,
     title: 'Duke',
     name: 'Earlie',
-    forePort: { action: { type: 'Enchant', value: 'D1 R1' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R1' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -611,10 +579,9 @@ export default {
     rec: 33,
     title: 'Lord',
     name: 'Hedwig',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -630,10 +597,9 @@ export default {
     rec: 34,
     title: '',
     name: 'Sheila',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Enchant', value: 'D2 R3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Enchant', value: 'D2 R3' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -649,10 +615,9 @@ export default {
     rec: 35,
     title: 'Lord',
     name: 'Marcus',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D4 R2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Enchant', value: 'D4 R2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -668,10 +633,9 @@ export default {
     rec: 36,
     title: '',
     name: 'Alvin',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -687,10 +651,9 @@ export default {
     rec: 37,
     title: 'Esquire',
     name: 'Jamika',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Enchant', value: 'D1 R2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Enchant', value: 'D1 R2' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -706,10 +669,9 @@ export default {
     rec: 38,
     title: '',
     name: 'Isreal',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -725,10 +687,9 @@ export default {
     rec: 39,
     title: 'Sir',
     name: 'Vivien',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -744,10 +705,9 @@ export default {
     rec: 40,
     title: '',
     name: 'Romaine',
-    forePort: { action: { type: 'Enchant', value: 'D1 R2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R2' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -763,10 +723,9 @@ export default {
     rec: 41,
     title: '',
     name: 'Beckie',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D4 R1' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Enchant', value: 'D4 R1' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -782,10 +741,9 @@ export default {
     rec: 42,
     title: '',
     name: 'Leena',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D3 R2' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Enchant', value: 'D3 R2' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -801,10 +759,9 @@ export default {
     rec: 43,
     title: 'Duke',
     name: 'Lynwood',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Enchant', value: 'D1 R3' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -820,10 +777,9 @@ export default {
     rec: 44,
     title: '',
     name: 'Davina',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -839,10 +795,9 @@ export default {
     rec: 45,
     title: 'Duke',
     name: 'Gertie',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -858,10 +813,9 @@ export default {
     rec: 46,
     title: 'Lord',
     name: 'Brianne',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D2 R2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Enchant', value: 'D2 R2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -877,10 +831,9 @@ export default {
     rec: 47,
     title: 'Esquire',
     name: 'China',
-    forePort: { action: { type: 'Enchant', value: 'D1 R3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Fly', value: 'R3' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D4 R1' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R3' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Fly', value: 'R3' }, aftStarboard: { type: 'Enchant', value: 'D4 R1' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -896,10 +849,9 @@ export default {
     rec: 48,
     title: 'Esquire',
     name: 'Sally',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -915,10 +867,9 @@ export default {
     rec: 49,
     title: '',
     name: 'Sue',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -934,10 +885,9 @@ export default {
     rec: 50,
     title: '',
     name: 'Justin',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -953,10 +903,9 @@ export default {
     rec: 51,
     title: 'Duke',
     name: 'Octavia',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -972,10 +921,9 @@ export default {
     rec: 52,
     title: '',
     name: 'Eryn',
-    forePort: { action: { type: 'Enchant', value: 'D3 R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D3 R3' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -991,10 +939,9 @@ export default {
     rec: 53,
     title: '',
     name: 'Charlotte',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Enchant', value: 'D3 R3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Enchant', value: 'D3 R3' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -1010,10 +957,9 @@ export default {
     rec: 54,
     title: 'Esquire',
     name: 'Lavonna',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D3 R1' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Enchant', value: 'D3 R1' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -1029,10 +975,9 @@ export default {
     rec: 55,
     title: '',
     name: 'Bryon',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1048,10 +993,9 @@ export default {
     rec: 56,
     title: 'Lord',
     name: 'Sachiko',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -1067,10 +1011,9 @@ export default {
     rec: 57,
     title: 'Lord',
     name: 'Hildegard',
-    forePort: { action: { type: 'Enchant', value: 'D2 R1' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D2 R1' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1086,10 +1029,9 @@ export default {
     rec: 58,
     title: 'Sir',
     name: 'Keva',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R2' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D4 R1' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Enchant', value: 'D1 R2' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Enchant', value: 'D4 R1' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1105,10 +1047,9 @@ export default {
     rec: 59,
     title: '',
     name: 'Youlanda',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D3 R1' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Enchant', value: 'D3 R1' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -1124,10 +1065,9 @@ export default {
     rec: 60,
     title: 'Esquire',
     name: 'Mo',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -1143,10 +1083,9 @@ export default {
     rec: 61,
     title: 'Sir',
     name: 'Toby',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -1162,10 +1101,9 @@ export default {
     rec: 62,
     title: '',
     name: 'Shae',
-    forePort: { action: { type: 'Enchant', value: 'D1 R2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Enchant', value: 'D4 R1' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R2' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Enchant', value: 'D4 R1' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -1181,10 +1119,9 @@ export default {
     rec: 63,
     title: '',
     name: 'Landon',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R1' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D3 R3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Enchant', value: 'D1 R1' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Enchant', value: 'D3 R3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -1200,10 +1137,9 @@ export default {
     rec: 64,
     title: 'Lord',
     name: 'Emiko',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -1219,10 +1155,9 @@ export default {
     rec: 65,
     title: '',
     name: 'Edmond',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1238,10 +1173,9 @@ export default {
     rec: 66,
     title: '',
     name: 'Elizabet',
-    forePort: { action: { type: 'Enchant', value: 'D1 R2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Enchant', value: 'D2 R1' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R2' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Enchant', value: 'D2 R1' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1257,10 +1191,9 @@ export default {
     rec: 67,
     title: 'Esquire',
     name: 'Deirdre',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1276,10 +1209,9 @@ export default {
     rec: 68,
     title: '',
     name: 'Francina',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1295,10 +1227,9 @@ export default {
     rec: 69,
     title: '',
     name: 'Elvia',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1314,10 +1245,9 @@ export default {
     rec: 70,
     title: 'Lord',
     name: 'Basilia',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -1333,10 +1263,9 @@ export default {
     rec: 71,
     title: '',
     name: 'Celestine',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1352,10 +1281,9 @@ export default {
     rec: 72,
     title: '',
     name: 'Saturnina',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -1371,10 +1299,9 @@ export default {
     rec: 73,
     title: 'Esquire',
     name: 'Josefa',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D2 R2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Enchant', value: 'D2 R2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1390,10 +1317,9 @@ export default {
     rec: 74,
     title: '',
     name: 'Dominique',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Fly', value: 'R3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Fly', value: 'R3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1409,10 +1335,9 @@ export default {
     rec: 75,
     title: '',
     name: 'Delois',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -1428,10 +1353,9 @@ export default {
     rec: 76,
     title: '',
     name: 'Kimberlie',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -1447,10 +1371,9 @@ export default {
     rec: 77,
     title: 'Lord',
     name: 'Cecila',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1466,10 +1389,9 @@ export default {
     rec: 78,
     title: 'Esquire',
     name: 'Yessenia',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -1485,10 +1407,9 @@ export default {
     rec: 79,
     title: 'Esquire',
     name: 'Krystina',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D4 R2' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Enchant', value: 'D4 R2' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1504,10 +1425,9 @@ export default {
     rec: 80,
     title: '',
     name: 'Corie',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Enchant', value: 'D1 R3' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -1523,10 +1443,9 @@ export default {
     rec: 81,
     title: '',
     name: 'Skye',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -1542,10 +1461,9 @@ export default {
     rec: 82,
     title: 'Sir',
     name: 'Clarita',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -1561,10 +1479,9 @@ export default {
     rec: 83,
     title: '',
     name: 'Darnell',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1580,10 +1497,9 @@ export default {
     rec: 84,
     title: 'Duke',
     name: 'Shemeka',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -1599,10 +1515,9 @@ export default {
     rec: 85,
     title: 'Sir',
     name: 'Herminia',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1618,10 +1533,9 @@ export default {
     rec: 86,
     title: 'Esquire',
     name: 'Pa',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -1637,10 +1551,9 @@ export default {
     rec: 87,
     title: '',
     name: 'Ira',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D2 R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Enchant', value: 'D2 R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -1656,10 +1569,9 @@ export default {
     rec: 88,
     title: '',
     name: 'Cornelius',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1675,10 +1587,9 @@ export default {
     rec: 89,
     title: '',
     name: 'Kirstie',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Enchant', value: 'D1 R3' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -1694,10 +1605,9 @@ export default {
     rec: 90,
     title: 'Esquire',
     name: 'Magaret',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1713,10 +1623,9 @@ export default {
     rec: 91,
     title: '',
     name: 'Jonell',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1732,10 +1641,9 @@ export default {
     rec: 92,
     title: 'Lord',
     name: 'Caprice',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -1751,10 +1659,9 @@ export default {
     rec: 93,
     title: '',
     name: 'Lorina',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Enchant', value: 'D3 R2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Enchant', value: 'D3 R2' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -1770,10 +1677,9 @@ export default {
     rec: 94,
     title: '',
     name: 'Shala',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D3 R3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Enchant', value: 'D3 R3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -1789,10 +1695,9 @@ export default {
     rec: 95,
     title: '',
     name: 'Wava',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -1808,10 +1713,9 @@ export default {
     rec: 96,
     title: '',
     name: 'Junie',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -1827,10 +1731,9 @@ export default {
     rec: 97,
     title: 'Sir',
     name: 'Racquel',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1846,10 +1749,9 @@ export default {
     rec: 98,
     title: '',
     name: 'Season',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -1865,10 +1767,9 @@ export default {
     rec: 99,
     title: 'Esquire',
     name: 'Shirley',
-    forePort: { action: { type: 'Enchant', value: 'D2 R2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D2 R2' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1884,10 +1785,9 @@ export default {
     rec: 100,
     title: 'Sir',
     name: 'Marni',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1903,10 +1803,9 @@ export default {
     rec: 101,
     title: '',
     name: 'Lucien',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1922,10 +1821,9 @@ export default {
     rec: 102,
     title: '',
     name: 'Sol',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -1941,10 +1839,9 @@ export default {
     rec: 103,
     title: '',
     name: 'Patty',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1960,10 +1857,9 @@ export default {
     rec: 104,
     title: 'Sir',
     name: 'Ruby',
-    forePort: { action: { type: 'Enchant', value: 'D3 R2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D3 R2' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -1979,10 +1875,9 @@ export default {
     rec: 105,
     title: 'Lord',
     name: 'Aundrea',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -1998,10 +1893,9 @@ export default {
     rec: 106,
     title: 'Sir',
     name: 'Ernest',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2017,10 +1911,9 @@ export default {
     rec: 107,
     title: 'Esquire',
     name: 'Arline',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Fly', value: 'R4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -2036,10 +1929,9 @@ export default {
     rec: 108,
     title: '',
     name: 'Pilar',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D1 R2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Enchant', value: 'D1 R2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -2055,10 +1947,9 @@ export default {
     rec: 109,
     title: 'Sir',
     name: 'Gertrude',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2074,10 +1965,9 @@ export default {
     rec: 110,
     title: '',
     name: 'Jamila',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -2093,10 +1983,9 @@ export default {
     rec: 111,
     title: '',
     name: 'Matilde',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -2112,10 +2001,9 @@ export default {
     rec: 112,
     title: '',
     name: 'Myrtie',
-    forePort: { action: { type: 'Enchant', value: 'D1 R2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R2' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -2131,10 +2019,9 @@ export default {
     rec: 113,
     title: 'Duke',
     name: 'Eladia',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -2150,10 +2037,9 @@ export default {
     rec: 114,
     title: 'Sir',
     name: 'Brant',
-    forePort: { action: { type: 'Enchant', value: 'D1 R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R3' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -2169,10 +2055,9 @@ export default {
     rec: 115,
     title: 'Esquire',
     name: 'Kacey',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Fly', value: 'R3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Fly', value: 'R3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -2188,10 +2073,9 @@ export default {
     rec: 116,
     title: 'Esquire',
     name: 'Kandis',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2207,10 +2091,9 @@ export default {
     rec: 117,
     title: '',
     name: 'Macie',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D2 R1' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Enchant', value: 'D2 R1' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -2226,10 +2109,9 @@ export default {
     rec: 118,
     title: '',
     name: 'Jon',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2245,10 +2127,9 @@ export default {
     rec: 119,
     title: '',
     name: 'Norine',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -2264,10 +2145,9 @@ export default {
     rec: 120,
     title: '',
     name: 'Joel',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -2283,10 +2163,9 @@ export default {
     rec: 121,
     title: 'Sir',
     name: 'Santina',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Enchant', value: 'D1 R3' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -2302,10 +2181,9 @@ export default {
     rec: 122,
     title: '',
     name: 'Raymundo',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2321,10 +2199,9 @@ export default {
     rec: 123,
     title: '',
     name: 'Shila',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2340,10 +2217,9 @@ export default {
     rec: 124,
     title: '',
     name: 'Sibyl',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -2359,10 +2235,9 @@ export default {
     rec: 125,
     title: '',
     name: 'Sharron',
-    forePort: { action: { type: 'Enchant', value: 'D1 R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R3' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2378,10 +2253,9 @@ export default {
     rec: 126,
     title: 'Sir',
     name: 'Avis',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2397,10 +2271,9 @@ export default {
     rec: 127,
     title: 'Esquire',
     name: 'Chaya',
-    forePort: { action: { type: 'Enchant', value: 'D2 R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D2 R3' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -2416,10 +2289,9 @@ export default {
     rec: 128,
     title: 'Sir',
     name: 'Lois',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Enchant', value: 'D2 R1' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Enchant', value: 'D2 R1' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -2435,10 +2307,9 @@ export default {
     rec: 129,
     title: '',
     name: 'Gemma',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2454,10 +2325,9 @@ export default {
     rec: 130,
     title: '',
     name: 'Ethel',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D4 R2' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Enchant', value: 'D4 R2' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -2473,10 +2343,9 @@ export default {
     rec: 131,
     title: '',
     name: 'Maxwell',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D3 R2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Enchant', value: 'D3 R2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -2492,10 +2361,9 @@ export default {
     rec: 132,
     title: '',
     name: 'Gricelda',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -2511,10 +2379,9 @@ export default {
     rec: 133,
     title: '',
     name: 'Esteban',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -2530,10 +2397,9 @@ export default {
     rec: 134,
     title: 'Sir',
     name: 'Sylvia',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2549,10 +2415,9 @@ export default {
     rec: 135,
     title: '',
     name: 'Inell',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -2568,10 +2433,9 @@ export default {
     rec: 136,
     title: '',
     name: 'Jane',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D4 R3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Enchant', value: 'D4 R3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -2587,10 +2451,9 @@ export default {
     rec: 137,
     title: '',
     name: 'Piper',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2606,10 +2469,9 @@ export default {
     rec: 138,
     title: '',
     name: 'Kasha',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -2625,10 +2487,9 @@ export default {
     rec: 139,
     title: 'Esquire',
     name: 'Nohemi',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -2644,10 +2505,9 @@ export default {
     rec: 140,
     title: '',
     name: 'Felicia',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2663,10 +2523,9 @@ export default {
     rec: 141,
     title: 'Lord',
     name: 'Karly',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -2682,10 +2541,9 @@ export default {
     rec: 142,
     title: '',
     name: 'Laure',
-    forePort: { action: { type: 'Enchant', value: 'D2 R1' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D2 R1' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2701,10 +2559,9 @@ export default {
     rec: 143,
     title: 'Lord',
     name: 'Daryl',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -2720,10 +2577,9 @@ export default {
     rec: 144,
     title: 'Esquire',
     name: 'Tifany',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -2739,10 +2595,9 @@ export default {
     rec: 145,
     title: '',
     name: 'Eddy',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -2758,10 +2613,9 @@ export default {
     rec: 146,
     title: '',
     name: 'Doreatha',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -2777,10 +2631,9 @@ export default {
     rec: 147,
     title: 'Esquire',
     name: 'Elsie',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -2796,10 +2649,9 @@ export default {
     rec: 148,
     title: 'Esquire',
     name: 'Marianne',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2815,10 +2667,9 @@ export default {
     rec: 149,
     title: '',
     name: 'Lavonne',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -2834,10 +2685,9 @@ export default {
     rec: 150,
     title: '',
     name: 'Tianna',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Fly', value: 'R4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -2853,10 +2703,9 @@ export default {
     rec: 151,
     title: 'Lord',
     name: 'Troy',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D3 R2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Enchant', value: 'D3 R2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -2872,10 +2721,9 @@ export default {
     rec: 152,
     title: '',
     name: 'Kenya',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -2891,10 +2739,9 @@ export default {
     rec: 153,
     title: '',
     name: 'Michell',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -2910,10 +2757,9 @@ export default {
     rec: 154,
     title: 'Sir',
     name: 'Yasmine',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D3 R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Enchant', value: 'D3 R3' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -2929,10 +2775,9 @@ export default {
     rec: 155,
     title: '',
     name: 'Haley',
-    forePort: { action: { type: 'Enchant', value: 'D2 R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D2 R3' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2948,10 +2793,9 @@ export default {
     rec: 156,
     title: '',
     name: 'Jose',
-    forePort: { action: { type: 'Enchant', value: 'D2 R2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D2 R2' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -2967,10 +2811,9 @@ export default {
     rec: 157,
     title: 'Sir',
     name: 'Lorri',
-    forePort: { action: { type: 'Enchant', value: 'D3 R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Enchant', value: 'D1 R2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D3 R3' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Enchant', value: 'D1 R2' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -2986,10 +2829,9 @@ export default {
     rec: 158,
     title: 'Sir',
     name: 'Rosette',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -3005,10 +2847,9 @@ export default {
     rec: 159,
     title: 'Esquire',
     name: 'Ivelisse',
-    forePort: { action: { type: 'Enchant', value: 'D1 R1' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R1' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -3024,10 +2865,9 @@ export default {
     rec: 160,
     title: '',
     name: 'Beatris',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -3043,10 +2883,9 @@ export default {
     rec: 161,
     title: 'Sir',
     name: 'Marco',
-    forePort: { action: { type: 'Enchant', value: 'D4 R2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D4 R2' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -3062,10 +2901,9 @@ export default {
     rec: 162,
     title: '',
     name: 'Theodora',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D3 R1' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Enchant', value: 'D3 R1' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3081,10 +2919,9 @@ export default {
     rec: 163,
     title: 'Sir',
     name: 'Shameka',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3100,10 +2937,9 @@ export default {
     rec: 164,
     title: '',
     name: 'Curtis',
-    forePort: { action: { type: 'Enchant', value: 'D2 R2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D2 R2' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3119,10 +2955,9 @@ export default {
     rec: 165,
     title: '',
     name: 'Laverna',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Enchant', value: 'D2 R1' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Enchant', value: 'D2 R1' }, aftStarboard: { type: 'Fly', value: 'R4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -3138,10 +2973,9 @@ export default {
     rec: 166,
     title: '',
     name: 'Theresa',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -3157,10 +2991,9 @@ export default {
     rec: 167,
     title: '',
     name: 'Lorette',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -3176,10 +3009,9 @@ export default {
     rec: 168,
     title: '',
     name: 'Jonah',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D4 R1' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Enchant', value: 'D4 R1' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -3195,10 +3027,9 @@ export default {
     rec: 169,
     title: '',
     name: 'Margaret',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -3214,10 +3045,9 @@ export default {
     rec: 170,
     title: 'Esquire',
     name: 'Shawnta',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -3233,10 +3063,9 @@ export default {
     rec: 171,
     title: 'Lord',
     name: 'Walter',
-    forePort: { action: { type: 'Enchant', value: 'D2 R3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D2 R1' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D2 R3' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Enchant', value: 'D2 R1' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -3252,10 +3081,9 @@ export default {
     rec: 172,
     title: '',
     name: 'Corina',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -3271,10 +3099,9 @@ export default {
     rec: 173,
     title: 'Sir',
     name: 'Jenae',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D4 R1' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Enchant', value: 'D4 R1' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3290,10 +3117,9 @@ export default {
     rec: 174,
     title: '',
     name: 'Vincent',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -3309,10 +3135,9 @@ export default {
     rec: 175,
     title: 'Duke',
     name: 'Bernard',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3328,10 +3153,9 @@ export default {
     rec: 176,
     title: '',
     name: 'Emelia',
-    forePort: { action: { type: 'Enchant', value: 'D3 R2' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D2 R2' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D3 R2' }, foreStarboard: { type: 'Enchant', value: 'D2 R2' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -3347,10 +3171,9 @@ export default {
     rec: 177,
     title: '',
     name: 'Lin',
-    forePort: { action: { type: 'Enchant', value: 'D4 R2' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D4 R2' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -3366,10 +3189,9 @@ export default {
     rec: 178,
     title: '',
     name: 'Lorenzo',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -3385,10 +3207,9 @@ export default {
     rec: 179,
     title: '',
     name: 'Keiko',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Enchant', value: 'D3 R2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Enchant', value: 'D3 R2' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -3404,10 +3225,9 @@ export default {
     rec: 180,
     title: '',
     name: 'Enriqueta',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3423,10 +3243,9 @@ export default {
     rec: 181,
     title: '',
     name: 'Gwyneth',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -3442,10 +3261,9 @@ export default {
     rec: 182,
     title: 'Esquire',
     name: 'Arlena',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -3461,10 +3279,9 @@ export default {
     rec: 183,
     title: '',
     name: 'Mayme',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -3480,10 +3297,9 @@ export default {
     rec: 184,
     title: '',
     name: 'Lelia',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Enchant', value: 'D1 R1' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Enchant', value: 'D1 R1' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -3499,10 +3315,9 @@ export default {
     rec: 185,
     title: '',
     name: 'Mirella',
-    forePort: { action: { type: 'Enchant', value: 'D1 R1' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R1' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -3518,10 +3333,9 @@ export default {
     rec: 186,
     title: '',
     name: 'Luna',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D4 R2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Enchant', value: 'D4 R2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -3537,10 +3351,9 @@ export default {
     rec: 187,
     title: '',
     name: 'Katelin',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3556,10 +3369,9 @@ export default {
     rec: 188,
     title: 'Lord',
     name: 'Karon',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R1' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Enchant', value: 'D1 R1' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -3575,10 +3387,9 @@ export default {
     rec: 189,
     title: '',
     name: 'Ginny',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -3594,10 +3405,9 @@ export default {
     rec: 190,
     title: 'Duke',
     name: 'Alton',
-    forePort: { action: { type: 'Enchant', value: 'D4 R2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D4 R2' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -3613,10 +3423,9 @@ export default {
     rec: 191,
     title: '',
     name: 'Theressa',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Enchant', value: 'D1 R3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Enchant', value: 'D1 R3' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -3632,10 +3441,9 @@ export default {
     rec: 192,
     title: '',
     name: 'Iraida',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D3 R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Enchant', value: 'D3 R3' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -3651,10 +3459,9 @@ export default {
     rec: 193,
     title: 'Sir',
     name: 'Buford',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -3670,10 +3477,9 @@ export default {
     rec: 194,
     title: '',
     name: 'Delmar',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -3689,10 +3495,9 @@ export default {
     rec: 195,
     title: 'Lord',
     name: 'Onie',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -3708,10 +3513,9 @@ export default {
     rec: 196,
     title: 'Esquire',
     name: 'Doria',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Enchant', value: 'D2 R1' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Enchant', value: 'D2 R1' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3727,10 +3531,9 @@ export default {
     rec: 197,
     title: '',
     name: 'Tamara',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -3746,10 +3549,9 @@ export default {
     rec: 198,
     title: 'Lord',
     name: 'George',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -3765,10 +3567,9 @@ export default {
     rec: 199,
     title: '',
     name: 'Shanon',
-    forePort: { action: { type: 'Enchant', value: 'D1 R3' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D3 R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R3' }, foreStarboard: { type: 'Enchant', value: 'D3 R3' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -3784,10 +3585,9 @@ export default {
     rec: 200,
     title: '',
     name: 'Jaquelyn',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -3803,10 +3603,9 @@ export default {
     rec: 201,
     title: '',
     name: 'Sudie',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -3822,10 +3621,9 @@ export default {
     rec: 202,
     title: '',
     name: 'Bob',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R1' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Enchant', value: 'D1 R1' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -3841,10 +3639,9 @@ export default {
     rec: 203,
     title: 'Fellow',
     name: 'Reita',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3860,10 +3657,9 @@ export default {
     rec: 204,
     title: '',
     name: 'Myrle',
-    forePort: { action: { type: 'Enchant', value: 'D1 R1' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R1' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3879,10 +3675,9 @@ export default {
     rec: 205,
     title: '',
     name: 'Elicia',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D4 R1' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Enchant', value: 'D4 R1' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3898,10 +3693,9 @@ export default {
     rec: 206,
     title: '',
     name: 'Keena',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Enchant', value: 'D4 R3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Enchant', value: 'D4 R3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -3917,10 +3711,9 @@ export default {
     rec: 207,
     title: 'Duke',
     name: 'Hunter',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3936,10 +3729,9 @@ export default {
     rec: 208,
     title: '',
     name: 'Denna',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -3955,10 +3747,9 @@ export default {
     rec: 209,
     title: '',
     name: 'Britta',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -3974,10 +3765,9 @@ export default {
     rec: 210,
     title: '',
     name: 'Stanley',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D5' } },
-    aftPort: { action: { type: 'Enchant', value: 'D1 R2' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D5' }, aftPort: { type: 'Enchant', value: 'D1 R2' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -3993,10 +3783,9 @@ export default {
     rec: 211,
     title: '',
     name: 'Ladonna',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4012,10 +3801,9 @@ export default {
     rec: 212,
     title: '',
     name: 'Lacy',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: true,
     },
@@ -4031,10 +3819,9 @@ export default {
     rec: 213,
     title: '',
     name: 'Tisa',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Enchant', value: 'D1 R1' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Enchant', value: 'D1 R1' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -4050,10 +3837,9 @@ export default {
     rec: 214,
     title: '',
     name: 'Julienne',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -4069,10 +3855,9 @@ export default {
     rec: 215,
     title: '',
     name: 'Nathanial',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4088,10 +3873,9 @@ export default {
     rec: 216,
     title: '',
     name: 'Milan',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -4107,10 +3891,9 @@ export default {
     rec: 217,
     title: '',
     name: 'Liz',
-    forePort: { action: { type: 'Enchant', value: 'D3 R1' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D3 R1' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -4126,10 +3909,9 @@ export default {
     rec: 218,
     title: '',
     name: 'Linnea',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4145,10 +3927,9 @@ export default {
     rec: 219,
     title: 'Duke',
     name: 'Glenna',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4164,10 +3945,9 @@ export default {
     rec: 220,
     title: '',
     name: 'Barbie',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Defend', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Defend', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -4183,10 +3963,9 @@ export default {
     rec: 221,
     title: '',
     name: 'Roselee',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -4202,10 +3981,9 @@ export default {
     rec: 222,
     title: '',
     name: 'Ebony',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -4221,10 +3999,9 @@ export default {
     rec: 223,
     title: 'Sir',
     name: 'Luz',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -4240,10 +4017,9 @@ export default {
     rec: 224,
     title: 'Lord',
     name: 'Eartha',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4259,10 +4035,9 @@ export default {
     rec: 225,
     title: '',
     name: 'Elin',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -4278,10 +4053,9 @@ export default {
     rec: 226,
     title: '',
     name: 'Maurita',
-    forePort: { action: { type: 'Attack', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Fly', value: 'R3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Fly', value: 'R3' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -4297,10 +4071,9 @@ export default {
     rec: 227,
     title: '',
     name: 'Lashaunda',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -4316,10 +4089,9 @@ export default {
     rec: 228,
     title: 'Fellow',
     name: 'Su',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Enchant', value: 'D2 R3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Enchant', value: 'D2 R3' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -4335,10 +4107,9 @@ export default {
     rec: 229,
     title: '',
     name: 'Audria',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4354,10 +4125,9 @@ export default {
     rec: 230,
     title: 'Esquire',
     name: 'Annamarie',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R3' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Enchant', value: 'D1 R3' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -4373,10 +4143,9 @@ export default {
     rec: 231,
     title: '',
     name: 'Camie',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D1 R1' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Enchant', value: 'D1 R1' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -4392,10 +4161,9 @@ export default {
     rec: 232,
     title: 'Lord',
     name: 'Conchita',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -4411,10 +4179,9 @@ export default {
     rec: 233,
     title: '',
     name: 'Leighann',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -4430,10 +4197,9 @@ export default {
     rec: 234,
     title: '',
     name: 'Stephanie',
-    forePort: { action: { type: 'Fly', value: 'R4' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R4' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -4449,10 +4215,9 @@ export default {
     rec: 235,
     title: '',
     name: 'Kerry',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -4468,10 +4233,9 @@ export default {
     rec: 236,
     title: '',
     name: 'Peg',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R4' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Fly', value: 'R4' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -4487,10 +4251,9 @@ export default {
     rec: 237,
     title: 'Duke',
     name: 'Ellie',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Fly', value: 'R5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Fly', value: 'R5' }, aftStarboard: { type: 'Defend', value: 'D4' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
@@ -4506,10 +4269,9 @@ export default {
     rec: 238,
     title: '',
     name: 'Mechelle',
-    forePort: { action: { type: 'Defend', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Fly', value: 'R3' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Fly', value: 'R3' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4525,10 +4287,9 @@ export default {
     rec: 239,
     title: 'Sir',
     name: 'Gertrudis',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4544,10 +4305,9 @@ export default {
     rec: 240,
     title: 'Duke',
     name: 'Celena',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D5' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Defend', value: 'D4' }, aftPort: { type: 'Attack', value: 'D5' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4563,10 +4323,9 @@ export default {
     rec: 241,
     title: 'Duke',
     name: 'Lida',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4582,10 +4341,9 @@ export default {
     rec: 242,
     title: 'Esquire',
     name: 'Mariel',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R5' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Fly', value: 'R5' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: true,
     },
@@ -4601,10 +4359,9 @@ export default {
     rec: 243,
     title: 'Duke',
     name: 'Fredericka',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Enchant', value: 'D2 R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D5' } },
-    aftStarboard: { action: { type: 'Fly', value: 'R4' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Enchant', value: 'D2 R3' }, aftPort: { type: 'Defend', value: 'D5' }, aftStarboard: { type: 'Fly', value: 'R4' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -4620,10 +4377,9 @@ export default {
     rec: 244,
     title: '',
     name: 'Tran',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4639,10 +4395,9 @@ export default {
     rec: 245,
     title: 'Esquire',
     name: 'Albert',
-    forePort: { action: { type: 'Defend', value: 'D3' } },
-    foreStarboard: { action: { type: 'Fly', value: 'R3' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D2 R3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D3' }, foreStarboard: { type: 'Fly', value: 'R3' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Enchant', value: 'D2 R3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: false, port: false, forePort: false,
     },
@@ -4658,10 +4413,9 @@ export default {
     rec: 246,
     title: '',
     name: 'Jeanmarie',
-    forePort: { action: { type: 'Fly', value: 'R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R3' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4677,10 +4431,9 @@ export default {
     rec: 247,
     title: '',
     name: 'Illa',
-    forePort: { action: { type: 'Defend', value: 'D2' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D2' } },
-    aftPort: { action: { type: 'Fly', value: 'R4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D3' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D2' }, foreStarboard: { type: 'Attack', value: 'D2' }, aftPort: { type: 'Fly', value: 'R4' }, aftStarboard: { type: 'Attack', value: 'D3' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: true, forePort: true,
     },
@@ -4696,10 +4449,9 @@ export default {
     rec: 248,
     title: 'Sir',
     name: 'Kyra',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Defend', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Defend', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -4715,10 +4467,9 @@ export default {
     rec: 249,
     title: '',
     name: 'Samuel',
-    forePort: { action: { type: 'Defend', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D2' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Defend', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D3' }, aftPort: { type: 'Attack', value: 'D2' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: true, aftPort: true, port: false, forePort: false,
     },
@@ -4734,10 +4485,9 @@ export default {
     rec: 250,
     title: '',
     name: 'Bonita',
-    forePort: { action: { type: 'Enchant', value: 'D1 R3' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Enchant', value: 'D1 R3' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -4753,10 +4503,9 @@ export default {
     rec: 251,
     title: 'Esquire',
     name: 'Alysha',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D4' } },
-    aftPort: { action: { type: 'Attack', value: 'D3' } },
-    aftStarboard: { action: { type: 'Enchant', value: 'D3 R2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D4' }, aftPort: { type: 'Attack', value: 'D3' }, aftStarboard: { type: 'Enchant', value: 'D3 R2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -4772,10 +4521,9 @@ export default {
     rec: 252,
     title: '',
     name: 'Shyla',
-    forePort: { action: { type: 'Attack', value: 'D2' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D2' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D5' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D2' }, foreStarboard: { type: 'Defend', value: 'D2' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D5' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: true, aft: false, aftPort: true, port: true, forePort: true,
     },
@@ -4791,10 +4539,9 @@ export default {
     rec: 253,
     title: '',
     name: 'Freddie',
-    forePort: { action: { type: 'Attack', value: 'D5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Defend', value: 'D4' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D5' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Defend', value: 'D4' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: false,
     },
@@ -4810,10 +4557,9 @@ export default {
     rec: 254,
     title: '',
     name: 'Tomas',
-    forePort: { action: { type: 'Fly', value: 'R5' } },
-    foreStarboard: { action: { type: 'Attack', value: 'D5' } },
-    aftPort: { action: { type: 'Enchant', value: 'D4 R3' } },
-    aftStarboard: { action: { type: 'Defend', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Fly', value: 'R5' }, foreStarboard: { type: 'Attack', value: 'D5' }, aftPort: { type: 'Enchant', value: 'D4 R3' }, aftStarboard: { type: 'Defend', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: false, starboard: false, aftStarboard: false, aft: false, aftPort: false, port: false, forePort: true,
     },
@@ -4829,10 +4575,9 @@ export default {
     rec: 255,
     title: '',
     name: 'Delicia',
-    forePort: { action: { type: 'Attack', value: 'D4' } },
-    foreStarboard: { action: { type: 'Defend', value: 'D3' } },
-    aftPort: { action: { type: 'Attack', value: 'D4' } },
-    aftStarboard: { action: { type: 'Attack', value: 'D2' } },
+    actions: {
+      forePort: { type: 'Attack', value: 'D4' }, foreStarboard: { type: 'Defend', value: 'D3' }, aftPort: { type: 'Attack', value: 'D4' }, aftStarboard: { type: 'Attack', value: 'D2' },
+    },
     movement: {
       fore: true, foreStarboard: true, starboard: true, aftStarboard: false, aft: false, aftPort: false, port: true, forePort: true,
     },
