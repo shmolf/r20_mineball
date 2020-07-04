@@ -1,5 +1,5 @@
 import { getPlayers, deserializePlayerObject } from 'Players/PlayerPool';
-import RunCommand from 'Commands/CommandLibrary';
+import RunCommand from 'App/Commands/Library';
 import { playerCommandId, apiCommandId } from 'Commands/Command';
 import TokenListeners from 'Graphics/Tokens';
 import { mbSetupGameState } from 'App/modules/State';
