@@ -2,12 +2,13 @@
 
 import mbCARDDATA from 'Cards/Library';
 
+// eslint-disable-next-line max-len
+export const defaultGraphic = 'https://s3.amazonaws.com/files.d20.io/images/141291438/6TAoheVCteGgoN4BW3tmzA/original.png?15914477175';
+
 /**
  * @returns {void}
  */
 export function mbRebuildAllCharacterSheets() {
-  // eslint-disable-next-line max-len
-  const defaultGraphic = 'https://s3.amazonaws.com/files.d20.io/images/141291438/6TAoheVCteGgoN4BW3tmzA/original.png?15914477175';
   sendChat('API !-mb', '/w gm Start: mbRebuildAllCharacterSheets()');
   sendChat('API !-mb', `/w gm Building ${mbCARDDATA.length - 1} cards.`);
 
