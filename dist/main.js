@@ -9274,7 +9274,56 @@ class InitCommand_InitCommand extends Command {
   }
 }
 
+// CONCATENATED MODULE: ./src/Commands/ShowCommand.js
+/**
+ * @namespace App.Commands
+ */
+
+
+
+
+class ShowCommand_ShowCommand extends Command {
+  constructor() {
+    super();
+
+    this.cmd = 'show';
+    this.desc = 'Show command for various game data such as state.';
+    this.func = this.runSubCommand;
+    /**
+     * @param {string} who - layer's human name
+     * @param {string} playerId - reference of the player
+     * @param {string[]} args - arguments for the command
+     */
+    // eslint-disable-next-line no-unused-vars
+    this.help = (who, playerId, args) => {
+      sendChat(
+        'Mine Ball Help',
+        `/w ${who}
+        <p>Show GameState - Dump the game state to the chat window.</p>
+        <p>Show SavedGames - Show all of the previously saved games.</p>
+        `,
+      );
+    };
+
+    this.subCommands = {
+      newgame: {
+        gmOnly: false,
+        internal: false,
+        func: mbShowGameState,
+        paramList: [],
+      },
+      savedGame: {
+        gmOnly: false,
+        internal: false,
+        func: log('*** SavedGames still needs to be implimented.'),
+        paramList: [],
+      },
+    };
+  }
+}
+
 // CONCATENATED MODULE: ./src/Commands/Library.js
+
 
 
 
@@ -9298,6 +9347,8 @@ const startCommand = new StartCommand_StartCommand();
 commandList[startCommand.cmd] = startCommand;
 const initCommand = new InitCommand_InitCommand();
 commandList[initCommand.cmd] = initCommand;
+const showCommand = new ShowCommand_ShowCommand();
+commandList[showCommand.cmd] = showCommand;
 
 /**
  * @param {string} pluginCommandRef
@@ -9326,6 +9377,9 @@ function RunCommand(pluginCommandRef, command, args, who, playerId) {
       break;
     case initCommand.cmd:
       InitCommand_InitCommand.func(who, playerId, args);
+      break;
+    case showCommand.cmd:
+      ShowCommand_ShowCommand.func(who, playerId, args);
       break;
     case helpCommand.cmd:
     default:
