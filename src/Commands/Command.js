@@ -58,7 +58,7 @@ export default class Command {
    * @param {string[]} args - arguments for the command
    */
   runSubCommand(who, playerId, args) {
-    try{
+    try {
       const subCmdRef = args.shift().toLowerCase();
       if (subCmdRef in this.subCommands) {
         /** @type {SubCommand} */
@@ -73,11 +73,9 @@ export default class Command {
       } else {
         this.help(who, playerId, args);
       }
-    }
-    catch(err)
-    {
+    } catch (err) {
       this.help(who, playerId, args);
-      log(['Command Error',err.message]);
+      log(['Command Error', err.message]);
     }
   }
 }

@@ -6,12 +6,12 @@ import Command from 'Commands/Command';
 import { mbResetGameState } from 'App/modules/State';
 import { mbRebuildAllCharacterSheets } from 'App/modules/CharacterSheets';
 
-export default class ResetCommand extends Command {
+export default class InitCommand extends Command {
   constructor() {
     super();
 
-    this.cmd = 'reset';
-    this.desc = 'Reset command for various game systems such as State.';
+    this.cmd = 'init';
+    this.desc = 'Init command for various game systems such as State.';
     this.func = this.runSubCommand;
     /**
      * @param {string} who - layer's human name
@@ -23,8 +23,8 @@ export default class ResetCommand extends Command {
       sendChat(
         'Mine Ball Help',
         `/w ${who}
-        <p>Reset GameState - Resets the game state to it's initial values.</p>
-        <p>Reset Cards - Rebuilds the game cards.</p>
+        <p>Init GameState - Initializes the game state to it's initial values.</p>
+        <p>Init Cards - Rebuilds the game cards.</p>
         `,
       );
     };

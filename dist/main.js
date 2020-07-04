@@ -585,6 +585,9 @@ class HelpCommand_HelpCommand extends Command {
         // Let's grab a list of all param examples, and join them with spaces.
         /** @type {string} */
         const paramExample = commandInstance.paramList.join(' ');
+        if (commandInstance.internal || commandInstance.gmOnly) {
+          return '';
+        }
         return `<hr><pre>!${playerCommandId} ${commandInstance.cmd} ${paramExample}</pre>
           <p>${commandInstance.desc}</p>`;
       }
@@ -1385,6 +1388,8 @@ const resetPlayersCommand = new ResetPlayersCommand_ResetPlayersCommand();
 commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
 const startCommand = new StartCommand_StartCommand();
 commandList[startCommand.cmd] = startCommand;
+const resetCommand = new StartCommand_StartCommand();
+commandList[resetCommand.cmd] = resetCommand;
 
 /**
  * @param {string} pluginCommandRef
@@ -1408,9 +1413,12 @@ function RunCommand(pluginCommandRef, command, args, who, playerId) {
       }
       resetPlayersCommand.func();
       break;
-   case startCommand.cmd:
+    case startCommand.cmd:
         startCommand.func(who, playerId, args);
         break;
+    case resetCommand.cmd:
+      startCommand.func(who, playerId, args);
+      break;
     case helpCommand.cmd:
     default:
       helpCommand.func(who);

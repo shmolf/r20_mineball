@@ -4,6 +4,7 @@ import HelpCommand from 'Commands/HelpCommand';
 import WhoAmICommand from 'Commands/WhoAmICommand';
 import ResetPlayersCommand from 'Commands/ResetPlayersCommand';
 import StartCommand from 'Commands/StartCommand';
+import InitCommand from 'Commands/InitCommand';
 
 /** @type {Object.<string, Command>} */
 const commandList = {};
@@ -18,8 +19,8 @@ const resetPlayersCommand = new ResetPlayersCommand();
 commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
 const startCommand = new StartCommand();
 commandList[startCommand.cmd] = startCommand;
-const resetCommand = new StartCommand();
-commandList[resetCommand.cmd] = resetCommand;
+const initCommand = new InitCommand();
+commandList[initCommand.cmd] = initCommand;
 
 /**
  * @param {string} pluginCommandRef
@@ -44,10 +45,10 @@ export default function RunCommand(pluginCommandRef, command, args, who, playerI
       resetPlayersCommand.func();
       break;
     case startCommand.cmd:
-        startCommand.func(who, playerId, args);
-        break;
-    case resetCommand.cmd:
       startCommand.func(who, playerId, args);
+      break;
+    case initCommand.cmd:
+      InitCommand.func(who, playerId, args);
       break;
     case helpCommand.cmd:
     default:
