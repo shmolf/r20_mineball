@@ -18,6 +18,8 @@ const resetPlayersCommand = new ResetPlayersCommand();
 commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
 const startCommand = new StartCommand();
 commandList[startCommand.cmd] = startCommand;
+const resetCommand = new StartCommand();
+commandList[resetCommand.cmd] = resetCommand;
 
 /**
  * @param {string} pluginCommandRef
@@ -41,9 +43,12 @@ export default function RunCommand(pluginCommandRef, command, args, who, playerI
       }
       resetPlayersCommand.func();
       break;
-   case startCommand.cmd:
+    case startCommand.cmd:
         startCommand.func(who, playerId, args);
         break;
+    case resetCommand.cmd:
+      startCommand.func(who, playerId, args);
+      break;
     case helpCommand.cmd:
     default:
       helpCommand.func(who);
