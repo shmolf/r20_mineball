@@ -5,6 +5,7 @@ import WhoAmICommand from 'Commands/WhoAmICommand';
 import ResetPlayersCommand from 'Commands/ResetPlayersCommand';
 import StartCommand from 'Commands/StartCommand';
 import InitCommand from 'Commands/InitCommand';
+import ShowCommand from 'Commands/ShowCommand';
 
 /** @type {Object.<string, Command>} */
 const commandList = {};
@@ -50,7 +51,10 @@ export default function RunCommand(pluginCommandRef, command, args, who, playerI
     case initCommand.cmd:
       InitCommand.func(who, playerId, args);
       break;
-    case helpCommand.cmd:
+    case showCommand.cmd:
+      ShowCommand.func(who, playerId, args);
+      break;
+      case helpCommand.cmd:
     default:
       helpCommand.func(who);
   }
