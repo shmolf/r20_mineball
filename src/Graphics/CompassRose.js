@@ -2,7 +2,7 @@
 // This module was added by Mike Lakner to house the code supporting the CompassRose.
 // -----
 import { mbPlaceTerrain } from 'Lib/Board';
-import { createTableGraphic } from 'Graphics/Lib';
+import { createTableGraphic } from 'Graphics/Library';
 /**
  *
  */

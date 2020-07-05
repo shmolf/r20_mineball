@@ -5,7 +5,7 @@
 //   and then the original card removed from the table.
 
 import { mbIsSomethingHere } from 'Lib/Board';
-import { createTableGraphic } from 'Graphics/Lib';
+import { createTableGraphic } from 'Graphics/Library';
 
 /**
  * @param {Roll20Object} obj
@@ -66,8 +66,8 @@ const handleAddCard = (obj, prevObj) => {
   // eslint-disable-next-line no-unused-vars
   // const playerID = linkCardToPlayer(obj);
   // Let players know who dropped this card.
-  var thePlayer = getObj('player', thePlayerID);
-  var displayName = thePlayer.get('displayname');
+  const thePlayer = getObj('player', thePlayerID);
+  const displayName = thePlayer.get('displayname');
   sendChat('Mine Ball', `${displayName} placed ${cardName}.`);
 };
 
