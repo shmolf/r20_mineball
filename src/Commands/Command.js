@@ -75,7 +75,7 @@ export default class Command {
       }
     } catch (err) {
       this.help(who, playerId, args);
-      log(['Command Error', err.message]);
+      log(['Command Error', err.message,args]);
     }
   }
 }
