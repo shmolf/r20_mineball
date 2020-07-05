@@ -58,24 +58,18 @@ export default class Command {
    * @param {string[]} args - arguments for the command
    */
   runSubCommand(who, playerId, args) {
-    try {
-      const subCmdRef = args.shift().toLowerCase();
-      if (subCmdRef in this.subCommands) {
-        /** @type {SubCommand} */
-        const subCommand = this.subCommands[subCmdRef];
+    const subCmdRef = args.length >= 1 ? args.shift().toLowerCase() : '';
+    if (subCmdRef in this.subCommands) {
+      /** @type {SubCommand} */
+      const subCommand = this.subCommands[subCmdRef];
 
-        // Let's check if a non-GM is trying to run a GM command
-        if (subCommand.gmOnly === true && playerIsGM(playerId) === false) {
-          return;
-        }
-
-        subCommand.func(who, playerId, args);
-      } else {
-        this.help(who, playerId, args);
+      // Let's check if a non-GM is trying to run a GM command
+      if (subCommand.gmOnly === true && playerIsGM(playerId) === false) {
+        return;
       }
-    } catch (err) {
+      subCommand.func(who, playerId, args);
+    } else {
       this.help(who, playerId, args);
-      log(['Command Error', err.message,args]);
     }
   }
 }
