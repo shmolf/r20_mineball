@@ -5,16 +5,9 @@ import { createTableGraphic } from 'Graphics/Library';
 import { handleGraphicChange } from 'Graphics/Tokens';
 
 /**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-export function mbHandleReticleMove(theObj) {
-  log(['Reticle Move', { theObj }]);
-}
-/**
  *
  */
-export function mbPlaceReticle() {
+export default function mbPlaceReticle() {
   log('Place Reticle.');
   // Remember state flage
   const wasBusy = state.mbBR549.AmBusy;

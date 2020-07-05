@@ -3,8 +3,8 @@
 // -----
 import mbPlaceCompassRose from 'Graphics/CompassRose';
 import { mbResetGameState } from 'App/modules/State';
-import { mbPlaceReticle } from 'Graphics/Reticle';
-import { mbPlaceLoop } from 'Graphics/Loop';
+import mbPlaceReticle from 'Graphics/Reticle';
+import mbPlaceLoop from 'Graphics/Loop';
 import { mbDealMineBallCards, mbDealTerrainCards } from 'App/Play/Cards';
 import { mbResetBasicBoard, mbClearBoard } from 'Lib/Board';
 

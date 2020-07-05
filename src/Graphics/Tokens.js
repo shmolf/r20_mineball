@@ -3,8 +3,11 @@
 // -----
 
 import { createTableGraphic } from 'Graphics/Library';
-import { mbHandleLoopMove } from 'Graphics/Loop';
-import { mbHandleReticleMove } from 'Graphics/Reticle';
+
+// What are our sizes
+const mySize = 140;
+const halfHeight = mySize / 2;
+const halfWidth = mySize / 2;
 
 /**
  * @param {Roll20Object} obj
@@ -46,32 +49,9 @@ export function handleGraphicChange(obj) {
   }
   // Log this event
   log(['Handle Graphic Change', obj]);
-  // What are our sizes
-  const mySize = 140;
-  const halfHeight = mySize / 2;
-  const halfWidth = mySize / 2;
-  // Normalize rotation to cardinal positions
-  // But really we should disallow player rotations and only allow through buttons
-  const theRotation = obj.get('rotation');
-  if (((theRotation >= 315) || (theRotation <= 44)) && (theRotation !== 0)) obj.set('rotation', 0);
-  else if (((theRotation >= 45) && (theRotation <= 134)) && (theRotation !== 90)) obj.set('rotation', 90);
-  else if (((theRotation >= 135) && (theRotation <= 224)) && (theRotation !== 180)) obj.set('rotation', 180);
-  else if (((theRotation >= 225) && (theRotation <= 314)) && (theRotation !== 270)) obj.set('rotation', 270);
-  log(['Rotation: ', { From: theRotation, To: obj.get('rotation') }]);
-  // Resize this thing if necessary
-  if (obj.get('height') !== mySize) obj.set('height', mySize);
-  if (obj.get('width') !== mySize) obj.set('width', mySize);
-  // Figure out what grid it should be on
-  const newGridLeft = Math.floor((obj.get('left') - 1) / mySize);
-  const newGridTop = Math.floor((obj.get('top') - 1) / mySize);
-  log(['NewGrid: ', { Left: newGridLeft, Top: newGridTop }]);
-  // Calculate the actual coordinates
-  const newCoordLeft = (newGridLeft * mySize) + halfWidth;
-  const newCoordTop = (newGridTop * mySize) + halfHeight;
-  log(['NewCoord: ', { Left: newCoordLeft, Top: newCoordTop }]);
-  // Realign if not already aligned
-  if (obj.get('left') !== newCoordLeft) obj.set('left', newCoordLeft);
-  if (obj.get('top') !== newCoordTop) obj.set('top', newCoordTop);
+  alignRotation(obj);
+  resizeToStandard(obj);
+  realignToGrid(obj);
   // Is it the Loop or Reticle?
   if ('!Reticle!Loop!'.indexOf(obj.get('name')) !== -1) {
     // Yes, send it to the front
@@ -95,6 +75,64 @@ export function handleGraphicChange(obj) {
 
   // Now ping both and draw everyone to this location after 1 second delay
   setTimeout(() => sendPing(obj.get('left'), obj.get('top'), Campaign().get('playerpageid'), null, true, ''), 1000);
+}
+
+/**
+ * Normalize rotation to cardinal positions
+ * But really we should disallow player rotations and only allow through buttons
+ *
+ * @param {Roll20Object} graphicObj
+ */
+function alignRotation(graphicObj) {
+  const theRotation = graphicObj.get('rotation');
+  if (((theRotation >= 315) || (theRotation <= 44)) && (theRotation !== 0)) graphicObj.set('rotation', 0);
+  else if (((theRotation >= 45) && (theRotation <= 134)) && (theRotation !== 90)) graphicObj.set('rotation', 90);
+  else if (((theRotation >= 135) && (theRotation <= 224)) && (theRotation !== 180)) graphicObj.set('rotation', 180);
+  else if (((theRotation >= 225) && (theRotation <= 314)) && (theRotation !== 270)) graphicObj.set('rotation', 270);
+  log(['Rotation: ', { From: theRotation, To: graphicObj.get('rotation') }]);
+}
+
+/**
+ * Resize this thing if necessary
+ *
+ * @param {Roll20Object} graphicObj
+ */
+function resizeToStandard(graphicObj) {
+  if (graphicObj.get('height') !== mySize) graphicObj.set('height', mySize);
+  if (graphicObj.get('width') !== mySize) graphicObj.set('width', mySize);
+}
+
+/**
+ * Reposition the graphic to it's nestled within a Grid Square
+ *
+ * @param {Roll20Object} graphicObj
+ */
+function realignToGrid(graphicObj) {
+  // Figure out what grid it should be on
+  const newGridLeft = Math.floor((graphicObj.get('left') - 1) / mySize);
+  const newGridTop = Math.floor((graphicObj.get('top') - 1) / mySize);
+  log(['NewGrid: ', { Left: newGridLeft, Top: newGridTop }]);
+  // Calculate the actual coordinates
+  const newCoordLeft = (newGridLeft * mySize) + halfWidth;
+  const newCoordTop = (newGridTop * mySize) + halfHeight;
+  log(['NewCoord: ', { Left: newCoordLeft, Top: newCoordTop }]);
+  // Realign if not already aligned
+  if (graphicObj.get('left') !== newCoordLeft) graphicObj.set('left', newCoordLeft);
+  if (graphicObj.get('top') !== newCoordTop) graphicObj.set('top', newCoordTop);
+}
+
+/**
+ * @param {Roll20Object} theObj
+ */
+function mbHandleReticleMove(theObj) {
+  log(['Reticle Move', { theObj }]);
+}
+
+/**
+ * @param {Roll20Object} theObj
+ */
+export function mbHandleLoopMove(theObj) {
+  log(['Loop Move', { theObj }]);
 }
 
 /**

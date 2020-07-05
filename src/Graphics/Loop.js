@@ -3,17 +3,11 @@
 // -----
 import { createTableGraphic } from 'Graphics/Library';
 import { handleGraphicChange } from 'Graphics/Tokens';
-/**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-export function mbHandleLoopMove(theObj) {
-  log(['Loop Move', { theObj }]);
-}
+
 /**
  *
  */
-export function mbPlaceLoop() {
+export default function mbPlaceLoop() {
   log('Place Loop.');
   // Remember state flage
   const wasBusy = state.mbBR549.AmBusy;
