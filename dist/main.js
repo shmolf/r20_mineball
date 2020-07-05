@@ -745,7 +745,7 @@ function createTableGraphic(theName, theImage, theLeft, theTop, theHeight, theWi
   );
 
   // Now ensure it looks and is where we want.
-  // handleGraphicChange(newObj);
+  handleGraphicChange(newObj);
   return newObj;
 }
 
@@ -783,7 +783,7 @@ function mbIsSomethingHere(theLeft, theTop) {
  * @param {number} theLeft
  * @param {number} theTop
  */
-function mbPlaceTerrain(theType, theLeft, theTop) {
+function mbPlaceTerrain(theType, theLeft, theTop, theOwner) {
   log('Place Terrain.');
   // Remember state flage
   // eslint-disable-next-line no-unused-vars
@@ -809,8 +809,10 @@ function mbPlaceTerrain(theType, theLeft, theTop) {
     140,
     'map',
   );
-    // Bring it to the front
+  // Bring it to the front
   toFront(theTerrain);
+  // Add to the state and set the ownership
+  state.mbBR549.TerrainCardsInPlay[theChars[0].get('name')] = { playerID: '', inhand: false };
 }
 
 /**
@@ -932,31 +934,31 @@ function mbPlaceCompassRose() {
         theRose.set('rotation', 0);
     }
   }
-  // Now place one of each terrains arround CompassRose
+  // Now place one of each terrains arround CompassRose with no ownership
   switch (theRose.get('rotation')) {
     case 0:
-      mbPlaceTerrain('Earth', 1050 - 140, 1050 - 140);
-      mbPlaceTerrain('Wind', 1050 + 140, 1050 - 140);
-      mbPlaceTerrain('Fire', 1050 + 140, 1050 + 140);
-      mbPlaceTerrain('Water', 1050 - 140, 1050 + 140);
+      mbPlaceTerrain('Earth', 1050 - 140, 1050 - 140,'');
+      mbPlaceTerrain('Wind', 1050 + 140, 1050 - 140,'');
+      mbPlaceTerrain('Fire', 1050 + 140, 1050 + 140,'');
+      mbPlaceTerrain('Water', 1050 - 140, 1050 + 140,'');
       break;
     case 90:
-      mbPlaceTerrain('Earth', 1050 + 140, 1050 - 140);
-      mbPlaceTerrain('Wind', 1050 + 140, 1050 + 140);
-      mbPlaceTerrain('Fire', 1050 - 140, 1050 + 140);
-      mbPlaceTerrain('Water', 1050 - 140, 1050 - 140);
+      mbPlaceTerrain('Earth', 1050 + 140, 1050 - 140,'');
+      mbPlaceTerrain('Wind', 1050 + 140, 1050 + 140,'');
+      mbPlaceTerrain('Fire', 1050 - 140, 1050 + 140,'');
+      mbPlaceTerrain('Water', 1050 - 140, 1050 - 140,'');
       break;
     case 180:
-      mbPlaceTerrain('Earth', 1050 + 140, 1050 + 140);
-      mbPlaceTerrain('Wind', 1050 - 140, 1050 + 140);
-      mbPlaceTerrain('Fire', 1050 - 140, 1050 - 140);
-      mbPlaceTerrain('Water', 1050 + 140, 1050 - 140);
+      mbPlaceTerrain('Earth', 1050 + 140, 1050 + 140,'');
+      mbPlaceTerrain('Wind', 1050 - 140, 1050 + 140,'');
+      mbPlaceTerrain('Fire', 1050 - 140, 1050 - 140,'');
+      mbPlaceTerrain('Water', 1050 + 140, 1050 - 140,'');
       break;
     default:
-      mbPlaceTerrain('Earth', 1050 - 140, 1050 + 140);
-      mbPlaceTerrain('Wind', 1050 - 140, 1050 - 140);
-      mbPlaceTerrain('Fire', 1050 + 140, 1050 - 140);
-      mbPlaceTerrain('Water', 1050 + 140, 1050 + 140);
+      mbPlaceTerrain('Earth', 1050 - 140, 1050 + 140,'');
+      mbPlaceTerrain('Wind', 1050 - 140, 1050 - 140,'');
+      mbPlaceTerrain('Fire', 1050 + 140, 1050 - 140,'');
+      mbPlaceTerrain('Water', 1050 + 140, 1050 + 140,'');
   }
   // Reset the flags
   state.mbBR549.AmBusy = wasBusy;
@@ -1051,10 +1053,10 @@ function mbPlaceReticle() {
     1050,
     140,
     140,
-    'objects',
+    'map',
   );
-    // Bring it to the front
-  toFront(theReticle);
+    // Send it to the back to hide it until needed
+  toBack(theReticle);
   // Reset the flags
   state.mbBR549.AmBusy = wasBusy;
   state.mbBR549.AllowDelete = wasAllowDelete;
@@ -9421,7 +9423,7 @@ function handleGraphicDestruction(obj, prevObj) {
 /**
  * @param {Roll20Object} obj
  */
-function handleGraphicChange(obj) {
+function Tokens_handleGraphicChange(obj) {
   // Return based on state switches
   if ((state.mbBR549.Manual === true) || (state.mbBR549.InSetup === true)) {
     log(['Handle Graphic Alignment Aborted', { state }]);
@@ -9486,9 +9488,9 @@ function handleGraphicChange(obj) {
 function TokenListeners() {
   // Handle the placement of new cards
   // Trigger on position change to ensure alignment even with {Alt} held down.
-  on('change:graphic:left', handleGraphicChange);
-  on('change:graphic:top', handleGraphicChange);
-  on('change:graphic:rotation', handleGraphicChange);
+  on('change:graphic:left', Tokens_handleGraphicChange);
+  on('change:graphic:top', Tokens_handleGraphicChange);
+  on('change:graphic:rotation', Tokens_handleGraphicChange);
   // Trigger on deletion of a graphic
   on('destroy:graphic', handleGraphicDestruction);
 }
