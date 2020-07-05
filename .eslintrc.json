@@ -18,7 +18,6 @@
         "findObjs": "readonly",
         "log": "readonly",
         "createObj": "readonly",
-        "createTableGraphic": "readonly",
         "getAttrByName": "readonly",
         "playerIsGM": "readonly",
         "toFront": "readonly",

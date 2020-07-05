@@ -3,6 +3,8 @@
 // -----
 import { mbPlaceTerrain } from 'Lib/Board';
 import { createTableGraphic } from 'Graphics/Library';
+import { handleGraphicChange } from 'Graphics/Tokens';
+
 /**
  *
  */
@@ -29,6 +31,7 @@ export default function mbPlaceCompassRose() {
     140,
     'map',
   );
+  handleGraphicChange(theRose);
   // Bring it to the front
   toFront(theRose);
   // Now rotate it random times

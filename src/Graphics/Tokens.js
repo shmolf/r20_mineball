@@ -23,7 +23,7 @@ export function handleGraphicDestruction(obj, prevObj) {
     return;
   }
   // Create a new version
-  createTableGraphic(
+  const theObject = createTableGraphic(
     obj.get('name'),
     obj.get('imgsrc'),
     obj.get('left'),
@@ -32,6 +32,7 @@ export function handleGraphicDestruction(obj, prevObj) {
     obj.get('width'),
     'objects',
   );
+  handleGraphicChange(theObject);
 }
 
 /**

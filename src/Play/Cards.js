@@ -6,6 +6,7 @@
 
 import { mbIsSomethingHere } from 'Lib/Board';
 import { createTableGraphic } from 'Graphics/Library';
+import { handleGraphicChange } from 'Graphics/Tokens';
 
 /**
  * @param {Roll20Object} obj
@@ -51,7 +52,7 @@ const handleAddCard = (obj, prevObj) => {
   // Change the state to reflect that it's no nonger inhand
   state.mbBR549.TerrainCardsInPlay[cardName].inhand = false;
   // Create the object
-  createTableGraphic(
+  const theCard = createTableGraphic(
     cardName,
     obj.get('imgsrc'),
     obj.get('left'),
@@ -60,6 +61,7 @@ const handleAddCard = (obj, prevObj) => {
     obj.get('width'),
     theLayer,
   );
+  handleGraphicChange(theCard);
   // Remove the actual card
   setTimeout(() => obj.remove(), 100);
   // Link the card to the player

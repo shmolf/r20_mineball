@@ -2,6 +2,7 @@
 // This module was added by Mike Lakner to house the code supporting what is happening on the game board.
 // -----
 import { createTableGraphic } from 'Graphics/Library';
+import { handleGraphicChange } from 'Graphics/Tokens';
 
 /**
  * @param {number} theLeft
@@ -58,6 +59,7 @@ export function mbPlaceTerrain(theType, theLeft, theTop, theOwner) {
     140,
     'map',
   );
+  handleGraphicChange(theTerrain);
   // Bring it to the front
   toFront(theTerrain);
   // Add to the state and set the ownership
@@ -117,7 +119,7 @@ export function mbResetBasicBoard() {
   // Put the background tile up
   const backgroundObj = findObjs({ _type: 'character', name: 'Background' });
   log(['Dump', { backgroundObj }]);
-  createTableGraphic(
+  const theBoard = createTableGraphic(
     'Background',
     backgroundObj[0].get('avatar'),
     1050,
@@ -126,6 +128,7 @@ export function mbResetBasicBoard() {
     2100,
     'map',
   );
+  handleGraphicChange(theBoard);
   // Reset the AmBusy flag
   state.mbBR549.AmBusy = wasBusy;
   state.mbBR549.AllowDelete = wasAllowDelete;

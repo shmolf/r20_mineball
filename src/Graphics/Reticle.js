@@ -2,6 +2,8 @@
 // This module was added by Mike Lakner to house the code supporting the Reticle.
 // -----
 import { createTableGraphic } from 'Graphics/Library';
+import { handleGraphicChange } from 'Graphics/Tokens';
+
 /**
  * @param {Roll20Object} theObj
  */
@@ -35,7 +37,8 @@ export function mbPlaceReticle() {
     140,
     'map',
   );
-    // Send it to the back to hide it until needed
+  handleGraphicChange(theReticle);
+  // Send it to the back to hide it until needed
   toBack(theReticle);
   // Reset the flags
   state.mbBR549.AmBusy = wasBusy;
