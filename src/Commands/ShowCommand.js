@@ -29,13 +29,13 @@ export default class ShowCommand extends Command {
     };
 
     this.subCommands = {
-      newgame: {
+      gamestate: {
         gmOnly: false,
         internal: false,
         func: mbShowGameState,
         paramList: [],
       },
-      savedGame: {
+      savedgames: {
         gmOnly: false,
         internal: false,
         func: log('*** SavedGames still needs to be implimented.'),
