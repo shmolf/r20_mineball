@@ -5,6 +5,8 @@
 // Card must be cloned to a graphic that is linked to a character (matching card name)
 //   and then the original card removed from the table.
 
+import { handleGraphicChange } from 'Graphics/Tokens';
+
 /**
  * Suggested and offered by Aaron to avoid an error when placing card
  *
@@ -55,7 +57,6 @@ export function createTableGraphic(theName, theImage, theLeft, theTop, theHeight
   );
 
   // Now ensure it looks and is where we want.
-  function Tokens_handleGraphicChange(obj) {
-    (newObj);
+  handleGraphicChange(newObj);
   return newObj;
 }

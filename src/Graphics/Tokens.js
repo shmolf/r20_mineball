@@ -10,7 +10,7 @@ import { mbHandleReticleMove } from 'Graphics/Reticle';
  * @param {Roll20Object} obj
  * @param {*} prevObj
  */
-function handleGraphicDestruction(obj, prevObj) {
+export function handleGraphicDestruction(obj, prevObj) {
   // Return based on state switches
   if ((state.mbBR549.Manual === true) || (state.mbBR549.AllowDelete === true)) {
     log(['Handle Graphic Destruction Aborted', { state }]);
@@ -37,7 +37,7 @@ function handleGraphicDestruction(obj, prevObj) {
 /**
  * @param {Roll20Object} obj
  */
-function handleGraphicChange(obj) {
+export function handleGraphicChange(obj) {
   // Return based on state switches
   if ((state.mbBR549.Manual === true) || (state.mbBR549.InSetup === true)) {
     log(['Handle Graphic Alignment Aborted', { state }]);
