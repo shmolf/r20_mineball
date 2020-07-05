@@ -55,6 +55,7 @@ export function createTableGraphic(theName, theImage, theLeft, theTop, theHeight
   );
 
   // Now ensure it looks and is where we want.
-  handleGraphicChange(newObj);
+  function Tokens_handleGraphicChange(obj) {
+    (newObj);
   return newObj;
 }
