@@ -58,7 +58,7 @@ export default class Command {
    * @param {string[]} args - arguments for the command
    */
   runSubCommand(who, playerId, args) {
-    const subCmdRef = args.shift().toLowerCase();
+    const subCmdRef = args.length >= 1 ? args.shift().toLowerCase() : '';
     if (subCmdRef in this.subCommands) {
       /** @type {SubCommand} */
       const subCommand = this.subCommands[subCmdRef];
@@ -67,7 +67,6 @@ export default class Command {
       if (subCommand.gmOnly === true && playerIsGM(playerId) === false) {
         return;
       }
-
       subCommand.func(who, playerId, args);
     } else {
       this.help(who, playerId, args);

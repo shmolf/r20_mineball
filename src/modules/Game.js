@@ -2,6 +2,7 @@
 // This module was added by Mike Lakner to house the lions share of mechanics of the game play.
 // -----
 import mbPlaceCompassRose from 'Graphics/CompassRose';
+import { mbResetGameState } from 'App/modules/State';
 import { mbPlaceReticle } from 'Graphics/Reticle';
 import { mbPlaceLoop } from 'Graphics/Loop';
 import { mbDealMineBallCards, mbDealTerrainCards } from 'App/Play/Cards';
@@ -13,6 +14,8 @@ import { mbResetBasicBoard, mbClearBoard } from 'Lib/Board';
 export function mbStartNewGame() {
   // Log it down
   log('Start new game.');
+  // Reset the game state
+  mbResetGameState();
   // Return based on state switches
   if (state.mbBR549.InSetup === true) {
     log(['Start New Game Aborted', { state }]);

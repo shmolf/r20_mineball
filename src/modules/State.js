@@ -39,3 +39,11 @@ export function mbResetGameState() {
   delete state.mbBR549;
   mbSetupGameState();
 }
+
+/**
+ *
+ */
+export function mbShowGameState() {
+  sendChat('Show', JSON.stringify(state));
+  log(['Show GameState', { state }]);
+}

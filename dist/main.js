@@ -365,7 +365,7 @@ class Command {
    * @param {string[]} args - arguments for the command
    */
   runSubCommand(who, playerId, args) {
-    const subCmdRef = args.shift().toLowerCase();
+    const subCmdRef = args.length >= 1 ? args.shift().toLowerCase() : '';
     if (subCmdRef in this.subCommands) {
       /** @type {SubCommand} */
       const subCommand = this.subCommands[subCmdRef];
@@ -374,7 +374,6 @@ class Command {
       if (subCommand.gmOnly === true && playerIsGM(playerId) === false) {
         return;
       }
-
       subCommand.func(who, playerId, args);
     } else {
       this.help(who, playerId, args);
@@ -578,6 +577,9 @@ class HelpCommand_HelpCommand extends Command {
         // Let's grab a list of all param examples, and join them with spaces.
         /** @type {string} */
         const paramExample = commandInstance.paramList.join(' ');
+        if (commandInstance.internal || commandInstance.gmOnly) {
+          return '';
+        }
         return `<hr><pre>!${playerCommandId} ${commandInstance.cmd} ${paramExample}</pre>
           <p>${commandInstance.desc}</p>`;
       }
@@ -685,54 +687,7 @@ class ResetPlayersCommand_ResetPlayersCommand extends Command {
   }
 }
 
-// CONCATENATED MODULE: ./src/Commands/CommandLibrary.js
-
-
-
-
-
-
-/** @type {Object.<string, Command>} */
-const commandList = {};
-
-const helpCommand = new HelpCommand_HelpCommand(commandList);
-commandList[helpCommand.cmd] = helpCommand;
-const emblemCommand = new EmblemCommand_EmblemCommand();
-commandList[emblemCommand.cmd] = emblemCommand;
-const whoAmICommand = new WhoAmICommand_WhoAmICommand();
-commandList[whoAmICommand.cmd] = whoAmICommand;
-const resetPlayersCommand = new ResetPlayersCommand_ResetPlayersCommand();
-commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
-
-/**
- * @param {string} pluginCommandRef
- * @param {string} command
- * @param {string[]} args
- * @param {string} who
- * @param {string} playerId
- */
-function RunCommand(pluginCommandRef, command, args, who, playerId) {
-  switch (command) {
-    case emblemCommand.cmd:
-      // We'll want to overwrite the players, in case there were any changes
-      emblemCommand.func(who, playerId, args);
-      break;
-    case whoAmICommand.cmd:
-      whoAmICommand.func(who, playerId);
-      break;
-    case resetPlayersCommand.cmd:
-      if (pluginCommandRef !== apiCommandId) {
-        return;
-      }
-      resetPlayersCommand.func();
-      break;
-    case helpCommand.cmd:
-    default:
-      helpCommand.func(who);
-  }
-}
-
-// CONCATENATED MODULE: ./src/modules/Loop.js
+// CONCATENATED MODULE: ./src/Graphics/Loop.js
 // -----
 // This module was added by Mike Lakner to house the code supporting the Loop.
 // -----
@@ -778,7 +733,7 @@ function mbPlaceLoop() {
   state.mbBR549.Manual = wasManual;
 }
 
-// CONCATENATED MODULE: ./src/modules/Reticle.js
+// CONCATENATED MODULE: ./src/Graphics/Reticle.js
 // -----
 // This module was added by Mike Lakner to house the code supporting the Reticle.
 // -----
@@ -814,43 +769,57 @@ function mbPlaceReticle() {
     1050,
     140,
     140,
-    'objects',
+    'map',
   );
-    // Bring it to the front
-  toFront(theReticle);
+    // Send it to the back to hide it until needed
+  toBack(theReticle);
   // Reset the flags
   state.mbBR549.AmBusy = wasBusy;
   state.mbBR549.AllowDelete = wasAllowDelete;
   state.mbBR549.Manual = wasManual;
 }
 
-// CONCATENATED MODULE: ./src/modules/Graphics.js
+// CONCATENATED MODULE: ./src/Graphics/Tokens.js
+// -----
+// This module was added by Mike Lakner to house the generic code supporting game tokens.
+// -----
 
-// This file was designed by Mike Lakner
-//
-// Hande the movement of a card from player hand to the board.
-// Card must be cloned to a graphic that is linked to a character (matching card name)
-//   and then the original card removed from the table.
 
 
 
 
 /**
- * Suggested and offered by Aaron to avoid an error when placing card
- *
- * @param {string} imgsrc
- * @returns {?string}
+ * @param {Roll20Object} obj
+ * @param {*} prevObj
  */
-const getCleanImgsrc = (imgsrc) => {
-  const parts = imgsrc.match(/(.*\/images\/.*)(thumb|med|original|max)([^?]*)(\?[^?]+)?$/);
-  if (parts) {
-    return `${parts[1]}thumb${parts[3]}${parts[4] ? parts[4] : `?${Math.round(Math.random() * 9999999)}`}`;
+function handleGraphicDestruction(obj, prevObj) {
+  // Return based on state switches
+  if ((state.mbBR549.Manual === true) || (state.mbBR549.AllowDelete === true)) {
+    log(['Handle Graphic Destruction Aborted', { state }]);
+    return;
   }
+  // Log it so I can see what's happening
+  log(['Handle Graphic Destruction', { obj, prevObj }]);
+  // Destruction of a card is okay
+  if (obj.get('_subtype') === 'card') {
+    return;
+  }
+  // Create a new version
+  createTableGraphic(
+    obj.get('name'),
+    obj.get('imgsrc'),
+    obj.get('left'),
+    obj.get('top'),
+    obj.get('height'),
+    obj.get('width'),
+    'objects',
+  );
+}
 
-  return null;
-};
-
-const handleGraphicChange = (obj) => {
+/**
+ * @param {Roll20Object} obj
+ */
+function handleGraphicChange(obj) {
   // Return based on state switches
   if ((state.mbBR549.Manual === true) || (state.mbBR549.InSetup === true)) {
     log(['Handle Graphic Alignment Aborted', { state }]);
@@ -874,8 +843,8 @@ const handleGraphicChange = (obj) => {
   if (obj.get('height') !== mySize) obj.set('height', mySize);
   if (obj.get('width') !== mySize) obj.set('width', mySize);
   // Figure out what grid it should be on
-  const newGridLeft = Math.floor(obj.get('left') / mySize);
-  const newGridTop = Math.floor(obj.get('top') / mySize);
+  const newGridLeft = Math.floor((obj.get('left') - 1) / mySize);
+  const newGridTop = Math.floor((obj.get('top') - 1) / mySize);
   log(['NewGrid: ', { Left: newGridLeft, Top: newGridTop }]);
   // Calculate the actual coordinates
   const newCoordLeft = (newGridLeft * mySize) + halfWidth;
@@ -907,6 +876,44 @@ const handleGraphicChange = (obj) => {
 
   // Now ping both and draw everyone to this location after 1 second delay
   setTimeout(() => sendPing(obj.get('left'), obj.get('top'), Campaign().get('playerpageid'), null, true, ''), 1000);
+}
+
+/**
+ *
+ */
+function TokenListeners() {
+  // Handle the placement of new cards
+  // Trigger on position change to ensure alignment even with {Alt} held down.
+  on('change:graphic:left', handleGraphicChange);
+  on('change:graphic:top', handleGraphicChange);
+  on('change:graphic:rotation', handleGraphicChange);
+  // Trigger on deletion of a graphic
+  on('destroy:graphic', handleGraphicDestruction);
+}
+
+// CONCATENATED MODULE: ./src/Graphics/Lib.js
+
+// This file was designed by Mike Lakner
+//
+// Hande the movement of a card from player hand to the board.
+// Card must be cloned to a graphic that is linked to a character (matching card name)
+//   and then the original card removed from the table.
+
+
+
+/**
+ * Suggested and offered by Aaron to avoid an error when placing card
+ *
+ * @param {string} imgsrc
+ * @returns {?string}
+ */
+const getCleanImgsrc = (imgsrc) => {
+  const parts = imgsrc.match(/(.*\/images\/.*)(thumb|med|original|max)([^?]*)(\?[^?]+)?$/);
+  if (parts) {
+    return `${parts[1]}thumb${parts[3]}${parts[4] ? parts[4] : `?${Math.round(Math.random() * 9999999)}`}`;
+  }
+
+  return null;
 };
 
 /**
@@ -948,94 +955,6 @@ function createTableGraphic(theName, theImage, theLeft, theTop, theHeight, theWi
   return newObj;
 }
 
-// CONCATENATED MODULE: ./src/modules/Tokens.js
-// -----
-// This module was added by Mike Lakner to house the generic code supporting game tokens.
-// -----
-
-
-
-
-const handleGraphicDestruction = (obj, prevObj) => {
-  // Return based on state switches
-  if ((state.mbBR549.Manual === true) || (state.mbBR549.AllowDelete === true)) {
-    log(['Handle Graphic Destruction Aborted', { state }]);
-    return;
-  }
-  // Log it so I can see what's happening
-  log(['Handle Graphic Destruction', { obj, prevObj }]);
-  // Destruction of a card is okay
-  if (obj.get('_subtype') === 'card') {
-    return;
-  }
-  // Create a new version
-  createTableGraphic(
-    obj.get('name'),
-    obj.get('imgsrc'),
-    obj.get('left'),
-    obj.get('top'),
-    obj.get('height'),
-    obj.get('width'),
-    'objects',
-  );
-};
-
-/**
- *
- */
-function TokenListeners() {
-  // Handle the placement of new cards
-  // Trigger on position change to ensure alignment even with {Alt} held down.
-  on('change:graphic:left', handleGraphicChange);
-  on('change:graphic:top', handleGraphicChange);
-  on('change:graphic:rotation', handleGraphicChange);
-  // Trigger on deletion of a graphic
-  on('destroy:graphic', handleGraphicDestruction);
-}
-
-// CONCATENATED MODULE: ./src/modules/State.js
-// -----
-// This module was created by Mike Lakner to house the code supporting the state of the game play.
-// -----
-
-/**
- *
- */
-function mbSetupGameState() {
-  // Ensure the root exists
-  if (typeof state.mbBR549 === 'undefined') state.mbBR549 = {};
-  // List each default state below
-  // Generally busy flag to help prevent recursive calls
-  if (typeof state.mbBR549.AmBusy === 'undefined') state.mbBR549.AmBusy = false;
-  // Setting Up Game
-  if (typeof state.mbBR549.InSetup === 'undefined') state.mbBR549.InSetup = false;
-  // Allow the deletion of Graphics
-  if (typeof state.mbBR549.AllowDelete === 'undefined') state.mbBR549.AllowDelete = false;
-  // Assume we are not ready to play
-  if (typeof state.mbBR549.AmReady === 'undefined') state.mbBR549.AmReady = false;
-  // Manual mode for human editing of map, disllows resizing and the like
-  if (typeof state.mbBR549.Manual === 'undefined') state.mbBR549.Manual = false;
-  // Set the initial number of terrain cards dealt to each player
-  if (typeof state.mbBR549.InitialTerrainCards === 'undefined') state.mbBR549.InitialTerrainCards = 5;
-  // Set the initial number of Mine Ball cards dealt to each player
-  if (typeof state.mbBR549.InitialMineBallCards === 'undefined') state.mbBR549.InitialMineBallCards = 5;
-  // Build an array of Terrain cards in play
-  if (typeof state.mbBR549.TerrainCardsInPlay === 'undefined') state.mbBR549.TerrainCardsInPlay = {};
-  // Build an array of MineBall cards in play
-  if (typeof state.mbBR549.MineBallCardsInPlay === 'undefined') state.mbBR549.MineBallCardsInPlay = {};
-  // Log the state
-  log(['System State', { state }]);
-}
-
-/**
- *
- */
-function mbResetGameState() {
-  log(['Reset GameState', { state }]);
-  delete state.mbBR549;
-  mbSetupGameState();
-}
-
 // CONCATENATED MODULE: ./src/modules/Board.js
 // -----
 // This module was added by Mike Lakner to house the code supporting what is happening on the game board.
@@ -1069,8 +988,9 @@ function mbIsSomethingHere(theLeft, theTop) {
  * @param {string} theType
  * @param {number} theLeft
  * @param {number} theTop
+ * @param {string} theOwner
  */
-function mbPlaceTerrain(theType, theLeft, theTop) {
+function mbPlaceTerrain(theType, theLeft, theTop, theOwner) {
   log('Place Terrain.');
   // Remember state flage
   // eslint-disable-next-line no-unused-vars
@@ -1096,8 +1016,10 @@ function mbPlaceTerrain(theType, theLeft, theTop) {
     140,
     'map',
   );
-    // Bring it to the front
+  // Bring it to the front
   toFront(theTerrain);
+  // Add to the state and set the ownership
+  state.mbBR549.TerrainCardsInPlay[theChars[0].get('name')] = { playerID: theOwner, inhand: false };
 }
 
 /**
@@ -1168,6 +1090,140 @@ function mbResetBasicBoard() {
   state.mbBR549.Manual = wasManual;
 }
 
+// CONCATENATED MODULE: ./src/Graphics/CompassRose.js
+// -----
+// This module was added by Mike Lakner to house the code supporting the CompassRose.
+// -----
+
+
+/**
+ *
+ */
+function mbPlaceCompassRose() {
+  log('Place CompassRose.');
+  // Remember state flage
+  const wasBusy = state.mbBR549.AmBusy;
+  const wasAllowDelete = state.mbBR549.AllowDelete;
+  const wasManual = state.mbBR549.Manual;
+  // Set the state flags
+  state.mbBR549.AmBusy = true;
+  state.mbBR549.AllowDelete = true;
+  state.mbBR549.Manual = true;
+  // Get the compass rose
+  const theChars = findObjs({ _type: 'character', name: 'CompassRose' });
+  log(['CompassRose', { theChars }]);
+  // Place the graphic
+  const theRose = createTableGraphic(
+    theChars[0].get('name'),
+    theChars[0].get('avatar'),
+    1050,
+    1050,
+    140,
+    140,
+    'map',
+  );
+  // Bring it to the front
+  toFront(theRose);
+  // Now rotate it random times
+  const theTurns = randomInteger(20);
+  for (let i = 1; i <= theTurns; i += 1) {
+    switch (theRose.get('rotation')) {
+      case 0:
+        theRose.set('rotation', 90);
+        break;
+      case 90:
+        theRose.set('rotation', 180);
+        break;
+      case 180:
+        theRose.set('rotation', 270);
+        break;
+      default:
+        theRose.set('rotation', 0);
+    }
+  }
+  // Now place one of each terrains arround CompassRose with no ownership
+  switch (theRose.get('rotation')) {
+    case 0:
+      mbPlaceTerrain('Earth', 1050 - 140, 1050 - 140, '');
+      mbPlaceTerrain('Wind', 1050 + 140, 1050 - 140, '');
+      mbPlaceTerrain('Fire', 1050 + 140, 1050 + 140, '');
+      mbPlaceTerrain('Water', 1050 - 140, 1050 + 140, '');
+      break;
+    case 90:
+      mbPlaceTerrain('Earth', 1050 + 140, 1050 - 140, '');
+      mbPlaceTerrain('Wind', 1050 + 140, 1050 + 140, '');
+      mbPlaceTerrain('Fire', 1050 - 140, 1050 + 140, '');
+      mbPlaceTerrain('Water', 1050 - 140, 1050 - 140, '');
+      break;
+    case 180:
+      mbPlaceTerrain('Earth', 1050 + 140, 1050 + 140, '');
+      mbPlaceTerrain('Wind', 1050 - 140, 1050 + 140, '');
+      mbPlaceTerrain('Fire', 1050 - 140, 1050 - 140, '');
+      mbPlaceTerrain('Water', 1050 + 140, 1050 - 140, '');
+      break;
+    default:
+      mbPlaceTerrain('Earth', 1050 - 140, 1050 + 140, '');
+      mbPlaceTerrain('Wind', 1050 - 140, 1050 - 140, '');
+      mbPlaceTerrain('Fire', 1050 + 140, 1050 - 140, '');
+      mbPlaceTerrain('Water', 1050 + 140, 1050 + 140, '');
+  }
+  // Reset the flags
+  state.mbBR549.AmBusy = wasBusy;
+  state.mbBR549.AllowDelete = wasAllowDelete;
+  state.mbBR549.Manual = wasManual;
+}
+
+// CONCATENATED MODULE: ./src/modules/State.js
+// -----
+// This module was created by Mike Lakner to house the code supporting the state of the game play.
+// -----
+
+/**
+ *
+ */
+function mbSetupGameState() {
+  // Ensure the root exists
+  if (typeof state.mbBR549 === 'undefined') state.mbBR549 = {};
+  // List each default state below
+  // Generally busy flag to help prevent recursive calls
+  if (typeof state.mbBR549.AmBusy === 'undefined') state.mbBR549.AmBusy = false;
+  // Setting Up Game
+  if (typeof state.mbBR549.InSetup === 'undefined') state.mbBR549.InSetup = false;
+  // Allow the deletion of Graphics
+  if (typeof state.mbBR549.AllowDelete === 'undefined') state.mbBR549.AllowDelete = false;
+  // Assume we are not ready to play
+  if (typeof state.mbBR549.AmReady === 'undefined') state.mbBR549.AmReady = false;
+  // Manual mode for human editing of map, disllows resizing and the like
+  if (typeof state.mbBR549.Manual === 'undefined') state.mbBR549.Manual = false;
+  // Set the initial number of terrain cards dealt to each player
+  if (typeof state.mbBR549.InitialTerrainCards === 'undefined') state.mbBR549.InitialTerrainCards = 5;
+  // Set the initial number of Mine Ball cards dealt to each player
+  if (typeof state.mbBR549.InitialMineBallCards === 'undefined') state.mbBR549.InitialMineBallCards = 5;
+  // Build an array of Terrain cards in play
+  if (typeof state.mbBR549.TerrainCardsInPlay === 'undefined') state.mbBR549.TerrainCardsInPlay = {};
+  // Build an array of MineBall cards in play
+  if (typeof state.mbBR549.MineBallCardsInPlay === 'undefined') state.mbBR549.MineBallCardsInPlay = {};
+  // Log the state
+  log(['System State', { state }]);
+}
+
+/**
+ *
+ */
+function mbResetGameState() {
+  log(['Reset GameState', { state }]);
+  delete state.mbBR549;
+  mbSetupGameState();
+}
+
+/**
+ *
+ */
+function mbShowGameState() {
+  sendChat('Show', JSON.stringify(state));
+  log(['Show GameState', { state }]);
+}
+
 // CONCATENATED MODULE: ./src/Play/Cards.js
 // This file was designed by Mike Lakner
 //
@@ -1211,7 +1267,7 @@ const handleAddCard = (obj, prevObj) => {
     thePlayerID = state.mbBR549.MineBallCardsInPlay[cardName].playerID;
   }
   // Is there something here?
-  log(`Peek${obj.get('left')}/${obj.get('top')}`);
+  log(`Drop Peek: ${obj.get('left')}/${obj.get('top')}`);
   if (mbIsSomethingHere(obj.get('left'), obj.get('top')) === true) {
     // Yes, so back out
     setTimeout(() => giveCardToPlayer(theCardID, thePlayerID), 1000);
@@ -1219,6 +1275,8 @@ const handleAddCard = (obj, prevObj) => {
     setTimeout(() => obj.remove(), 100);
     return;
   }
+  // Change the state to reflect that it's no nonger inhand
+  state.mbBR549.TerrainCardsInPlay[cardName].inhand = false;
   // Create the object
   createTableGraphic(
     cardName,
@@ -1234,6 +1292,11 @@ const handleAddCard = (obj, prevObj) => {
   // Link the card to the player
   // eslint-disable-next-line no-unused-vars
   // const playerID = linkCardToPlayer(obj);
+  // Let players know who dropped this card.
+  var thisPlayer = findObjs({ _id: thePlayerID, _type: "player" });
+  var playerName = thisPlayer._displayname;
+  log(['Player',thisPlayer]);
+  sendChat('Mine Ball', `${playerName} placed ${cardName}.`);
 };
 
 /**
@@ -1300,6 +1363,132 @@ function mbDealTerrainCards(theQty) {
       }
     }
   });
+}
+
+// CONCATENATED MODULE: ./src/modules/Game.js
+// -----
+// This module was added by Mike Lakner to house the lions share of mechanics of the game play.
+// -----
+
+
+
+
+
+
+
+/**
+ *
+ */
+function mbStartNewGame() {
+  // Log it down
+  log('Start new game.');
+  // Reset the game state
+  mbResetGameState();
+  // Return based on state switches
+  if (state.mbBR549.InSetup === true) {
+    log(['Start New Game Aborted', { state }]);
+    return;
+  }
+  // Flag as busy and in setuo
+  state.mbBR549.AmBusy = true;
+  state.mbBR549.InSetup = true;
+  // Delete existing graphics
+  mbClearBoard();
+  // Recall all cards
+  mbRecallCards();
+  // Rebuild basic board
+  mbResetBasicBoard();
+  // Place the compassrose
+  mbPlaceCompassRose();
+  // Deal Terrain cards to player
+  mbDealTerrainCards(state.mbBR549.InitialTerrainCards);
+  // Deal Punk cards to player
+  mbDealMineBallCards(state.mbBR549.InitialMineBallCards);
+  // Place the targeting graphics
+  mbPlaceReticle();
+  mbPlaceLoop();
+  // All done, set up back to ready
+  state.mbBR549.AmBusy = false;
+  state.mbBR549.InSetup = false;
+  state.mbBR549.AmReady = true;
+}
+
+/**
+ *
+ */
+function mbRecallCards() {
+  log('Recall Cards.');
+  // Remember state flage
+  const wasBusy = state.mbBR549.AmBusy;
+  const wasAllowDelete = state.mbBR549.AllowDelete;
+  const wasManual = state.mbBR549.Manual;
+  // Set the state flags
+  state.mbBR549.AmBusy = true;
+  state.mbBR549.AllowDelete = true;
+  state.mbBR549.Manual = true;
+  // Get the decks
+  const theDecks = findObjs({ _type: 'deck' });
+  log(['Decks', { theDecks }]);
+  theDecks.forEach((obj) => {
+    log(['Recalling', { obj }]);
+    recallCards(obj.get('_id'));
+    // hide the deck
+    obj.set('shown', false);
+    // SHuffle the deck
+    shuffleDeck(obj.get('_id'), true);
+  });
+  // Reset the flags
+  state.mbBR549.AmBusy = wasBusy;
+  state.mbBR549.AllowDelete = wasAllowDelete;
+  state.mbBR549.Manual = wasManual;
+}
+
+// CONCATENATED MODULE: ./src/Commands/StartCommand.js
+/**
+ * @namespace App.Commands
+ */
+
+
+
+
+class StartCommand_StartCommand extends Command {
+  constructor() {
+    super();
+
+    this.cmd = 'start';
+    this.desc = 'Start command for various game actions such as NewGame, SavedGame etc.';
+    this.func = this.runSubCommand;
+    /**
+     * @param {string} who - layer's human name
+     * @param {string} playerId - reference of the player
+     * @param {string[]} args - arguments for the command
+     */
+    // eslint-disable-next-line no-unused-vars
+    this.help = (who, playerId, args) => {
+      sendChat(
+        'Mine Ball Help',
+        `/w ${who}
+        <p>Start NewGame - Clear the board and start a new game.</p>
+        <p>Start SavedGame - Start a previously saved game.</p>
+        `,
+      );
+    };
+
+    this.subCommands = {
+      newgame: {
+        gmOnly: false,
+        internal: false,
+        func: mbStartNewGame,
+        paramList: [],
+      },
+      savedGame: {
+        gmOnly: false,
+        internal: false,
+        func: log('*** SavedGame still needs to be implimented.'),
+        paramList: [],
+      },
+    };
+  }
 }
 
 // CONCATENATED MODULE: ./src/Cards/Library.js
@@ -9026,12 +9215,13 @@ function mbDealTerrainCards(theQty) {
 
 
 
+// eslint-disable-next-line max-len
+const defaultGraphic = 'https://s3.amazonaws.com/files.d20.io/images/141291438/6TAoheVCteGgoN4BW3tmzA/original.png?15914477175';
+
 /**
  * @returns {void}
  */
 function mbRebuildAllCharacterSheets() {
-  // eslint-disable-next-line max-len
-  const defaultGraphic = 'https://s3.amazonaws.com/files.d20.io/images/141291438/6TAoheVCteGgoN4BW3tmzA/original.png?15914477175';
   sendChat('API !-mb', '/w gm Start: mbRebuildAllCharacterSheets()');
   sendChat('API !-mb', `/w gm Building ${Library.length - 1} cards.`);
 
@@ -9153,275 +9343,166 @@ function mbPurgeAllCharacterSheets() {
   sendChat('API !-mb', `/w gm End: mbPurgeAllCharacterSheets() Purged:${purgeCount}`);
 }
 
-// CONCATENATED MODULE: ./src/modules/CompassRose.js
-// -----
-// This module was added by Mike Lakner to house the code supporting the CompassRose.
-// -----
+// CONCATENATED MODULE: ./src/Commands/InitCommand.js
+/**
+ * @namespace App.Commands
+ */
 
+
+
+
+
+class InitCommand_InitCommand extends Command {
+  constructor() {
+    super();
+
+    this.cmd = 'init';
+    this.desc = 'Init command for various game systems such as State.';
+    this.func = this.runSubCommand;
+    /**
+     * @param {string} who - layer's human name
+     * @param {string} playerId - reference of the player
+     * @param {string[]} args - arguments for the command
+     */
+    // eslint-disable-next-line no-unused-vars
+    this.help = (who, playerId, args) => {
+      sendChat(
+        'Mine Ball Help',
+        `/w ${who}
+        <p>Init GameState - Initializes the game state to it's initial values.</p>
+        <p>Init Cards - Rebuilds the game cards.</p>
+        `,
+      );
+    };
+
+    this.subCommands = {
+      gamestate: {
+        gmOnly: false,
+        internal: false,
+        func: mbResetGameState,
+        paramList: [],
+      },
+      cards: {
+        gmOnly: false,
+        internal: false,
+        func: mbRebuildAllCharacterSheets,
+        paramList: [],
+      },
+    };
+  }
+}
+
+// CONCATENATED MODULE: ./src/Commands/ShowCommand.js
+/**
+ * @namespace App.Commands
+ */
+
+
+
+
+class ShowCommand_ShowCommand extends Command {
+  constructor() {
+    super();
+
+    this.cmd = 'show';
+    this.desc = 'Show command for various game data such as state.';
+    this.func = this.runSubCommand;
+    /**
+     * @param {string} who - layer's human name
+     * @param {string} playerId - reference of the player
+     * @param {string[]} args - arguments for the command
+     */
+    // eslint-disable-next-line no-unused-vars
+    this.help = (who, playerId, args) => {
+      sendChat(
+        'Mine Ball Help',
+        `/w ${who}
+        <p>Show GameState - Dump the game state to the chat window.</p>
+        <p>Show SavedGames - Show all of the previously saved games.</p>
+        `,
+      );
+    };
+
+    this.subCommands = {
+      gamestate: {
+        gmOnly: false,
+        internal: false,
+        func: mbShowGameState,
+        paramList: [],
+      },
+      savedgames: {
+        gmOnly: false,
+        internal: false,
+        func: log('*** SavedGames still needs to be implimented.'),
+        paramList: [],
+      },
+    };
+  }
+}
+
+// CONCATENATED MODULE: ./src/Commands/Library.js
+
+
+
+
+
+
+
+
+
+/** @type {Object.<string, Command>} */
+const commandList = {};
+
+const helpCommand = new HelpCommand_HelpCommand(commandList);
+commandList[helpCommand.cmd] = helpCommand;
+const emblemCommand = new EmblemCommand_EmblemCommand();
+commandList[emblemCommand.cmd] = emblemCommand;
+const whoAmICommand = new WhoAmICommand_WhoAmICommand();
+commandList[whoAmICommand.cmd] = whoAmICommand;
+const resetPlayersCommand = new ResetPlayersCommand_ResetPlayersCommand();
+commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
+const startCommand = new StartCommand_StartCommand();
+commandList[startCommand.cmd] = startCommand;
+const initCommand = new InitCommand_InitCommand();
+commandList[initCommand.cmd] = initCommand;
+const showCommand = new ShowCommand_ShowCommand();
+commandList[showCommand.cmd] = showCommand;
 
 /**
- *
+ * @param {string} pluginCommandRef
+ * @param {string} command
+ * @param {string[]} args
+ * @param {string} who
+ * @param {string} playerId
  */
-function mbPlaceCompassRose() {
-  log('Place CompassRose.');
-  // Remember state flage
-  const wasBusy = state.mbBR549.AmBusy;
-  const wasAllowDelete = state.mbBR549.AllowDelete;
-  const wasManual = state.mbBR549.Manual;
-  // Set the state flags
-  state.mbBR549.AmBusy = true;
-  state.mbBR549.AllowDelete = true;
-  state.mbBR549.Manual = true;
-  // Get the compass rose
-  const theChars = findObjs({ _type: 'character', name: 'CompassRose' });
-  log(['CompassRose', { theChars }]);
-  // Place the graphic
-  const theRose = createTableGraphic(
-    theChars[0].get('name'),
-    theChars[0].get('avatar'),
-    1050,
-    1050,
-    140,
-    140,
-    'map',
-  );
-  // Bring it to the front
-  toFront(theRose);
-  // Now rotate it random times
-  const theTurns = randomInteger(20);
-  for (let i = 1; i <= theTurns; i += 1) {
-    switch (theRose.get('rotation')) {
-      case 0:
-        theRose.set('rotation', 90);
-        break;
-      case 90:
-        theRose.set('rotation', 180);
-        break;
-      case 180:
-        theRose.set('rotation', 270);
-        break;
-      default:
-        theRose.set('rotation', 0);
-    }
-  }
-  // Now place one of each terrains arround CompassRose
-  switch (theRose.get('rotation')) {
-    case 0:
-      mbPlaceTerrain('Earth', 1050 - 140, 1050 - 140);
-      mbPlaceTerrain('Wind', 1050 + 140, 1050 - 140);
-      mbPlaceTerrain('Fire', 1050 + 140, 1050 + 140);
-      mbPlaceTerrain('Water', 1050 - 140, 1050 + 140);
+function RunCommand(pluginCommandRef, command, args, who, playerId) {
+  switch (command) {
+    case emblemCommand.cmd:
+      // We'll want to overwrite the players, in case there were any changes
+      emblemCommand.func(who, playerId, args);
       break;
-    case 90:
-      mbPlaceTerrain('Earth', 1050 + 140, 1050 - 140);
-      mbPlaceTerrain('Wind', 1050 + 140, 1050 + 140);
-      mbPlaceTerrain('Fire', 1050 - 140, 1050 + 140);
-      mbPlaceTerrain('Water', 1050 - 140, 1050 - 140);
+    case whoAmICommand.cmd:
+      whoAmICommand.func(who, playerId);
       break;
-    case 180:
-      mbPlaceTerrain('Earth', 1050 + 140, 1050 + 140);
-      mbPlaceTerrain('Wind', 1050 - 140, 1050 + 140);
-      mbPlaceTerrain('Fire', 1050 - 140, 1050 - 140);
-      mbPlaceTerrain('Water', 1050 + 140, 1050 - 140);
+    case resetPlayersCommand.cmd:
+      if (pluginCommandRef !== apiCommandId) {
+        return;
+      }
+      resetPlayersCommand.func();
       break;
+    case startCommand.cmd:
+      startCommand.func(who, playerId, args);
+      break;
+    case initCommand.cmd:
+      initCommand.func(who, playerId, args);
+      break;
+    case showCommand.cmd:
+      showCommand.func(who, playerId, args);
+      break;
+    case helpCommand.cmd:
     default:
-      mbPlaceTerrain('Earth', 1050 - 140, 1050 + 140);
-      mbPlaceTerrain('Wind', 1050 - 140, 1050 - 140);
-      mbPlaceTerrain('Fire', 1050 + 140, 1050 - 140);
-      mbPlaceTerrain('Water', 1050 + 140, 1050 + 140);
+      helpCommand.func(who);
   }
-  // Reset the flags
-  state.mbBR549.AmBusy = wasBusy;
-  state.mbBR549.AllowDelete = wasAllowDelete;
-  state.mbBR549.Manual = wasManual;
-}
-
-// CONCATENATED MODULE: ./src/modules/Game.js
-// -----
-// This module was added by Mike Lakner to house the lions share of mechanics of the game play.
-// -----
-
-
-
-
-
-
-/**
- *
- */
-function mbStartNewGame() {
-  // Log it down
-  log('Start new game.');
-  // Return based on state switches
-  if (state.mbBR549.InSetup === true) {
-    log(['Start New Game Aborted', { state }]);
-    return;
-  }
-  // Flag as busy and in setuo
-  state.mbBR549.AmBusy = true;
-  state.mbBR549.InSetup = true;
-  // Delete existing graphics
-  mbClearBoard();
-  // Recall all cards
-  mbRecallCards();
-  // Rebuild basic board
-  mbResetBasicBoard();
-  // Place the compassrose
-  mbPlaceCompassRose();
-  // Deal Terrain cards to player
-  mbDealTerrainCards(state.mbBR549.InitialTerrainCards);
-  // Deal Punk cards to player
-  mbDealMineBallCards(state.mbBR549.InitialMineBallCards);
-  // Place the targeting graphics
-  mbPlaceReticle();
-  mbPlaceLoop();
-  // All done, set up back to ready
-  state.mbBR549.AmBusy = false;
-  state.mbBR549.InSetup = false;
-  state.mbBR549.AmReady = true;
-}
-
-/**
- *
- */
-function mbRecallCards() {
-  log('Recall Cards.');
-  // Remember state flage
-  const wasBusy = state.mbBR549.AmBusy;
-  const wasAllowDelete = state.mbBR549.AllowDelete;
-  const wasManual = state.mbBR549.Manual;
-  // Set the state flags
-  state.mbBR549.AmBusy = true;
-  state.mbBR549.AllowDelete = true;
-  state.mbBR549.Manual = true;
-  // Get the decks
-  const theDecks = findObjs({ _type: 'deck' });
-  log(['Decks', { theDecks }]);
-  theDecks.forEach((obj) => {
-    log(['Recalling', { obj }]);
-    recallCards(obj.get('_id'));
-    // hide the deck
-    obj.set('shown', false);
-    // SHuffle the deck
-    shuffleDeck(obj.get('_id'), true);
-  });
-  // Reset the flags
-  state.mbBR549.AmBusy = wasBusy;
-  state.mbBR549.AllowDelete = wasAllowDelete;
-  state.mbBR549.Manual = wasManual;
-}
-
-// CONCATENATED MODULE: ./src/Temp/CommandDispatch.js
-// This file was designed by Mike Lakner
-
-
-
-
-
-/**
- *
- */
-function TestThis() {
-  giveCardToPlayer('-M9-0uy6dgDNUpGjFpIc', '-M7wGcomWC36lTQKqg82');
-}
-
-/**
- *
- */
-function CommandDispatchInit() {
-  // usage - !-mb [args]
-  on('chat:message', (msg) => {
-    // log(['!-mb: ',{'Command ':msg}]);
-    if (msg.type === 'api' && msg.content.indexOf('!-mb') === 0) {
-      const args = msg.content.split(' ');
-      // Send all !--mb command text to GM for review
-      log(`Fm: ${msg.who} Msg: ${msg.content}`);
-      // Is this player a GM?
-      if (playerIsGM(msg.playerid)) {
-        // GM only commands go here
-        switch (args[1].toLowerCase()) {
-          case 'start': // Start a new game
-            if (args[2].toLowerCase() === 'newgame') {
-              mbResetGameState();
-              mbStartNewGame();
-            } else sendChat('Start', 'Was it \'NewGame\' that you wanted?');
-            return;
-          case 'rebuildallcharactersheets': // Rebuild all character sheets
-            mbPurgeAllCharacterSheets();
-            mbRebuildAllCharacterSheets();
-            return;
-          case 'purgeAllcharactersheets': // Purge all characters with the is_mbc attribute set to true
-            mbPurgeAllCharacterSheets();
-            return;
-          case 'show':
-            if (args[2].toLowerCase() === 'gamestate') sendChat('Show', JSON.stringify(state));
-            else sendChat('Show', 'Was it \'GameState\' that you wanted?');
-            return;
-          case 'manual':
-            if (args[2].toLowerCase() === 'on') {
-              // Allow manual editing of the board
-              state.mbBR549.Manual = true;
-            } else if (args[2].toLowerCase() === 'off') {
-              // Disallow manual editing of the board
-              state.mbBR549.Manual = false;
-            } else {
-              sendChat('Manual', 'On or Off, you need to pick one.');
-            }
-            return;
-          case 'reset': // Start a new game
-            if (args[2].toLowerCase() === 'gamestate') mbResetGameState();
-            else sendChat('Start', 'Was it \'GameState\' that you wanted?');
-            return;
-          case 'allowdelete':
-            if (args[2].toLowerCase() === 'delete') {
-              if (args[3].toLowerCase() === 'on') {
-                // Allow the deleting of graphics
-                state.mbBR549.AllowDelete = true;
-              } else if (args[2].toLowerCase() === 'off') {
-                // Disallow the deleting of graphics
-                state.mbBR549.AllowDelete = false;
-              } else {
-                sendChat('Manual', 'On or Off, you need to pick one.');
-              }
-            }
-            return;
-          case 'testthis': // A way to call a function you want to test
-            TestThis();
-            return;
-          case '--help':
-          case '--?':
-            sendChat('GM Command', 'GM Commands:');
-            sendChat('GM Command', '&nbsp;Manual On/Off');
-            sendChat('GM Command', '&nbsp;Reset GameState');
-            sendChat('GM Command', '&nbsp;AllowDelete On/Off');
-            sendChat('GM Command', '&nbsp;TestThis');
-            sendChat('GM Command', '&nbsp;RebuildAllCharacterSheets');
-            sendChat('GM Command', '&nbsp;PurgeAllCharacterSheets');
-            break;
-          default:
-            break;
-        }
-      }
-      // Commands that are GM agnostic go here
-      switch (args[1]) {
-        case 'TimeSlip':
-          sendChat('API !-mb', 'A TimeSlip is a bit of a mind trip.');
-          return;
-        case 'doMFP':
-          // mbMoveForwardPort(args);
-          return;
-        case 'doMFS':
-          // mbMoveForwardStarboard(args);
-          return;
-        case '--Help':
-        case '--?':
-        default:
-          sendChat('Command', 'General Commands:');
-          sendChat('Command', '&nbsp;This');
-          sendChat('Command', '&nbsp;That');
-      }
-    }
-  });
 }
 
 // CONCATENATED MODULE: ./src/MineBall.js
@@ -9431,7 +9512,7 @@ function CommandDispatchInit() {
 
 
 
-
+// import { CommandDispatchInit } from 'App/Temp/CommandDispatch';
 
 
 /** @type {Object.<string, Graphic>} */
@@ -9562,7 +9643,7 @@ on('ready', () => {
   mbSetupGameState();
   TokenListeners();
   CardAddInit();
-  CommandDispatchInit();
+  // CommandDispatchInit();
   EmblemBuildInit();
 
   on('chat:message', handleInput);

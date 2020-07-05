@@ -1,4 +1,3 @@
-
 // This file was designed by Mike Lakner
 //
 // Hande the movement of a card from player hand to the board.
@@ -54,7 +53,5 @@ export function createTableGraphic(theName, theImage, theLeft, theTop, theHeight
     },
   );
 
-  // Now ensure it looks and is where we want.
-  // handleGraphicChange(newObj);
   return newObj;
 }

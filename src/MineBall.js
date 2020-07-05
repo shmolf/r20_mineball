@@ -1,10 +1,10 @@
 import { getPlayers, deserializePlayerObject } from 'Players/PlayerPool';
-import RunCommand from 'Commands/CommandLibrary';
+import RunCommand from 'App/Commands/Library';
 import { playerCommandId, apiCommandId } from 'Commands/Command';
 import TokenListeners from 'Graphics/Tokens';
 import { mbSetupGameState } from 'App/modules/State';
 import CardAddInit from 'App/Play/Cards';
-import { CommandDispatchInit } from 'App/Temp/CommandDispatch';
+// import { CommandDispatchInit } from 'App/Temp/CommandDispatch';
 import { EmblemBuildInit } from 'Commands/EmblemCommand';
 
 /** @type {Object.<string, Graphic>} */
@@ -135,7 +135,7 @@ on('ready', () => {
   mbSetupGameState();
   TokenListeners();
   CardAddInit();
-  CommandDispatchInit();
+  // CommandDispatchInit();
   EmblemBuildInit();
 
   on('chat:message', handleInput);

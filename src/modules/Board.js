@@ -1,7 +1,7 @@
 // -----
 // This module was added by Mike Lakner to house the code supporting what is happening on the game board.
 // -----
-import { createTableGraphic } from 'Graphics/Lib';
+import { createTableGraphic } from 'Graphics/Library';
 
 /**
  * @param {number} theLeft
@@ -30,8 +30,9 @@ export function mbIsSomethingHere(theLeft, theTop) {
  * @param {string} theType
  * @param {number} theLeft
  * @param {number} theTop
+ * @param {string} theOwner
  */
-export function mbPlaceTerrain(theType, theLeft, theTop) {
+export function mbPlaceTerrain(theType, theLeft, theTop, theOwner) {
   log('Place Terrain.');
   // Remember state flage
   // eslint-disable-next-line no-unused-vars
@@ -57,8 +58,10 @@ export function mbPlaceTerrain(theType, theLeft, theTop) {
     140,
     'map',
   );
-    // Bring it to the front
+  // Bring it to the front
   toFront(theTerrain);
+  // Add to the state and set the ownership
+  state.mbBR549.TerrainCardsInPlay[theChars[0].get('name')] = { playerID: theOwner, inhand: false };
 }
 
 /**

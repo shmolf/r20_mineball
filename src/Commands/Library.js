@@ -3,6 +3,9 @@ import EmblemCommand from 'Commands/EmblemCommand';
 import HelpCommand from 'Commands/HelpCommand';
 import WhoAmICommand from 'Commands/WhoAmICommand';
 import ResetPlayersCommand from 'Commands/ResetPlayersCommand';
+import StartCommand from 'Commands/StartCommand';
+import InitCommand from 'Commands/InitCommand';
+import ShowCommand from 'Commands/ShowCommand';
 
 /** @type {Object.<string, Command>} */
 const commandList = {};
@@ -15,6 +18,12 @@ const whoAmICommand = new WhoAmICommand();
 commandList[whoAmICommand.cmd] = whoAmICommand;
 const resetPlayersCommand = new ResetPlayersCommand();
 commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
+const startCommand = new StartCommand();
+commandList[startCommand.cmd] = startCommand;
+const initCommand = new InitCommand();
+commandList[initCommand.cmd] = initCommand;
+const showCommand = new ShowCommand();
+commandList[showCommand.cmd] = showCommand;
 
 /**
  * @param {string} pluginCommandRef
@@ -37,6 +46,15 @@ export default function RunCommand(pluginCommandRef, command, args, who, playerI
         return;
       }
       resetPlayersCommand.func();
+      break;
+    case startCommand.cmd:
+      startCommand.func(who, playerId, args);
+      break;
+    case initCommand.cmd:
+      initCommand.func(who, playerId, args);
+      break;
+    case showCommand.cmd:
+      showCommand.func(who, playerId, args);
       break;
     case helpCommand.cmd:
     default:

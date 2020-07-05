@@ -3,14 +3,14 @@
  */
 
 import Command from 'Commands/Command';
-import { mbStartNewGame } from 'App/modules/Game';
+import { mbShowGameState } from 'App/modules/State';
 
-export default class StartCommand extends Command {
+export default class ShowCommand extends Command {
   constructor() {
     super();
 
-    this.cmd = 'start';
-    this.desc = 'Start command for various game actions such as NewGame, SavedGame etc.';
+    this.cmd = 'show';
+    this.desc = 'Show command for various game data such as state.';
     this.func = this.runSubCommand;
     /**
      * @param {string} who - layer's human name
@@ -22,23 +22,23 @@ export default class StartCommand extends Command {
       sendChat(
         'Mine Ball Help',
         `/w ${who}
-        <p>Start NewGame - Clear the board and start a new game.</p>
-        <p>Start SavedGame - Start a previously saved game.</p>
+        <p>Show GameState - Dump the game state to the chat window.</p>
+        <p>Show SavedGames - Show all of the previously saved games.</p>
         `,
       );
     };
 
     this.subCommands = {
-      newgame: {
+      gamestate: {
         gmOnly: false,
         internal: false,
-        func: mbStartNewGame,
+        func: mbShowGameState,
         paramList: [],
       },
-      savedGame: {
+      savedgames: {
         gmOnly: false,
         internal: false,
-        func: log('*** SavedGame still needs to be implimented.'),
+        func: log('*** SavedGames still needs to be implimented.'),
         paramList: [],
       },
     };

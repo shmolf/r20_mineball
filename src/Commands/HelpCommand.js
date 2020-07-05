@@ -37,6 +37,9 @@ export default class HelpCommand extends Command {
         // Let's grab a list of all param examples, and join them with spaces.
         /** @type {string} */
         const paramExample = commandInstance.paramList.join(' ');
+        if (commandInstance.internal || commandInstance.gmOnly) {
+          return '';
+        }
         return `<hr><pre>!${playerCommandId} ${commandInstance.cmd} ${paramExample}</pre>
           <p>${commandInstance.desc}</p>`;
       }
