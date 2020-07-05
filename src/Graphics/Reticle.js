@@ -2,17 +2,12 @@
 // This module was added by Mike Lakner to house the code supporting the Reticle.
 // -----
 import { createTableGraphic } from 'Graphics/Library';
-/**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-export function mbHandleReticleMove(theObj) {
-  log(['Reticle Move', { theObj }]);
-}
+import { handleGraphicChange } from 'Graphics/Tokens';
+
 /**
  *
  */
-export function mbPlaceReticle() {
+export default function mbPlaceReticle() {
   log('Place Reticle.');
   // Remember state flage
   const wasBusy = state.mbBR549.AmBusy;
@@ -35,7 +30,8 @@ export function mbPlaceReticle() {
     140,
     'map',
   );
-    // Send it to the back to hide it until needed
+  handleGraphicChange(theReticle);
+  // Send it to the back to hide it until needed
   toBack(theReticle);
   // Reset the flags
   state.mbBR549.AmBusy = wasBusy;

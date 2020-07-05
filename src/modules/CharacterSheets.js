@@ -128,7 +128,7 @@ function buildCardMovementButtons(movements, characterId) {
  */
 function buildCardActionButtons(actions, characterId) {
   // Lets get a list of all actions for the card. May include duplicates.
-  let allCardActions = actions.map((direction) => direction.type);
+  let allCardActions = Object.keys(actions).map((direction) => actions[direction].type);
 
   // Let's filter out any 'Nothing's and 'Defend's
   allCardActions = allCardActions.filter((action) => (action !== 'Nothing' && action !== 'Defend'));

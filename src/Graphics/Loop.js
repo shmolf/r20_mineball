@@ -2,17 +2,12 @@
 // This module was added by Mike Lakner to house the code supporting the Loop.
 // -----
 import { createTableGraphic } from 'Graphics/Library';
-/**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-export function mbHandleLoopMove(theObj) {
-  log(['Loop Move', { theObj }]);
-}
+import { handleGraphicChange } from 'Graphics/Tokens';
+
 /**
  *
  */
-export function mbPlaceLoop() {
+export default function mbPlaceLoop() {
   log('Place Loop.');
   // Remember state flage
   const wasBusy = state.mbBR549.AmBusy;
@@ -35,7 +30,8 @@ export function mbPlaceLoop() {
     140,
     'objects',
   );
-    // Bring it to the front
+  handleGraphicChange(theLoop);
+  // Bring it to the front
   toFront(theLoop);
   // Reset the flags
   state.mbBR549.AmBusy = wasBusy;
