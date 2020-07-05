@@ -30,6 +30,7 @@ export function mbIsSomethingHere(theLeft, theTop) {
  * @param {string} theType
  * @param {number} theLeft
  * @param {number} theTop
+ * @param {string} theOwner
  */
 export function mbPlaceTerrain(theType, theLeft, theTop, theOwner) {
   log('Place Terrain.');
