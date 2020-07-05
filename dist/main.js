@@ -9345,9 +9345,9 @@ const resetPlayersCommand = new ResetPlayersCommand_ResetPlayersCommand();
 commandList[resetPlayersCommand.cmd] = resetPlayersCommand;
 const startCommand = new StartCommand_StartCommand();
 commandList[startCommand.cmd] = startCommand;
-const initCommand = new InitCommand_InitCommand();
+const initCommand = new /* Cannot get final name for export "InitCommand" in "./src/Commands/InitCommand.js" (known exports: default, known reexports: ) */ undefined();
 commandList[initCommand.cmd] = initCommand;
-const showCommand = new ShowCommand_ShowCommand();
+const showCommand = new /* Cannot get final name for export "ShowCommand" in "./src/Commands/ShowCommand.js" (known exports: default, known reexports: ) */ undefined();
 commandList[showCommand.cmd] = showCommand;
 
 /**
@@ -9376,10 +9376,10 @@ function RunCommand(pluginCommandRef, command, args, who, playerId) {
       startCommand.func(who, playerId, args);
       break;
     case initCommand.cmd:
-      InitCommand_InitCommand.func(who, playerId, args);
+      /* Cannot get final name for export "InitCommand" in "./src/Commands/InitCommand.js" (known exports: default, known reexports: ) */ undefined.func(who, playerId, args);
       break;
     case showCommand.cmd:
-      ShowCommand_ShowCommand.func(who, playerId, args);
+      /* Cannot get final name for export "ShowCommand" in "./src/Commands/ShowCommand.js" (known exports: default, known reexports: ) */ undefined.func(who, playerId, args);
       break;
     case helpCommand.cmd:
     default:

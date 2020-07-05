@@ -51,10 +51,10 @@ export default function RunCommand(pluginCommandRef, command, args, who, playerI
       startCommand.func(who, playerId, args);
       break;
     case initCommand.cmd:
-      InitCommand.func(who, playerId, args);
+      initCommand.func(who, playerId, args);
       break;
     case showCommand.cmd:
-      ShowCommand.func(who, playerId, args);
+      showCommand.func(who, playerId, args);
       break;
     case helpCommand.cmd:
     default:
