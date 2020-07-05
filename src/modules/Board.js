@@ -61,7 +61,7 @@ export function mbPlaceTerrain(theType, theLeft, theTop, theOwner) {
   // Bring it to the front
   toFront(theTerrain);
   // Add to the state and set the ownership
-  state.mbBR549.TerrainCardsInPlay[theChars[0].get('name')] = { playerID: '', inhand: false };
+  state.mbBR549.TerrainCardsInPlay[theChars[0].get('name')] = { playerID: theOwner, inhand: false };
 }
 
 /**

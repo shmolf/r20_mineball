@@ -48,6 +48,8 @@ const handleAddCard = (obj, prevObj) => {
     setTimeout(() => obj.remove(), 100);
     return;
   }
+  // Change the state to reflect that it's no nonger inhand
+  state.mbBR549.TerrainCardsInPlay[cardName].inhand = false;
   // Create the object
   createTableGraphic(
     cardName,
@@ -63,6 +65,10 @@ const handleAddCard = (obj, prevObj) => {
   // Link the card to the player
   // eslint-disable-next-line no-unused-vars
   // const playerID = linkCardToPlayer(obj);
+  // Let players know who dropped this card.
+  var thePlayer = getObj('player', thePlayerID);
+  var displayName = thePlayer.get('displayname');
+  sendChat('Mine Ball', `${displayName} placed ${cardName}.`);
 };
 
 /**

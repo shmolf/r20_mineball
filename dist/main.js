@@ -687,6 +687,210 @@ class ResetPlayersCommand_ResetPlayersCommand extends Command {
   }
 }
 
+// CONCATENATED MODULE: ./src/Graphics/Loop.js
+// -----
+// This module was added by Mike Lakner to house the code supporting the Loop.
+// -----
+
+/**
+ * @param {Roll20Object} theObj
+ */
+// eslint-disable-next-line no-unused-vars
+function mbHandleLoopMove(theObj) {
+  log(['Loop Move', { theObj }]);
+}
+/**
+ *
+ */
+function mbPlaceLoop() {
+  log('Place Loop.');
+  // Remember state flage
+  const wasBusy = state.mbBR549.AmBusy;
+  const wasAllowDelete = state.mbBR549.AllowDelete;
+  const wasManual = state.mbBR549.Manual;
+  // Set the state flags
+  state.mbBR549.AmBusy = true;
+  state.mbBR549.AllowDelete = true;
+  state.mbBR549.Manual = false;
+  // Get the compass rose
+  const theChars = findObjs({ _type: 'character', name: 'Loop' });
+  log(['Loop', { theChars }]);
+  // Place the graphic
+  const theLoop = createTableGraphic(
+    theChars[0].get('name'),
+    theChars[0].get('avatar'),
+    1050,
+    1050,
+    140,
+    140,
+    'objects',
+  );
+    // Bring it to the front
+  toFront(theLoop);
+  // Reset the flags
+  state.mbBR549.AmBusy = wasBusy;
+  state.mbBR549.AllowDelete = wasAllowDelete;
+  state.mbBR549.Manual = wasManual;
+}
+
+// CONCATENATED MODULE: ./src/Graphics/Reticle.js
+// -----
+// This module was added by Mike Lakner to house the code supporting the Reticle.
+// -----
+
+/**
+ * @param {Roll20Object} theObj
+ */
+// eslint-disable-next-line no-unused-vars
+function mbHandleReticleMove(theObj) {
+  log(['Reticle Move', { theObj }]);
+}
+/**
+ *
+ */
+function mbPlaceReticle() {
+  log('Place Reticle.');
+  // Remember state flage
+  const wasBusy = state.mbBR549.AmBusy;
+  const wasAllowDelete = state.mbBR549.AllowDelete;
+  const wasManual = state.mbBR549.Manual;
+  // Set the state flags
+  state.mbBR549.AmBusy = true;
+  state.mbBR549.AllowDelete = true;
+  state.mbBR549.Manual = false;
+  // Get the compass rose
+  const theChars = findObjs({ _type: 'character', name: 'Reticle' });
+  log(['Reticle', { theChars }]);
+  // Place the graphic
+  const theReticle = createTableGraphic(
+    theChars[0].get('name'),
+    theChars[0].get('avatar'),
+    1050,
+    1050,
+    140,
+    140,
+    'map',
+  );
+    // Send it to the back to hide it until needed
+  toBack(theReticle);
+  // Reset the flags
+  state.mbBR549.AmBusy = wasBusy;
+  state.mbBR549.AllowDelete = wasAllowDelete;
+  state.mbBR549.Manual = wasManual;
+}
+
+// CONCATENATED MODULE: ./src/Graphics/Tokens.js
+// -----
+// This module was added by Mike Lakner to house the generic code supporting game tokens.
+// -----
+
+
+
+
+
+/**
+ * @param {Roll20Object} obj
+ * @param {*} prevObj
+ */
+function handleGraphicDestruction(obj, prevObj) {
+  // Return based on state switches
+  if ((state.mbBR549.Manual === true) || (state.mbBR549.AllowDelete === true)) {
+    log(['Handle Graphic Destruction Aborted', { state }]);
+    return;
+  }
+  // Log it so I can see what's happening
+  log(['Handle Graphic Destruction', { obj, prevObj }]);
+  // Destruction of a card is okay
+  if (obj.get('_subtype') === 'card') {
+    return;
+  }
+  // Create a new version
+  createTableGraphic(
+    obj.get('name'),
+    obj.get('imgsrc'),
+    obj.get('left'),
+    obj.get('top'),
+    obj.get('height'),
+    obj.get('width'),
+    'objects',
+  );
+}
+
+/**
+ * @param {Roll20Object} obj
+ */
+function handleGraphicChange(obj) {
+  // Return based on state switches
+  if ((state.mbBR549.Manual === true) || (state.mbBR549.InSetup === true)) {
+    log(['Handle Graphic Alignment Aborted', { state }]);
+    return;
+  }
+  // Log this event
+  log(['Handle Graphic Change', obj]);
+  // What are our sizes
+  const mySize = 140;
+  const halfHeight = mySize / 2;
+  const halfWidth = mySize / 2;
+  // Normalize rotation to cardinal positions
+  // But really we should disallow player rotations and only allow through buttons
+  const theRotation = obj.get('rotation');
+  if (((theRotation >= 315) || (theRotation <= 44)) && (theRotation !== 0)) obj.set('rotation', 0);
+  else if (((theRotation >= 45) && (theRotation <= 134)) && (theRotation !== 90)) obj.set('rotation', 90);
+  else if (((theRotation >= 135) && (theRotation <= 224)) && (theRotation !== 180)) obj.set('rotation', 180);
+  else if (((theRotation >= 225) && (theRotation <= 314)) && (theRotation !== 270)) obj.set('rotation', 270);
+  log(['Rotation: ', { From: theRotation, To: obj.get('rotation') }]);
+  // Resize this thing if necessary
+  if (obj.get('height') !== mySize) obj.set('height', mySize);
+  if (obj.get('width') !== mySize) obj.set('width', mySize);
+  // Figure out what grid it should be on
+  const newGridLeft = Math.floor((obj.get('left') - 1) / mySize);
+  const newGridTop = Math.floor((obj.get('top') - 1) / mySize);
+  log(['NewGrid: ', { Left: newGridLeft, Top: newGridTop }]);
+  // Calculate the actual coordinates
+  const newCoordLeft = (newGridLeft * mySize) + halfWidth;
+  const newCoordTop = (newGridTop * mySize) + halfHeight;
+  log(['NewCoord: ', { Left: newCoordLeft, Top: newCoordTop }]);
+  // Realign if not already aligned
+  if (obj.get('left') !== newCoordLeft) obj.set('left', newCoordLeft);
+  if (obj.get('top') !== newCoordTop) obj.set('top', newCoordTop);
+  // Is it the Loop or Reticle?
+  if ('!Reticle!Loop!'.indexOf(obj.get('name')) !== -1) {
+    // Yes, send it to the front
+    toFront(obj);
+    // Handle these movements
+    if (obj.get('name') === 'Reticle') mbHandleReticleMove(obj);
+    else mbHandleLoopMove(obj);
+  } else {
+    // Nope, send if to the back
+    toBack(obj);
+  }
+  // Is it Background, CompassRose or Terrain
+  const nameCheck = obj.get('name').substring(0, obj.get('name').length - 1);
+  if ('!Earth!Wind!Fire!Water!Backgroun!CompassRos!'.indexOf(nameCheck) !== -1) {
+    // Yes, put it on the map layer
+    obj.set('layer', 'map');
+  } else {
+    // Nope, make sure it on the objects layer
+    obj.set('layer', 'objects');
+  }
+
+  // Now ping both and draw everyone to this location after 1 second delay
+  setTimeout(() => sendPing(obj.get('left'), obj.get('top'), Campaign().get('playerpageid'), null, true, ''), 1000);
+}
+
+/**
+ *
+ */
+function TokenListeners() {
+  // Handle the placement of new cards
+  // Trigger on position change to ensure alignment even with {Alt} held down.
+  on('change:graphic:left', handleGraphicChange);
+  on('change:graphic:top', handleGraphicChange);
+  on('change:graphic:rotation', handleGraphicChange);
+  // Trigger on deletion of a graphic
+  on('destroy:graphic', handleGraphicDestruction);
+}
+
 // CONCATENATED MODULE: ./src/Graphics/Lib.js
 
 // This file was designed by Mike Lakner
@@ -694,6 +898,8 @@ class ResetPlayersCommand_ResetPlayersCommand extends Command {
 // Hande the movement of a card from player hand to the board.
 // Card must be cloned to a graphic that is linked to a character (matching card name)
 //   and then the original card removed from the table.
+
+
 
 /**
  * Suggested and offered by Aaron to avoid an error when placing card
@@ -782,6 +988,7 @@ function mbIsSomethingHere(theLeft, theTop) {
  * @param {string} theType
  * @param {number} theLeft
  * @param {number} theTop
+ * @param {string} theOwner
  */
 function mbPlaceTerrain(theType, theLeft, theTop, theOwner) {
   log('Place Terrain.');
@@ -812,7 +1019,7 @@ function mbPlaceTerrain(theType, theLeft, theTop, theOwner) {
   // Bring it to the front
   toFront(theTerrain);
   // Add to the state and set the ownership
-  state.mbBR549.TerrainCardsInPlay[theChars[0].get('name')] = { playerID: '', inhand: false };
+  state.mbBR549.TerrainCardsInPlay[theChars[0].get('name')] = { playerID: theOwner, inhand: false };
 }
 
 /**
@@ -937,28 +1144,28 @@ function mbPlaceCompassRose() {
   // Now place one of each terrains arround CompassRose with no ownership
   switch (theRose.get('rotation')) {
     case 0:
-      mbPlaceTerrain('Earth', 1050 - 140, 1050 - 140,'');
-      mbPlaceTerrain('Wind', 1050 + 140, 1050 - 140,'');
-      mbPlaceTerrain('Fire', 1050 + 140, 1050 + 140,'');
-      mbPlaceTerrain('Water', 1050 - 140, 1050 + 140,'');
+      mbPlaceTerrain('Earth', 1050 - 140, 1050 - 140, '');
+      mbPlaceTerrain('Wind', 1050 + 140, 1050 - 140, '');
+      mbPlaceTerrain('Fire', 1050 + 140, 1050 + 140, '');
+      mbPlaceTerrain('Water', 1050 - 140, 1050 + 140, '');
       break;
     case 90:
-      mbPlaceTerrain('Earth', 1050 + 140, 1050 - 140,'');
-      mbPlaceTerrain('Wind', 1050 + 140, 1050 + 140,'');
-      mbPlaceTerrain('Fire', 1050 - 140, 1050 + 140,'');
-      mbPlaceTerrain('Water', 1050 - 140, 1050 - 140,'');
+      mbPlaceTerrain('Earth', 1050 + 140, 1050 - 140, '');
+      mbPlaceTerrain('Wind', 1050 + 140, 1050 + 140, '');
+      mbPlaceTerrain('Fire', 1050 - 140, 1050 + 140, '');
+      mbPlaceTerrain('Water', 1050 - 140, 1050 - 140, '');
       break;
     case 180:
-      mbPlaceTerrain('Earth', 1050 + 140, 1050 + 140,'');
-      mbPlaceTerrain('Wind', 1050 - 140, 1050 + 140,'');
-      mbPlaceTerrain('Fire', 1050 - 140, 1050 - 140,'');
-      mbPlaceTerrain('Water', 1050 + 140, 1050 - 140,'');
+      mbPlaceTerrain('Earth', 1050 + 140, 1050 + 140, '');
+      mbPlaceTerrain('Wind', 1050 - 140, 1050 + 140, '');
+      mbPlaceTerrain('Fire', 1050 - 140, 1050 - 140, '');
+      mbPlaceTerrain('Water', 1050 + 140, 1050 - 140, '');
       break;
     default:
-      mbPlaceTerrain('Earth', 1050 - 140, 1050 + 140,'');
-      mbPlaceTerrain('Wind', 1050 - 140, 1050 - 140,'');
-      mbPlaceTerrain('Fire', 1050 + 140, 1050 - 140,'');
-      mbPlaceTerrain('Water', 1050 + 140, 1050 + 140,'');
+      mbPlaceTerrain('Earth', 1050 - 140, 1050 + 140, '');
+      mbPlaceTerrain('Wind', 1050 - 140, 1050 - 140, '');
+      mbPlaceTerrain('Fire', 1050 + 140, 1050 - 140, '');
+      mbPlaceTerrain('Water', 1050 + 140, 1050 + 140, '');
   }
   // Reset the flags
   state.mbBR549.AmBusy = wasBusy;
@@ -1017,98 +1224,6 @@ function mbShowGameState() {
   log(['Show GameState', { state }]);
 }
 
-// CONCATENATED MODULE: ./src/Graphics/Reticle.js
-// -----
-// This module was added by Mike Lakner to house the code supporting the Reticle.
-// -----
-
-/**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-function mbHandleReticleMove(theObj) {
-  log(['Reticle Move', { theObj }]);
-}
-/**
- *
- */
-function mbPlaceReticle() {
-  log('Place Reticle.');
-  // Remember state flage
-  const wasBusy = state.mbBR549.AmBusy;
-  const wasAllowDelete = state.mbBR549.AllowDelete;
-  const wasManual = state.mbBR549.Manual;
-  // Set the state flags
-  state.mbBR549.AmBusy = true;
-  state.mbBR549.AllowDelete = true;
-  state.mbBR549.Manual = false;
-  // Get the compass rose
-  const theChars = findObjs({ _type: 'character', name: 'Reticle' });
-  log(['Reticle', { theChars }]);
-  // Place the graphic
-  const theReticle = createTableGraphic(
-    theChars[0].get('name'),
-    theChars[0].get('avatar'),
-    1050,
-    1050,
-    140,
-    140,
-    'map',
-  );
-    // Send it to the back to hide it until needed
-  toBack(theReticle);
-  // Reset the flags
-  state.mbBR549.AmBusy = wasBusy;
-  state.mbBR549.AllowDelete = wasAllowDelete;
-  state.mbBR549.Manual = wasManual;
-}
-
-// CONCATENATED MODULE: ./src/Graphics/Loop.js
-// -----
-// This module was added by Mike Lakner to house the code supporting the Loop.
-// -----
-
-/**
- * @param {Roll20Object} theObj
- */
-// eslint-disable-next-line no-unused-vars
-function mbHandleLoopMove(theObj) {
-  log(['Loop Move', { theObj }]);
-}
-/**
- *
- */
-function mbPlaceLoop() {
-  log('Place Loop.');
-  // Remember state flage
-  const wasBusy = state.mbBR549.AmBusy;
-  const wasAllowDelete = state.mbBR549.AllowDelete;
-  const wasManual = state.mbBR549.Manual;
-  // Set the state flags
-  state.mbBR549.AmBusy = true;
-  state.mbBR549.AllowDelete = true;
-  state.mbBR549.Manual = false;
-  // Get the compass rose
-  const theChars = findObjs({ _type: 'character', name: 'Loop' });
-  log(['Loop', { theChars }]);
-  // Place the graphic
-  const theLoop = createTableGraphic(
-    theChars[0].get('name'),
-    theChars[0].get('avatar'),
-    1050,
-    1050,
-    140,
-    140,
-    'objects',
-  );
-    // Bring it to the front
-  toFront(theLoop);
-  // Reset the flags
-  state.mbBR549.AmBusy = wasBusy;
-  state.mbBR549.AllowDelete = wasAllowDelete;
-  state.mbBR549.Manual = wasManual;
-}
-
 // CONCATENATED MODULE: ./src/Play/Cards.js
 // This file was designed by Mike Lakner
 //
@@ -1160,6 +1275,8 @@ const handleAddCard = (obj, prevObj) => {
     setTimeout(() => obj.remove(), 100);
     return;
   }
+  // Change the state to reflect that it's no nonger inhand
+  state.mbBR549.TerrainCardsInPlay[cardName].inhand = false;
   // Create the object
   createTableGraphic(
     cardName,
@@ -1175,6 +1292,11 @@ const handleAddCard = (obj, prevObj) => {
   // Link the card to the player
   // eslint-disable-next-line no-unused-vars
   // const playerID = linkCardToPlayer(obj);
+  // Let players know who dropped this card.
+  var thisPlayer = findObjs({ _id: thePlayerID, _type: "player" });
+  var playerName = thisPlayer._displayname;
+  log(['Player',thisPlayer]);
+  sendChat('Mine Ball', `${playerName} placed ${cardName}.`);
 };
 
 /**
@@ -9381,118 +9503,6 @@ function RunCommand(pluginCommandRef, command, args, who, playerId) {
     default:
       helpCommand.func(who);
   }
-}
-
-// CONCATENATED MODULE: ./src/Graphics/Tokens.js
-// -----
-// This module was added by Mike Lakner to house the generic code supporting game tokens.
-// -----
-
-
-
-
-
-/**
- * @param {Roll20Object} obj
- * @param {*} prevObj
- */
-function handleGraphicDestruction(obj, prevObj) {
-  // Return based on state switches
-  if ((state.mbBR549.Manual === true) || (state.mbBR549.AllowDelete === true)) {
-    log(['Handle Graphic Destruction Aborted', { state }]);
-    return;
-  }
-  // Log it so I can see what's happening
-  log(['Handle Graphic Destruction', { obj, prevObj }]);
-  // Destruction of a card is okay
-  if (obj.get('_subtype') === 'card') {
-    return;
-  }
-  // Create a new version
-  createTableGraphic(
-    obj.get('name'),
-    obj.get('imgsrc'),
-    obj.get('left'),
-    obj.get('top'),
-    obj.get('height'),
-    obj.get('width'),
-    'objects',
-  );
-}
-
-/**
- * @param {Roll20Object} obj
- */
-function Tokens_handleGraphicChange(obj) {
-  // Return based on state switches
-  if ((state.mbBR549.Manual === true) || (state.mbBR549.InSetup === true)) {
-    log(['Handle Graphic Alignment Aborted', { state }]);
-    return;
-  }
-  // Log this event
-  log(['Handle Graphic Change', obj]);
-  // What are our sizes
-  const mySize = 140;
-  const halfHeight = mySize / 2;
-  const halfWidth = mySize / 2;
-  // Normalize rotation to cardinal positions
-  // But really we should disallow player rotations and only allow through buttons
-  const theRotation = obj.get('rotation');
-  if (((theRotation >= 315) || (theRotation <= 44)) && (theRotation !== 0)) obj.set('rotation', 0);
-  else if (((theRotation >= 45) && (theRotation <= 134)) && (theRotation !== 90)) obj.set('rotation', 90);
-  else if (((theRotation >= 135) && (theRotation <= 224)) && (theRotation !== 180)) obj.set('rotation', 180);
-  else if (((theRotation >= 225) && (theRotation <= 314)) && (theRotation !== 270)) obj.set('rotation', 270);
-  log(['Rotation: ', { From: theRotation, To: obj.get('rotation') }]);
-  // Resize this thing if necessary
-  if (obj.get('height') !== mySize) obj.set('height', mySize);
-  if (obj.get('width') !== mySize) obj.set('width', mySize);
-  // Figure out what grid it should be on
-  const newGridLeft = Math.floor((obj.get('left') - 1) / mySize);
-  const newGridTop = Math.floor((obj.get('top') - 1) / mySize);
-  log(['NewGrid: ', { Left: newGridLeft, Top: newGridTop }]);
-  // Calculate the actual coordinates
-  const newCoordLeft = (newGridLeft * mySize) + halfWidth;
-  const newCoordTop = (newGridTop * mySize) + halfHeight;
-  log(['NewCoord: ', { Left: newCoordLeft, Top: newCoordTop }]);
-  // Realign if not already aligned
-  if (obj.get('left') !== newCoordLeft) obj.set('left', newCoordLeft);
-  if (obj.get('top') !== newCoordTop) obj.set('top', newCoordTop);
-  // Is it the Loop or Reticle?
-  if ('!Reticle!Loop!'.indexOf(obj.get('name')) !== -1) {
-    // Yes, send it to the front
-    toFront(obj);
-    // Handle these movements
-    if (obj.get('name') === 'Reticle') mbHandleReticleMove(obj);
-    else mbHandleLoopMove(obj);
-  } else {
-    // Nope, send if to the back
-    toBack(obj);
-  }
-  // Is it Background, CompassRose or Terrain
-  const nameCheck = obj.get('name').substring(0, obj.get('name').length - 1);
-  if ('!Earth!Wind!Fire!Water!Backgroun!CompassRos!'.indexOf(nameCheck) !== -1) {
-    // Yes, put it on the map layer
-    obj.set('layer', 'map');
-  } else {
-    // Nope, make sure it on the objects layer
-    obj.set('layer', 'objects');
-  }
-
-  // Now ping both and draw everyone to this location after 1 second delay
-  setTimeout(() => sendPing(obj.get('left'), obj.get('top'), Campaign().get('playerpageid'), null, true, ''), 1000);
-}
-
-/**
- *
- */
-function TokenListeners() {
-  // Handle the placement of new cards
-  // Trigger on position change to ensure alignment even with {Alt} held down.
-  on('change:graphic:left', Tokens_handleGraphicChange);
-  on('change:graphic:top', Tokens_handleGraphicChange);
-  on('change:graphic:rotation', Tokens_handleGraphicChange);
-  // Trigger on deletion of a graphic
-  on('destroy:graphic', handleGraphicDestruction);
 }
 
 // CONCATENATED MODULE: ./src/MineBall.js
