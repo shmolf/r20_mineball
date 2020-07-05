@@ -48,31 +48,31 @@ export default function mbPlaceCompassRose() {
         theRose.set('rotation', 0);
     }
   }
-  // Now place one of each terrains arround CompassRose
+  // Now place one of each terrains arround CompassRose with no ownership
   switch (theRose.get('rotation')) {
     case 0:
-      mbPlaceTerrain('Earth', 1050 - 140, 1050 - 140);
-      mbPlaceTerrain('Wind', 1050 + 140, 1050 - 140);
-      mbPlaceTerrain('Fire', 1050 + 140, 1050 + 140);
-      mbPlaceTerrain('Water', 1050 - 140, 1050 + 140);
+      mbPlaceTerrain('Earth', 1050 - 140, 1050 - 140,'');
+      mbPlaceTerrain('Wind', 1050 + 140, 1050 - 140,'');
+      mbPlaceTerrain('Fire', 1050 + 140, 1050 + 140,'');
+      mbPlaceTerrain('Water', 1050 - 140, 1050 + 140,'');
       break;
     case 90:
-      mbPlaceTerrain('Earth', 1050 + 140, 1050 - 140);
-      mbPlaceTerrain('Wind', 1050 + 140, 1050 + 140);
-      mbPlaceTerrain('Fire', 1050 - 140, 1050 + 140);
-      mbPlaceTerrain('Water', 1050 - 140, 1050 - 140);
+      mbPlaceTerrain('Earth', 1050 + 140, 1050 - 140,'');
+      mbPlaceTerrain('Wind', 1050 + 140, 1050 + 140,'');
+      mbPlaceTerrain('Fire', 1050 - 140, 1050 + 140,'');
+      mbPlaceTerrain('Water', 1050 - 140, 1050 - 140,'');
       break;
     case 180:
-      mbPlaceTerrain('Earth', 1050 + 140, 1050 + 140);
-      mbPlaceTerrain('Wind', 1050 - 140, 1050 + 140);
-      mbPlaceTerrain('Fire', 1050 - 140, 1050 - 140);
-      mbPlaceTerrain('Water', 1050 + 140, 1050 - 140);
+      mbPlaceTerrain('Earth', 1050 + 140, 1050 + 140,'');
+      mbPlaceTerrain('Wind', 1050 - 140, 1050 + 140,'');
+      mbPlaceTerrain('Fire', 1050 - 140, 1050 - 140,'');
+      mbPlaceTerrain('Water', 1050 + 140, 1050 - 140,'');
       break;
     default:
-      mbPlaceTerrain('Earth', 1050 - 140, 1050 + 140);
-      mbPlaceTerrain('Wind', 1050 - 140, 1050 - 140);
-      mbPlaceTerrain('Fire', 1050 + 140, 1050 - 140);
-      mbPlaceTerrain('Water', 1050 + 140, 1050 + 140);
+      mbPlaceTerrain('Earth', 1050 - 140, 1050 + 140,'');
+      mbPlaceTerrain('Wind', 1050 - 140, 1050 - 140,'');
+      mbPlaceTerrain('Fire', 1050 + 140, 1050 - 140,'');
+      mbPlaceTerrain('Water', 1050 + 140, 1050 + 140,'');
   }
   // Reset the flags
   state.mbBR549.AmBusy = wasBusy;

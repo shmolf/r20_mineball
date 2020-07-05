@@ -33,10 +33,10 @@ export function mbPlaceReticle() {
     1050,
     140,
     140,
-    'objects',
+    'map',
   );
-    // Bring it to the front
-  toFront(theReticle);
+    // Send it to the back to hide it until needed
+  toBack(theReticle);
   // Reset the flags
   state.mbBR549.AmBusy = wasBusy;
   state.mbBR549.AllowDelete = wasAllowDelete;

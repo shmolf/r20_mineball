@@ -31,7 +31,7 @@ export function mbIsSomethingHere(theLeft, theTop) {
  * @param {number} theLeft
  * @param {number} theTop
  */
-export function mbPlaceTerrain(theType, theLeft, theTop) {
+export function mbPlaceTerrain(theType, theLeft, theTop, theOwner) {
   log('Place Terrain.');
   // Remember state flage
   // eslint-disable-next-line no-unused-vars
@@ -57,8 +57,10 @@ export function mbPlaceTerrain(theType, theLeft, theTop) {
     140,
     'map',
   );
-    // Bring it to the front
+  // Bring it to the front
   toFront(theTerrain);
+  // Add to the state and set the ownership
+  state.mbBR549.TerrainCardsInPlay[theChars[0].get('name')] = { playerID: '', inhand: false };
 }
 
 /**
