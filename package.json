@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --fail",
     "lint": "eslint -c ./.eslintrc.json ./src",
-    "lint-fix": "eslint -c ./.eslintrc.json ./src --fix"
+    "lint-fix": "eslint -c ./.eslintrc.json ./src --fix",
+    "reformat-card-json": "eslint -c ./.eslintrc.json src/Cards/Object.js --fix --no-ignore"
   },
   "repository": {
     "type": "git",
