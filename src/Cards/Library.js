@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 // Set up the virgin card data object.
-export default {
+module.exports.cardData = {
   mbCARDDATA:
   [
     [

@@ -68,7 +68,8 @@
     "ignorePatterns": [
         "webpack.config.js",
         "**/node_modules/*.js",
-        "dist/**/*"
+        "dist/**/*",
+        "src/Cards/Object.js"
     ],
     "settings": {
         "import/resolver": {
