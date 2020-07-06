@@ -74,6 +74,12 @@ const handleAddCard = (obj, prevObj) => {
   const thePlayer = getObj('player', thePlayerID);
   const displayName = thePlayer.get('displayname');
   sendChat('Mine Ball', `${displayName} placed ${cardName}.`);
+  if(stateCardType == 'MineBallCardsInPlay')
+  {
+    var imagePart1 = "<div style='box-shadow: 3px 3px 2px #888888; font-family: Verdana; text-shadow: 2px 2px #000; text-align: center; vertical-align: middle; padding: 1px 1px; margin-top: 0.1em; border: 1px solid #000; border-radius: 8px 8px 8px 8px; color: #FFFFFF;";
+    var thisImage = imagePart1 + "background-color:#AAAAAA;'><img src='" + obj.get('imgsrc') + "'></div>";
+    sendChat('Mine Ball', thisImage);
+  }
 };
 
 /**

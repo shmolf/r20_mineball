@@ -15,6 +15,19 @@ import { handleGraphicChange } from 'Graphics/Tokens';
  * @returns {boolean}
  */
 export function mbIsSomethingHere(theLeft, theTop) {
+  // Get the normalized coordinates
+  const normalCoords = normalizeCoordinates(theLeft, theTop);
+  // Search for something
+  const theObj = findObjs({ _type: 'graphic', left: normalCoords.left, top: normalCoords.top });
+  // Return true if something is here else false
+  return (theObj.length >= 1);
+}
+
+/**
+ * @param {number} theLeft
+ * @param {number} theTop
+ */
+export function normalizeCoordinates(theLeft, theTop) {
 
   // Figure out what grid it should be on
   const newGridLeft = Math.floor(theLeft / mySize);
@@ -22,12 +35,9 @@ export function mbIsSomethingHere(theLeft, theTop) {
   // Calculate the actual coordinates
   const newCoordLeft = (newGridLeft * mySize) + halfWidth;
   const newCoordTop = (newGridTop * mySize) + halfHeight;
-
-  const theObj = findObjs({ _type: 'graphic', left: newCoordLeft, top: newCoordTop });
-  // Return true if something is here else false
-  return (theObj.length >= 1);
+  // Return an object with the normalized coordinates
+  return {left:newCoordLeft,top:newCoordTop};
 }
-
 
 /**
  * @param {string} theType

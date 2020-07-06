@@ -3,7 +3,7 @@
 // -----
 
 import { createTableGraphic } from 'Graphics/Library';
-
+import { normalizeCoordinates } from 'Lib/Board';
 // What are our sizes
 const mySize = 140;
 const halfHeight = mySize / 2;
@@ -109,16 +109,11 @@ function resizeToStandard(graphicObj) {
  */
 function realignToGrid(graphicObj) {
   // Figure out what grid it should be on
-  const newGridLeft = Math.floor(theLeft / mySize);
-  const newGridTop = Math.floor(theTop / mySize);
-  log(['NewGrid: ', { Left: newGridLeft, Top: newGridTop }]);
-  // Calculate the actual coordinates
-  const newCoordLeft = (newGridLeft * mySize) + halfWidth;
-  const newCoordTop = (newGridTop * mySize) + halfHeight;
-  log(['NewCoord: ', { Left: newCoordLeft, Top: newCoordTop }]);
+  const normalCoords = normalizeCoordinates(graphicObj.get('left') , graphicObj.get('top') );
+  log(['NewCoord: ', { normalCoords }]);
   // Realign if not already aligned
-  if (graphicObj.get('left') !== newCoordLeft) graphicObj.set('left', newCoordLeft);
-  if (graphicObj.get('top') !== newCoordTop) graphicObj.set('top', newCoordTop);
+  if (graphicObj.get('left') !== normalCoords.left) graphicObj.set('left', normalCoords.left);
+  if (graphicObj.get('top') !== normalCoords.top) graphicObj.set('top', normalCoords.top);
 }
 
 /**
