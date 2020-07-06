@@ -29,16 +29,19 @@ const handleAddCard = (obj, prevObj) => {
   // Get the deck this card came from
   const nameCheck = cardName.substring(0, cardName.length - 1);
   let thePlayerID = '';
+  var stateCardType = '';
   if ('!Fire!Earth!Wind!Water!'.indexOf(nameCheck) !== -1) {
     // It's a terrain card
     // Figure out who played this by looking into the state to see who owns it
-    thePlayerID = state.mbBR549.TerrainCardsInPlay[cardName].playerID;
+    stateCardType = 'TerrainCardsInPlay';
+    thePlayerID = state.mbBR549[stateCardType][cardName].playerID;
     cardName = nameCheck;
     theLayer = 'map';
   } else {
     // It's a miniball card
     // Figure out who played this by looking into the state to see who owns it
-    thePlayerID = state.mbBR549.MineBallCardsInPlay[cardName].playerID;
+    stateCardType = 'MineBallCardsInPlay';
+    thePlayerID = state.mbBR549[stateCardType][cardName].playerID;
   }
   // Is there something here?
   log(`Drop Peek: ${obj.get('left')}/${obj.get('top')}`);
@@ -50,7 +53,7 @@ const handleAddCard = (obj, prevObj) => {
     return;
   }
   // Change the state to reflect that it's no nonger inhand
-  state.mbBR549.TerrainCardsInPlay[cardName].inhand = false;
+  state.mbBR549[stateCardType][cardName].inhand = false;
   // Create the object
   const theCard = createTableGraphic(
     cardName,
