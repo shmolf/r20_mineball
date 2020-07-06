@@ -109,8 +109,8 @@ function resizeToStandard(graphicObj) {
  */
 function realignToGrid(graphicObj) {
   // Figure out what grid it should be on
-  const newGridLeft = Math.floor((graphicObj.get('left') - 1) / mySize);
-  const newGridTop = Math.floor((graphicObj.get('top') - 1) / mySize);
+  const newGridLeft = Math.floor(theLeft / mySize);
+  const newGridTop = Math.floor(theTop / mySize);
   log(['NewGrid: ', { Left: newGridLeft, Top: newGridTop }]);
   // Calculate the actual coordinates
   const newCoordLeft = (newGridLeft * mySize) + halfWidth;

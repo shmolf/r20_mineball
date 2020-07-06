@@ -4,16 +4,18 @@
 import { createTableGraphic } from 'Graphics/Library';
 import { handleGraphicChange } from 'Graphics/Tokens';
 
+  // What are our sizes
+  const mySize = 140;
+  const halfHeight = mySize / 2;
+  const halfWidth = mySize / 2;
+
 /**
  * @param {number} theLeft
  * @param {number} theTop
  * @returns {boolean}
  */
 export function mbIsSomethingHere(theLeft, theTop) {
-  // What are our sizes
-  const mySize = 140;
-  const halfHeight = mySize / 2;
-  const halfWidth = mySize / 2;
+
   // Figure out what grid it should be on
   const newGridLeft = Math.floor(theLeft / mySize);
   const newGridTop = Math.floor(theTop / mySize);
