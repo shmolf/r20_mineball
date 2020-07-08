@@ -2,7 +2,7 @@
 // This module was added by Mike Lakner to house the lions share of mechanics of the game play.
 // -----
 import mbPlaceCompassRose from 'Graphics/CompassRose';
-import { mbResetGameState } from 'App/modules/State';
+import { mbResetGameState } from 'Lib/State';
 import mbPlaceReticle from 'Graphics/Reticle';
 import mbPlaceLoop from 'Graphics/Loop';
 import { mbDealMineBallCards, mbDealTerrainCards } from 'App/Play/Cards';
