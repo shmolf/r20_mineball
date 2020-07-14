@@ -3,7 +3,7 @@
  */
 
 import Command from 'Commands/Command';
-import { mbStartNewGame } from 'App/modules/Game';
+import { mbStartNewGame } from 'Lib/Game';
 
 export default class StartCommand extends Command {
   constructor() {

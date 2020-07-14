@@ -3,7 +3,7 @@
  */
 
 import Command from 'Commands/Command';
-import { mbShowGameState } from 'App/modules/State';
+import { mbShowGameState } from 'Lib/State';
 
 export default class ShowCommand extends Command {
   constructor() {

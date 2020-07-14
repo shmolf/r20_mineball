@@ -3,8 +3,8 @@
  */
 
 import Command from 'Commands/Command';
-import { mbResetGameState } from 'App/modules/State';
-import { mbRebuildAllCharacterSheets } from 'App/modules/CharacterSheets';
+import { mbResetGameState } from 'Lib/State';
+import { mbRebuildAllCharacterSheets } from 'Lib/CharacterSheets';
 
 export default class InitCommand extends Command {
   constructor() {

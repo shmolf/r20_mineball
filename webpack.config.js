@@ -17,6 +17,7 @@ module.exports = {
       Cards: path.resolve(__dirname, 'src/Cards/'),
       Players: path.resolve(__dirname, 'src/Players/'),
       Graphics: path.resolve(__dirname, 'src/Graphics/'),
+      Handlers: path.resolve(__dirname, 'src/EventHandlers/'),
     },
   },
   optimization: {

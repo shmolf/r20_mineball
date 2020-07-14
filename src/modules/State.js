@@ -44,6 +44,6 @@ export function mbResetGameState() {
  *
  */
 export function mbShowGameState() {
-  sendChat('Show', JSON.stringify(state));
+  sendChat('Show', `<pre>${JSON.stringify(state)}</pre>`);
   log(['Show GameState', { state }]);
 }

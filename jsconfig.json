@@ -9,7 +9,8 @@
         "Commands/*": ["./src/Commands/*"],
         "Cards/*": ["./src/Cards/*"],
         "Players/*": ["./src/Players/*"],
-        "Graphics/*": ["./src/Graphics/*"]
+        "Graphics/*": ["./src/Graphics/*"],
+        "Handlers/*": ["./src/EventHandlers/*"]
       }
     },
     "exclude": ["./node_modules", "./dist/**/*"]

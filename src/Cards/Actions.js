@@ -2,8 +2,8 @@
 /* ----- Attack Start ----- */
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Enchant(sourceToken, targetToken) {
@@ -11,8 +11,8 @@ function Enchant(sourceToken, targetToken) {
 }
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Launch(sourceToken, targetToken) {
@@ -20,8 +20,8 @@ function Launch(sourceToken, targetToken) {
 }
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Shoot(sourceToken, targetToken) {
@@ -29,8 +29,8 @@ function Shoot(sourceToken, targetToken) {
 }
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Simple(sourceToken, targetToken) {
@@ -42,8 +42,8 @@ function Simple(sourceToken, targetToken) {
 /* ----- Movement Start ----- */
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Fly(sourceToken, targetToken) {
@@ -51,8 +51,8 @@ function Fly(sourceToken, targetToken) {
 }
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Jump(sourceToken, targetToken) {
@@ -60,8 +60,8 @@ function Jump(sourceToken, targetToken) {
 }
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Swap(sourceToken, targetToken) {
@@ -73,8 +73,8 @@ function Swap(sourceToken, targetToken) {
 /* ----- Utility Start ----- */
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Repair(sourceToken, targetToken) {
@@ -82,8 +82,8 @@ function Repair(sourceToken, targetToken) {
 }
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Vitiate(sourceToken, targetToken) {
@@ -91,8 +91,8 @@ function Vitiate(sourceToken, targetToken) {
 }
 
 /**
- * @param {Object} sourceToken - Token initiating the attack
- * @param {Object} targetToken - The defending token
+ * @param {Roll20Object} sourceToken - Token initiating the attack
+ * @param {Roll20Object} targetToken - The defending token
  * @returns {boolean}
  */
 function Hide(sourceToken, targetToken) {
